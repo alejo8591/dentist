@@ -26,9 +26,9 @@ $this->menu=array(
 		'id_tbl_anamnesis',
 		'type_address',
 		'description',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

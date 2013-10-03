@@ -24,6 +24,10 @@
  * @property string $description_healt
  * @property string $family_history
  * @property string $data_personal_history
+ * @property integer $create_user_id
+ * @property string $create_time
+ * @property integer $update_user_id
+ * @property string $update_time
  *
  * The followings are the available model relations:
  * @property Address[] $addresses
@@ -59,14 +63,14 @@ class Anamnesis extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_tbl_user', 'required'),
-			array('id_tbl_user, place_of_birth, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, contact, id_tbl_healt_regimen, id_tbl_healt_institution, id_tbl_during_consultation', 'numerical', 'integerOnly'=>true),
+			array('id_tbl_user, place_of_birth, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, contact, id_tbl_healt_regimen, id_tbl_healt_institution, id_tbl_during_consultation, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
 			array('name, occupation', 'length', 'max'=>64),
 			array('surname, genre', 'length', 'max'=>128),
 			array('blood_group', 'length', 'max'=>4),
-			array('date_birth, description_healt, family_history, data_personal_history', 'safe'),
+			array('date_birth, description_healt, family_history, data_personal_history, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_anamnesis, id_tbl_user, name, surname, date_birth, place_of_birth, genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, occupation, contact, id_tbl_healt_regimen, id_tbl_healt_institution, id_tbl_during_consultation, description_healt, family_history, data_personal_history', 'safe', 'on'=>'search'),
+			array('id_tbl_anamnesis, id_tbl_user, name, surname, date_birth, place_of_birth, genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, occupation, contact, id_tbl_healt_regimen, id_tbl_healt_institution, id_tbl_during_consultation, description_healt, family_history, data_personal_history, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -120,6 +124,10 @@ class Anamnesis extends CActiveRecord
 			'description_healt' => 'Description Healt',
 			'family_history' => 'Family History',
 			'data_personal_history' => 'Data Personal History',
+			'create_user_id' => 'Create User',
+			'create_time' => 'Create Time',
+			'update_user_id' => 'Update User',
+			'update_time' => 'Update Time',
 		);
 	}
 
@@ -161,6 +169,10 @@ class Anamnesis extends CActiveRecord
 		$criteria->compare('description_healt',$this->description_healt,true);
 		$criteria->compare('family_history',$this->family_history,true);
 		$criteria->compare('data_personal_history',$this->data_personal_history,true);
+		$criteria->compare('create_user_id',$this->create_user_id);
+		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('update_user_id',$this->update_user_id);
+		$criteria->compare('update_time',$this->update_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

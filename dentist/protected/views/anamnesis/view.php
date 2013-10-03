@@ -41,5 +41,9 @@ $this->menu=array(
 		'description_healt',
 		'family_history',
 		'data_personal_history',
+		'create_user_id',
+		'create_time',
+		'update_user_id',
+		'update_time',
 	),
 )); ?>
