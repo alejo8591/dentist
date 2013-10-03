@@ -17,6 +17,16 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'name_personal_history'); ?>
+		<?php echo $form->textField($model,'name_personal_history',array('size'=>60,'maxlength'=>256)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'Description'); ?>
+		<?php echo $form->textArea($model,'Description',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'create_user_id'); ?>
 		<?php echo $form->textField($model,'create_user_id'); ?>
 	</div>
@@ -33,7 +43,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'update_time'); ?>
 	</div>
 
 	<div class="row buttons">

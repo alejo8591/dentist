@@ -26,9 +26,9 @@ $this->menu=array(
 		'name_healt_institution',
 		'id_healt_institution',
 		'description',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

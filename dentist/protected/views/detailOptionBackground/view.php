@@ -26,9 +26,9 @@ $this->menu=array(
 		'name_detail_option_background',
 		'description',
 		'flag_detail_option_background',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

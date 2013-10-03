@@ -25,9 +25,9 @@ $this->menu=array(
 		'id_tbl_personal_history',
 		'name_background',
 		'description',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

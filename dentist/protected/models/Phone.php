@@ -13,10 +13,12 @@
  * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
+ * @property integer $update_user_id
+ * @property string $update_time
  *
  * The followings are the available model relations:
- * @property User $idTblUser
  * @property Anamnesis $idTblAnamnesis
+ * @property User $idTblUser
  */
 class Phone extends CActiveRecord
 {
@@ -36,12 +38,12 @@ class Phone extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_user, id_tbl_anamnesis, create_user_id', 'numerical', 'integerOnly'=>true),
+			array('id_tbl_user, id_tbl_anamnesis, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
 			array('type_phone, phone, phone_extension', 'length', 'max'=>64),
-			array('description, create_time', 'safe'),
+			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_phone, id_tbl_user, id_tbl_anamnesis, type_phone, phone, phone_extension, description, create_user_id, create_time', 'safe', 'on'=>'search'),
+			array('id_tbl_phone, id_tbl_user, id_tbl_anamnesis, type_phone, phone, phone_extension, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,8 +55,8 @@ class Phone extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idTblUser' => array(self::BELONGS_TO, 'User', 'id_tbl_user'),
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
+			'idTblUser' => array(self::BELONGS_TO, 'User', 'id_tbl_user'),
 		);
 	}
 
@@ -73,6 +75,8 @@ class Phone extends CActiveRecord
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
+			'update_user_id' => 'Update User',
+			'update_time' => 'Update Time',
 		);
 	}
 
@@ -103,6 +107,8 @@ class Phone extends CActiveRecord
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('update_user_id',$this->update_user_id);
+		$criteria->compare('update_time',$this->update_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -55,6 +55,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'description',
 		'create_user_id',
 		'create_time',
+		'update_user_id',
+		'update_time',
 		*/
 		array(
 			'class'=>'CButtonColumn',

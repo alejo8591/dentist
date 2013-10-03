@@ -27,9 +27,9 @@ $this->menu=array(
 		'name_city',
 		'postal_code',
 		'description',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

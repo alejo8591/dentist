@@ -28,7 +28,9 @@ $this->menu=array(
 		'phone',
 		'phone_extension',
 		'description',
-		'create_user_id',
-		'create_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

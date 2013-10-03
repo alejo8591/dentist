@@ -24,9 +24,9 @@ $this->menu=array(
 		'id_tbl_during_consultation',
 		'name_during_consultation',
 		'description',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
+		// 'create_user_id',
+		// 'create_time',
+		// 'update_user_id',
+		// 'update_time',
 	),
 )); ?>

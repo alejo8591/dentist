@@ -9,6 +9,14 @@
 	<?php echo CHtml::link(CHtml::encode($data->id_tbl_personal_history), array('view', 'id'=>$data->id_tbl_personal_history)); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('name_personal_history')); ?>:</b>
+	<?php echo CHtml::encode($data->name_personal_history); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Description')); ?>:</b>
+	<?php echo CHtml::encode($data->Description); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_user_id')); ?>:</b>
 	<?php echo CHtml::encode($data->create_user_id); ?>
 	<br />
