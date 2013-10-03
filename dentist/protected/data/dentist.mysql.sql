@@ -277,6 +277,8 @@ CREATE  TABLE IF NOT EXISTS `dentist`.`tbl_phone` (
   `description` TEXT NULL ,
   `create_user_id` INT NULL ,
   `create_time` DATETIME NULL ,
+  `update_user_id` INT NULL ,
+  `update_time` DATETIME NULL ,
   PRIMARY KEY (`id_tbl_phone`) ,
   INDEX `fk_tbl_phone_tbl_user1_idx` (`id_tbl_user` ASC) ,
   INDEX `fk_tbl_phone_tbl_anamnesis1_idx` (`id_tbl_anamnesis` ASC) ,
@@ -298,10 +300,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dentist`.`tbl_personal_history` (
   `id_tbl_personal_history` INT NOT NULL AUTO_INCREMENT ,
+  `name_personal_history` VARCHAR(256) NULL ,
+  `Description` TEXT NULL ,
   `create_user_id` INT NULL ,
   `create_time` DATETIME NULL ,
   `update_user_id` INT NULL ,
-  `update_time` VARCHAR(45) NULL ,
+  `update_time` DATETIME NULL ,
   PRIMARY KEY (`id_tbl_personal_history`) )
 ENGINE = InnoDB;
 
