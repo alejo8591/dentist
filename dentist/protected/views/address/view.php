@@ -21,9 +21,9 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id_tbl_address',
-		'id_tbl_user',
-		'id_tbl_anamnesis',
+		// 'id_tbl_address',
+		// 'id_tbl_user',
+		// 'id_tbl_anamnesis',
 		'type_address',
 		'description',
 		// 'create_user_id',

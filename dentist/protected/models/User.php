@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'tbl_user':
  * @property integer $id_tbl_user
+ * @property string $type_document
  * @property integer $id_document
  * @property string $email
  * @property string $password
@@ -38,11 +39,11 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_document, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('email, password', 'length', 'max'=>128),
+			array('type_document, email, password', 'length', 'max'=>128),
 			array('last_login_time, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_user, id_document, email, password, last_login_time, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_user, type_document, id_document, email, password, last_login_time, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +68,7 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id_tbl_user' => 'Id Tbl User',
+			'type_document' => 'Type Document',
 			'id_document' => 'Id Document',
 			'email' => 'Email',
 			'password' => 'Password',
@@ -97,6 +99,7 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_user',$this->id_tbl_user);
+		$criteria->compare('type_document',$this->type_document,true);
 		$criteria->compare('id_document',$this->id_document);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('password',$this->password,true);

@@ -20,14 +20,14 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_user'); ?>
-		<?php echo $form->textField($model,'id_tbl_user'); ?>
+		<!-- <?php echo $form->labelEx($model,'id_tbl_user'); ?> -->
+		<?php echo $form->hiddenField($model,'id_tbl_user'); ?>
 		<?php echo $form->error($model,'id_tbl_user'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_anamnesis'); ?>
-		<?php echo $form->textField($model,'id_tbl_anamnesis'); ?>
+		<!-- <?php echo $form->labelEx($model,'id_tbl_anamnesis'); ?> -->
+		<?php echo $form->hiddenField($model,'id_tbl_anamnesis'); ?>
 		<?php echo $form->error($model,'id_tbl_anamnesis'); ?>
 	</div>
 

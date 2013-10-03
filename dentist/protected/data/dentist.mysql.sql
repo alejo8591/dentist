@@ -10,6 +10,7 @@ USE `dentist` ;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dentist`.`tbl_user` (
   `id_tbl_user` INT NOT NULL AUTO_INCREMENT ,
+  `type_document` VARCHAR(128) NULL ,
   `id_document` INT NULL ,
   `email` VARCHAR(128) NULL ,
   `password` VARCHAR(128) NULL ,

@@ -17,6 +17,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'type_document'); ?>
+		<?php echo $form->textField($model,'type_document',array('size'=>60,'maxlength'=>128)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'id_document'); ?>
 		<?php echo $form->textField($model,'id_document'); ?>
 	</div>
@@ -25,7 +30,7 @@
 		<?php echo $form->label($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
 	</div>
-	<!-- 
+
 	<div class="row">
 		<?php echo $form->label($model,'last_login_time'); ?>
 		<?php echo $form->textField($model,'last_login_time'); ?>
@@ -50,7 +55,7 @@
 		<?php echo $form->label($model,'update_time'); ?>
 		<?php echo $form->textField($model,'update_time'); ?>
 	</div>
-	-->
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
