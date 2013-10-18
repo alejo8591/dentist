@@ -15,7 +15,7 @@
  * The followings are the available model relations:
  * @property Background[] $backgrounds
  */
-class PersonalHistory extends CActiveRecord
+class PersonalHistory extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

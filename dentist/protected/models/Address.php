@@ -18,7 +18,7 @@
  * @property User $idTblUser
  * @property Anamnesis $idTblAnamnesis
  */
-class Address extends CActiveRecord
+class Address extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

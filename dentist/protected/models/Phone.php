@@ -20,7 +20,7 @@
  * @property Anamnesis $idTblAnamnesis
  * @property User $idTblUser
  */
-class Phone extends CActiveRecord
+class Phone extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

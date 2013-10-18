@@ -18,7 +18,7 @@
  * @property Anamnesis[] $anamnesises
  * @property HealtRegimen $idTblHealtRegimen
  */
-class HealtInstitution extends CActiveRecord
+class HealtInstitution extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

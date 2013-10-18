@@ -44,7 +44,7 @@
  * @property Phone[] $phones
  * @property PhysicalHistory[] $physicalHistories
  */
-class Anamnesis extends CActiveRecord
+class Anamnesis extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

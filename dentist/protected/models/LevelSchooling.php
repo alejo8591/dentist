@@ -15,7 +15,7 @@
  * The followings are the available model relations:
  * @property Anamnesis[] $anamnesises
  */
-class LevelSchooling extends CActiveRecord
+class LevelSchooling extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

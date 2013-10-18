@@ -19,7 +19,7 @@
  * @property Anamnesis[] $anamnesises
  * @property Country $idTblCountry
  */
-class City extends CActiveRecord
+class City extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

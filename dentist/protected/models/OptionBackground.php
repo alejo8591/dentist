@@ -17,7 +17,7 @@
  * @property DetailOptionBackground[] $detailOptionBackgrounds
  * @property Background $idTblBackground
  */
-class OptionBackground extends CActiveRecord
+class OptionBackground extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

@@ -23,6 +23,10 @@
 class User extends CActiveRecord
 {
 	/**
+	 * @value string the associated database table name
+	 */
+	public $password_repeat;
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -38,7 +42,9 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_document, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('id_document', 'numerical', 'integerOnly'=>true),
+			array('id_document, email, password, password_repeat, type_document', 'required'),
+			array('email, id_document', 'unique'),
 			array('type_document, email, password', 'length', 'max'=>128),
 			array('last_login_time, create_time, update_time', 'safe'),
 			// The following rule is used by search().
@@ -120,8 +126,19 @@ class User extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return User the static model class
 	 */
-	public static function model($className=__CLASS__)
+	
+    public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	protected function afterValidate()
+	{
+		parent::afterValidate();
+		$this->password = $this->encrypt($this->password);
+	}
+
+	public function encrypt($value){
+		return md5($value);
 	}
 }

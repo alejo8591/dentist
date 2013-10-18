@@ -15,7 +15,7 @@
  * The followings are the available model relations:
  * @property Anamnesis[] $anamnesises
  */
-class Profession extends CActiveRecord
+class Profession extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name

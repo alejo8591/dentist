@@ -17,7 +17,7 @@
  * The followings are the available model relations:
  * @property OptionBackground $idTblOptionBackground
  */
-class DetailOptionBackground extends CActiveRecord
+class DetailOptionBackground extends DentistActiveRecord
 {
 	/**
 	 * @return string the associated database table name
