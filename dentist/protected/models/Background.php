@@ -35,7 +35,7 @@ class Background extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_personal_history', 'required'),
+			// array('id_tbl_personal_history', 'required'),
 			array('id_tbl_personal_history, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
 			array('name_background', 'length', 'max'=>256),
 			array('description, create_time, update_time', 'safe'),

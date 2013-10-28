@@ -232,3 +232,78 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/dentist/dentist/index.php?r=bloodgroup
 ---
+2013/10/28 18:42:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_background`, CONSTRAINT `fk_tbl_background_tbl_personal_history1` FOREIGN KEY (`id_tbl_personal_history`) REFERENCES `tbl_personal_history` (`id_tbl_personal_history`) ON DELETE). The SQL statement executed was: INSERT INTO `tbl_background` (`id_tbl_personal_history`, `name_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/BackgroundController.php (73)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/10/28 18:42:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_background`, CONSTRAINT `fk_tbl_background_tbl_personal_history1` FOREIGN KEY (`id_tbl_personal_history`) REFERENCES `tbl_personal_history` (`id_tbl_personal_history`) ON DELETE). The SQL statement executed was: INSERT INTO `tbl_background` (`id_tbl_personal_history`, `name_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /Applications/MAMP/htdocs/dentist/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/BackgroundController.php(73): CActiveRecord->save()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): BackgroundController->actionCreate()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('background/crea...')
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=background/create
+HTTP_REFERER=http://localhost:8888/dentist/dentist/index.php?r=background/create
+---
+2013/10/28 18:44:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_background`, CONSTRAINT `fk_tbl_background_tbl_personal_history1` FOREIGN KEY (`id_tbl_personal_history`) REFERENCES `tbl_personal_history` (`id_tbl_personal_history`) ON DELETE). The SQL statement executed was: INSERT INTO `tbl_background` (`id_tbl_personal_history`, `name_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/BackgroundController.php (73)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/10/28 18:44:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_background`, CONSTRAINT `fk_tbl_background_tbl_personal_history1` FOREIGN KEY (`id_tbl_personal_history`) REFERENCES `tbl_personal_history` (`id_tbl_personal_history`) ON DELETE). The SQL statement executed was: INSERT INTO `tbl_background` (`id_tbl_personal_history`, `name_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /Applications/MAMP/htdocs/dentist/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/BackgroundController.php(73): CActiveRecord->save()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): BackgroundController->actionCreate()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('background/crea...')
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=background/create
+HTTP_REFERER=http://localhost:8888/dentist/dentist/index.php?r=background/create
+---
+2013/10/28 18:45:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_background`, CONSTRAINT `fk_tbl_background_tbl_personal_history1` FOREIGN KEY (`id_tbl_personal_history`) REFERENCES `tbl_personal_history` (`id_tbl_personal_history`) ON DELETE). The SQL statement executed was: INSERT INTO `tbl_background` (`id_tbl_personal_history`, `name_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/BackgroundController.php (73)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/10/28 18:45:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_background`, CONSTRAINT `fk_tbl_background_tbl_personal_history1` FOREIGN KEY (`id_tbl_personal_history`) REFERENCES `tbl_personal_history` (`id_tbl_personal_history`) ON DELETE). The SQL statement executed was: INSERT INTO `tbl_background` (`id_tbl_personal_history`, `name_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /Applications/MAMP/htdocs/dentist/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/BackgroundController.php(73): CActiveRecord->save()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): BackgroundController->actionCreate()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('background/crea...')
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=background/create
+HTTP_REFERER=http://localhost:8888/dentist/dentist/index.php?r=background/create
+---
