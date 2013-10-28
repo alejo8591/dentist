@@ -7,14 +7,31 @@
  */
 class UserIdentity extends CUserIdentity
 {
-	private $_id;
+	public function authenticate()
+		{
+			$users=array(
+				// username => password
+				'demo'=>'demo',
+				'admin'=>'admin',
+			);
+			if(!isset($users[$this->username]))
+				$this->errorCode=self::ERROR_USERNAME_INVALID;
+			elseif($users[$this->username]!==$this->password)
+				$this->errorCode=self::ERROR_PASSWORD_INVALID;
+			else
+				$this->errorCode=self::ERROR_NONE;
+			return !$this->errorCode;
+		}
 
+	/*
+	private $_id;
 	public function authenticate()
 	{
 	  	/** Logs in the user using the given username and password in the model.
 	     * @return boolean whether login is successful
          */
 
+	  	/*
 		$user=User::model()->findByAttributes(array('id_document'=>$this->username));
 		
 		if($user===null)
@@ -48,5 +65,5 @@ class UserIdentity extends CUserIdentity
 	public function getId()
 	{
 		return $this->_id;
-	}
+	}*/
 }

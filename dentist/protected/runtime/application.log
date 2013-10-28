@@ -216,3 +216,19 @@ Stack trace:
 REQUEST_URI=/dentist/dentist/index.php?r=site/login
 HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php?r=site/login
 ---
+2013/10/18 01:11:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "project".' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('project')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=project
+---
+2013/10/28 18:05:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "bloodgroup".' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('bloodgroup')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=bloodgroup
+---
