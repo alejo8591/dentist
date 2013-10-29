@@ -124,4 +124,11 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getTypeDocuments()
+	{
+		$typeDocuments = array('Tarjeta de Identidad', 'Cedula de Ciudadania', 'Cedula de Extranjeria', 'Registro de Nacimiento',); 
+
+		return $typeDocuments;
+	}
 }

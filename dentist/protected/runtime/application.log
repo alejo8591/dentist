@@ -1,2 +1,88 @@
 2013/10/28 20:25:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dentist.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
 in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/10/28 20:49:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_option_background`, CONSTRAINT `fk_tbl_option_background_tbl_background1` FOREIGN KEY (`id_tbl_background`) REFERENCES `tbl_background` (`id_tbl_background`) ON DELETE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_option_background` (`id_tbl_background`, `name_option_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/OptionbackgroundController.php (73)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/10/28 20:49:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_option_background`, CONSTRAINT `fk_tbl_option_background_tbl_background1` FOREIGN KEY (`id_tbl_background`) REFERENCES `tbl_background` (`id_tbl_background`) ON DELETE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_option_background` (`id_tbl_background`, `name_option_background`, `description`, `create_user_id`, `create_time`, `update_user_id`, `update_time`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in /Applications/MAMP/htdocs/dentist/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/OptionbackgroundController.php(73): CActiveRecord->save()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): OptionBackgroundController->actionCreate()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('optionbackgroun...')
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=optionbackground/create
+HTTP_REFERER=http://localhost:8888/dentist/dentist/index.php?r=optionbackground/create
+---
+2013/10/28 21:08:05 [error] [exception.CException] exception 'CException' with message 'User and its behaviors do not have a method or closure named "getTypeDocument".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getTypeDocument', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/user/_form.php(24): CActiveRecord->__call('getTypeDocument', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/user/_form.php(24): User->getTypeDocument()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/views/user/create.php(18): CController->renderPartial('_form', Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#11 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/UserController.php(79): CController->render('create', Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): UserController->actionCreate()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#22 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('user/create')
+#23 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=user/create
+---
+2013/10/28 21:08:11 [error] [exception.CException] exception 'CException' with message 'User and its behaviors do not have a method or closure named "getTypeDocument".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getTypeDocument', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/user/_form.php(24): CActiveRecord->__call('getTypeDocument', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/user/_form.php(24): User->getTypeDocument()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/views/user/create.php(18): CController->renderPartial('_form', Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#11 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/UserController.php(79): CController->render('create', Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): UserController->actionCreate()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#22 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('user/create')
+#23 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=user/create
+HTTP_REFERER=http://localhost:8888/dentist/dentist/index.php?r=user
+---
