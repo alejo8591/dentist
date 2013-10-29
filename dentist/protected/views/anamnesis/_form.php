@@ -51,7 +51,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'genre'); ?>
-		<?php echo $form->textField($model,'genre',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->dropDownList($model,'genre', $model->typeGenres()); ?>
 		<?php echo $form->error($model,'genre'); ?>
 	</div>
 
@@ -131,30 +131,6 @@
 		<?php echo $form->labelEx($model,'data_personal_history'); ?>
 		<?php echo $form->textArea($model,'data_personal_history',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'data_personal_history'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id'); ?>
-		<?php echo $form->error($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id'); ?>
-		<?php echo $form->error($model,'update_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
 	</div>
 
 	<div class="row buttons">

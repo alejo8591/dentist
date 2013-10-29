@@ -126,10 +126,9 @@ class Address extends CActiveRecord
 	}
 
 	/**
-	 * Returns the diferent type of Address for users
-	 * @return Array $typeDocuments
+	 * Returns the diferent type of Addresses properties for users
+	 * @return Array $typeAdresses
 	 */
-
 	public function getTypeAddresses()
 	{
 		$typeAddresses = array('Casa', 'Residencia Estudiantil', 'Trabajo',);

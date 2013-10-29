@@ -189,4 +189,15 @@ class Anamnesis extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	/**
+	 * Returns the diferent types of genres for users
+	 * @return Array $typeGenres
+	 */
+	public function typeGenres()
+	{
+		$typeGenres = array('Femenino', 'Masculino',);
+		return $typeGenres;
+	}
+
 }
