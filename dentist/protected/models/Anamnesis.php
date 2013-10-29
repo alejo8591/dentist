@@ -30,21 +30,21 @@
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblAddress[] $tblAddresses
- * @property TblUser $idTblUser
- * @property TblCountry $idTblCountry
- * @property TblCity $idTblCity
- * @property TblLevelSchooling $idTblLevelSchooling
- * @property TblProfession $idTblProfession
- * @property TblAnamnesis $contact0
- * @property TblAnamnesis[] $tblAnamnesises
- * @property TblHealtRegimen $idTblHealtRegimen
- * @property TblHealtInstitution $idTblHealtInstitution
- * @property TblDuringConsultation $idTblDuringConsultation
- * @property TblPhone[] $tblPhones
- * @property TblPhysicalHistory[] $tblPhysicalHistories
+ * @property Address[] $addresses
+ * @property User $idTblUser
+ * @property Country $idTblCountry
+ * @property City $idTblCity
+ * @property LevelSchooling $idTblLevelSchooling
+ * @property Profession $idTblProfession
+ * @property Anamnesis $contact0
+ * @property Anamnesis[] $anamnesises
+ * @property HealtRegimen $idTblHealtRegimen
+ * @property HealtInstitution $idTblHealtInstitution
+ * @property DuringConsultation $idTblDuringConsultation
+ * @property Phone[] $phones
+ * @property PhysicalHistory[] $physicalHistories
  */
-class TblAnamnesis extends CActiveRecord
+class Anamnesis extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -82,19 +82,19 @@ class TblAnamnesis extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblAddresses' => array(self::HAS_MANY, 'TblAddress', 'id_tbl_anamnesis'),
-			'idTblUser' => array(self::BELONGS_TO, 'TblUser', 'id_tbl_user'),
-			'idTblCountry' => array(self::BELONGS_TO, 'TblCountry', 'id_tbl_country'),
-			'idTblCity' => array(self::BELONGS_TO, 'TblCity', 'id_tbl_city'),
-			'idTblLevelSchooling' => array(self::BELONGS_TO, 'TblLevelSchooling', 'id_tbl_level_schooling'),
-			'idTblProfession' => array(self::BELONGS_TO, 'TblProfession', 'id_tbl_profession'),
-			'contact0' => array(self::BELONGS_TO, 'TblAnamnesis', 'contact'),
-			'tblAnamnesises' => array(self::HAS_MANY, 'TblAnamnesis', 'contact'),
-			'idTblHealtRegimen' => array(self::BELONGS_TO, 'TblHealtRegimen', 'id_tbl_healt_regimen'),
-			'idTblHealtInstitution' => array(self::BELONGS_TO, 'TblHealtInstitution', 'id_tbl_healt_institution'),
-			'idTblDuringConsultation' => array(self::BELONGS_TO, 'TblDuringConsultation', 'id_tbl_during_consultation'),
-			'tblPhones' => array(self::HAS_MANY, 'TblPhone', 'id_tbl_anamnesis'),
-			'tblPhysicalHistories' => array(self::HAS_MANY, 'TblPhysicalHistory', 'id_tbl_anamnesis'),
+			'addresses' => array(self::HAS_MANY, 'Address', 'id_tbl_anamnesis'),
+			'idTblUser' => array(self::BELONGS_TO, 'User', 'id_tbl_user'),
+			'idTblCountry' => array(self::BELONGS_TO, 'Country', 'id_tbl_country'),
+			'idTblCity' => array(self::BELONGS_TO, 'City', 'id_tbl_city'),
+			'idTblLevelSchooling' => array(self::BELONGS_TO, 'LevelSchooling', 'id_tbl_level_schooling'),
+			'idTblProfession' => array(self::BELONGS_TO, 'Profession', 'id_tbl_profession'),
+			'contact0' => array(self::BELONGS_TO, 'Anamnesis', 'contact'),
+			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'contact'),
+			'idTblHealtRegimen' => array(self::BELONGS_TO, 'HealtRegimen', 'id_tbl_healt_regimen'),
+			'idTblHealtInstitution' => array(self::BELONGS_TO, 'HealtInstitution', 'id_tbl_healt_institution'),
+			'idTblDuringConsultation' => array(self::BELONGS_TO, 'DuringConsultation', 'id_tbl_during_consultation'),
+			'phones' => array(self::HAS_MANY, 'Phone', 'id_tbl_anamnesis'),
+			'physicalHistories' => array(self::HAS_MANY, 'PhysicalHistory', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -183,7 +183,7 @@ class TblAnamnesis extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblAnamnesis the static model class
+	 * @return Anamnesis the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

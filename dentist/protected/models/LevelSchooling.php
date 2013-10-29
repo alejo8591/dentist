@@ -1,12 +1,11 @@
 <?php
 
 /**
- * This is the model class for table "tbl_background".
+ * This is the model class for table "tbl_level_schooling".
  *
- * The followings are the available columns in table 'tbl_background':
- * @property integer $id_tbl_background
- * @property integer $id_tbl_personal_history
- * @property string $name_background
+ * The followings are the available columns in table 'tbl_level_schooling':
+ * @property integer $id_tbl_level_schooling
+ * @property string $name_level_schooling
  * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
@@ -14,17 +13,16 @@
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblPersonalHistory $idTblPersonalHistory
- * @property TblOptionBackground[] $tblOptionBackgrounds
+ * @property Anamnesis[] $anamnesises
  */
-class TblBackground extends CActiveRecord
+class LevelSchooling extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_background';
+		return 'tbl_level_schooling';
 	}
 
 	/**
@@ -35,13 +33,12 @@ class TblBackground extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_personal_history', 'required'),
-			array('id_tbl_personal_history, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('name_background', 'length', 'max'=>256),
+			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('name_level_schooling', 'length', 'max'=>128),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_background, id_tbl_personal_history, name_background, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_level_schooling, name_level_schooling, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,8 +50,7 @@ class TblBackground extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idTblPersonalHistory' => array(self::BELONGS_TO, 'TblPersonalHistory', 'id_tbl_personal_history'),
-			'tblOptionBackgrounds' => array(self::HAS_MANY, 'TblOptionBackground', 'id_tbl_background'),
+			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_level_schooling'),
 		);
 	}
 
@@ -64,9 +60,8 @@ class TblBackground extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_background' => 'Id Tbl Background',
-			'id_tbl_personal_history' => 'Id Tbl Personal History',
-			'name_background' => 'Name Background',
+			'id_tbl_level_schooling' => 'Id Tbl Level Schooling',
+			'name_level_schooling' => 'Name Level Schooling',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -93,9 +88,8 @@ class TblBackground extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_background',$this->id_tbl_background);
-		$criteria->compare('id_tbl_personal_history',$this->id_tbl_personal_history);
-		$criteria->compare('name_background',$this->name_background,true);
+		$criteria->compare('id_tbl_level_schooling',$this->id_tbl_level_schooling);
+		$criteria->compare('name_level_schooling',$this->name_level_schooling,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
@@ -111,7 +105,7 @@ class TblBackground extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblBackground the static model class
+	 * @return LevelSchooling the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

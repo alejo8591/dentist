@@ -1,11 +1,11 @@
 <?php
 
 /**
- * This is the model class for table "tbl_healt_regimen".
+ * This is the model class for table "tbl_during_consultation".
  *
- * The followings are the available columns in table 'tbl_healt_regimen':
- * @property integer $id_tbl_healt_regimen
- * @property string $name_healt_regimen
+ * The followings are the available columns in table 'tbl_during_consultation':
+ * @property integer $id_tbl_during_consultation
+ * @property string $name_during_consultation
  * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
@@ -13,17 +13,16 @@
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblAnamnesis[] $tblAnamnesises
- * @property TblHealtInstitution[] $tblHealtInstitutions
+ * @property Anamnesis[] $anamnesises
  */
-class TblHealtRegimen extends CActiveRecord
+class DuringConsultation extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_healt_regimen';
+		return 'tbl_during_consultation';
 	}
 
 	/**
@@ -35,11 +34,11 @@ class TblHealtRegimen extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('name_healt_regimen', 'length', 'max'=>128),
+			array('name_during_consultation', 'length', 'max'=>128),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_healt_regimen, name_healt_regimen, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_during_consultation, name_during_consultation, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,8 +50,7 @@ class TblHealtRegimen extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblAnamnesises' => array(self::HAS_MANY, 'TblAnamnesis', 'id_tbl_healt_regimen'),
-			'tblHealtInstitutions' => array(self::HAS_MANY, 'TblHealtInstitution', 'id_tbl_healt_regimen'),
+			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_during_consultation'),
 		);
 	}
 
@@ -62,8 +60,8 @@ class TblHealtRegimen extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_healt_regimen' => 'Id Tbl Healt Regimen',
-			'name_healt_regimen' => 'Name Healt Regimen',
+			'id_tbl_during_consultation' => 'Id Tbl During Consultation',
+			'name_during_consultation' => 'Name During Consultation',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -90,8 +88,8 @@ class TblHealtRegimen extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_healt_regimen',$this->id_tbl_healt_regimen);
-		$criteria->compare('name_healt_regimen',$this->name_healt_regimen,true);
+		$criteria->compare('id_tbl_during_consultation',$this->id_tbl_during_consultation);
+		$criteria->compare('name_during_consultation',$this->name_during_consultation,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
@@ -107,7 +105,7 @@ class TblHealtRegimen extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblHealtRegimen the static model class
+	 * @return DuringConsultation the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

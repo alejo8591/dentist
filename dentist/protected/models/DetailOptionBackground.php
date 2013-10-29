@@ -1,28 +1,30 @@
 <?php
 
 /**
- * This is the model class for table "tbl_profession".
+ * This is the model class for table "tbl_detail_option_background".
  *
- * The followings are the available columns in table 'tbl_profession':
- * @property integer $id_tbl_profession
- * @property string $name_profession
+ * The followings are the available columns in table 'tbl_detail_option_background':
+ * @property integer $id_tbl_detail_option_background
+ * @property integer $id_tbl_option_background
+ * @property string $name_detail_option_background
  * @property string $description
+ * @property integer $flag_detail_option_background
  * @property integer $create_user_id
  * @property string $create_time
  * @property integer $update_user_id
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblAnamnesis[] $tblAnamnesises
+ * @property OptionBackground $idTblOptionBackground
  */
-class TblProfession extends CActiveRecord
+class DetailOptionBackground extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_profession';
+		return 'tbl_detail_option_background';
 	}
 
 	/**
@@ -33,12 +35,13 @@ class TblProfession extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('name_profession', 'length', 'max'=>45),
+			array('id_tbl_option_background', 'required'),
+			array('id_tbl_option_background, flag_detail_option_background, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('name_detail_option_background', 'length', 'max'=>256),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_profession, name_profession, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_detail_option_background, id_tbl_option_background, name_detail_option_background, description, flag_detail_option_background, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,7 +53,7 @@ class TblProfession extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblAnamnesises' => array(self::HAS_MANY, 'TblAnamnesis', 'id_tbl_profession'),
+			'idTblOptionBackground' => array(self::BELONGS_TO, 'OptionBackground', 'id_tbl_option_background'),
 		);
 	}
 
@@ -60,9 +63,11 @@ class TblProfession extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_profession' => 'Id Tbl Profession',
-			'name_profession' => 'Name Profession',
+			'id_tbl_detail_option_background' => 'Id Tbl Detail Option Background',
+			'id_tbl_option_background' => 'Id Tbl Option Background',
+			'name_detail_option_background' => 'Name Detail Option Background',
 			'description' => 'Description',
+			'flag_detail_option_background' => 'Flag Detail Option Background',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -88,9 +93,11 @@ class TblProfession extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_profession',$this->id_tbl_profession);
-		$criteria->compare('name_profession',$this->name_profession,true);
+		$criteria->compare('id_tbl_detail_option_background',$this->id_tbl_detail_option_background);
+		$criteria->compare('id_tbl_option_background',$this->id_tbl_option_background);
+		$criteria->compare('name_detail_option_background',$this->name_detail_option_background,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('flag_detail_option_background',$this->flag_detail_option_background);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_user_id',$this->update_user_id);
@@ -105,7 +112,7 @@ class TblProfession extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblProfession the static model class
+	 * @return DetailOptionBackground the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

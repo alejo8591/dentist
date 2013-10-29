@@ -1,30 +1,31 @@
 <?php
 
 /**
- * This is the model class for table "tbl_detail_option_background".
+ * This is the model class for table "tbl_address".
  *
- * The followings are the available columns in table 'tbl_detail_option_background':
- * @property integer $id_tbl_detail_option_background
- * @property integer $id_tbl_option_background
- * @property string $name_detail_option_background
+ * The followings are the available columns in table 'tbl_address':
+ * @property integer $id_tbl_address
+ * @property integer $id_tbl_user
+ * @property integer $id_tbl_anamnesis
+ * @property string $type_address
  * @property string $description
- * @property integer $flag_detail_option_background
  * @property integer $create_user_id
  * @property string $create_time
  * @property integer $update_user_id
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblOptionBackground $idTblOptionBackground
+ * @property User $idTblUser
+ * @property Anamnesis $idTblAnamnesis
  */
-class TblDetailOptionBackground extends CActiveRecord
+class Address extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_detail_option_background';
+		return 'tbl_address';
 	}
 
 	/**
@@ -35,13 +36,13 @@ class TblDetailOptionBackground extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_option_background', 'required'),
-			array('id_tbl_option_background, flag_detail_option_background, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('name_detail_option_background', 'length', 'max'=>256),
+			array('id_tbl_user', 'required'),
+			array('id_tbl_user, id_tbl_anamnesis, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('type_address', 'length', 'max'=>64),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_detail_option_background, id_tbl_option_background, name_detail_option_background, description, flag_detail_option_background, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_address, id_tbl_user, id_tbl_anamnesis, type_address, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,7 +54,8 @@ class TblDetailOptionBackground extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idTblOptionBackground' => array(self::BELONGS_TO, 'TblOptionBackground', 'id_tbl_option_background'),
+			'idTblUser' => array(self::BELONGS_TO, 'User', 'id_tbl_user'),
+			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -63,11 +65,11 @@ class TblDetailOptionBackground extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_detail_option_background' => 'Id Tbl Detail Option Background',
-			'id_tbl_option_background' => 'Id Tbl Option Background',
-			'name_detail_option_background' => 'Name Detail Option Background',
+			'id_tbl_address' => 'Id Tbl Address',
+			'id_tbl_user' => 'Id Tbl User',
+			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
+			'type_address' => 'Type Address',
 			'description' => 'Description',
-			'flag_detail_option_background' => 'Flag Detail Option Background',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -93,11 +95,11 @@ class TblDetailOptionBackground extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_detail_option_background',$this->id_tbl_detail_option_background);
-		$criteria->compare('id_tbl_option_background',$this->id_tbl_option_background);
-		$criteria->compare('name_detail_option_background',$this->name_detail_option_background,true);
+		$criteria->compare('id_tbl_address',$this->id_tbl_address);
+		$criteria->compare('id_tbl_user',$this->id_tbl_user);
+		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
+		$criteria->compare('type_address',$this->type_address,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('flag_detail_option_background',$this->flag_detail_option_background);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_user_id',$this->update_user_id);
@@ -112,7 +114,7 @@ class TblDetailOptionBackground extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblDetailOptionBackground the static model class
+	 * @return Address the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

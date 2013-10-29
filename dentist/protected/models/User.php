@@ -1,32 +1,33 @@
 <?php
 
 /**
- * This is the model class for table "tbl_city".
+ * This is the model class for table "tbl_user".
  *
- * The followings are the available columns in table 'tbl_city':
- * @property integer $id_tbl_city
- * @property integer $id_tbl_country
- * @property integer $city_code
- * @property string $name_city
- * @property string $postal_code
- * @property string $description
+ * The followings are the available columns in table 'tbl_user':
+ * @property integer $id_tbl_user
+ * @property string $type_document
+ * @property integer $id_document
+ * @property string $email
+ * @property string $password
+ * @property string $last_login_time
  * @property integer $create_user_id
  * @property string $create_time
  * @property integer $update_user_id
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblAnamnesis[] $tblAnamnesises
- * @property TblCountry $idTblCountry
+ * @property Address[] $addresses
+ * @property Anamnesis[] $anamnesises
+ * @property Phone[] $phones
  */
-class TblCity extends CActiveRecord
+class User extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_city';
+		return 'tbl_user';
 	}
 
 	/**
@@ -37,13 +38,12 @@ class TblCity extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_country', 'required'),
-			array('id_tbl_country, city_code, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('name_city, postal_code', 'length', 'max'=>128),
-			array('description, create_time, update_time', 'safe'),
+			array('id_document, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('type_document, email, password', 'length', 'max'=>128),
+			array('last_login_time, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_city, id_tbl_country, city_code, name_city, postal_code, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_user, type_document, id_document, email, password, last_login_time, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,8 +55,9 @@ class TblCity extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblAnamnesises' => array(self::HAS_MANY, 'TblAnamnesis', 'id_tbl_city'),
-			'idTblCountry' => array(self::BELONGS_TO, 'TblCountry', 'id_tbl_country'),
+			'addresses' => array(self::HAS_MANY, 'Address', 'id_tbl_user'),
+			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_user'),
+			'phones' => array(self::HAS_MANY, 'Phone', 'id_tbl_user'),
 		);
 	}
 
@@ -66,12 +67,12 @@ class TblCity extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_city' => 'Id Tbl City',
-			'id_tbl_country' => 'Id Tbl Country',
-			'city_code' => 'City Code',
-			'name_city' => 'Name City',
-			'postal_code' => 'Postal Code',
-			'description' => 'Description',
+			'id_tbl_user' => 'Id Tbl User',
+			'type_document' => 'Type Document',
+			'id_document' => 'Id Document',
+			'email' => 'Email',
+			'password' => 'Password',
+			'last_login_time' => 'Last Login Time',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -97,12 +98,12 @@ class TblCity extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_city',$this->id_tbl_city);
-		$criteria->compare('id_tbl_country',$this->id_tbl_country);
-		$criteria->compare('city_code',$this->city_code);
-		$criteria->compare('name_city',$this->name_city,true);
-		$criteria->compare('postal_code',$this->postal_code,true);
-		$criteria->compare('description',$this->description,true);
+		$criteria->compare('id_tbl_user',$this->id_tbl_user);
+		$criteria->compare('type_document',$this->type_document,true);
+		$criteria->compare('id_document',$this->id_document);
+		$criteria->compare('email',$this->email,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('last_login_time',$this->last_login_time,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_user_id',$this->update_user_id);
@@ -117,7 +118,7 @@ class TblCity extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblCity the static model class
+	 * @return User the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

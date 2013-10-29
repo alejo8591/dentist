@@ -1,11 +1,12 @@
 <?php
 
 /**
- * This is the model class for table "tbl_during_consultation".
+ * This is the model class for table "tbl_option_background".
  *
- * The followings are the available columns in table 'tbl_during_consultation':
- * @property integer $id_tbl_during_consultation
- * @property string $name_during_consultation
+ * The followings are the available columns in table 'tbl_option_background':
+ * @property integer $id_tbl_option_background
+ * @property integer $id_tbl_background
+ * @property string $name_option_background
  * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
@@ -13,16 +14,17 @@
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblAnamnesis[] $tblAnamnesises
+ * @property DetailOptionBackground[] $detailOptionBackgrounds
+ * @property Background $idTblBackground
  */
-class TblDuringConsultation extends CActiveRecord
+class OptionBackground extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_during_consultation';
+		return 'tbl_option_background';
 	}
 
 	/**
@@ -33,12 +35,13 @@ class TblDuringConsultation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('name_during_consultation', 'length', 'max'=>128),
+			array('id_tbl_background', 'required'),
+			array('id_tbl_background, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('name_option_background', 'length', 'max'=>256),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_during_consultation, name_during_consultation, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_background, id_tbl_background, name_option_background, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,7 +53,8 @@ class TblDuringConsultation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblAnamnesises' => array(self::HAS_MANY, 'TblAnamnesis', 'id_tbl_during_consultation'),
+			'detailOptionBackgrounds' => array(self::HAS_MANY, 'DetailOptionBackground', 'id_tbl_option_background'),
+			'idTblBackground' => array(self::BELONGS_TO, 'Background', 'id_tbl_background'),
 		);
 	}
 
@@ -60,8 +64,9 @@ class TblDuringConsultation extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_during_consultation' => 'Id Tbl During Consultation',
-			'name_during_consultation' => 'Name During Consultation',
+			'id_tbl_option_background' => 'Id Tbl Option Background',
+			'id_tbl_background' => 'Id Tbl Background',
+			'name_option_background' => 'Name Option Background',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -88,8 +93,9 @@ class TblDuringConsultation extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_during_consultation',$this->id_tbl_during_consultation);
-		$criteria->compare('name_during_consultation',$this->name_during_consultation,true);
+		$criteria->compare('id_tbl_option_background',$this->id_tbl_option_background);
+		$criteria->compare('id_tbl_background',$this->id_tbl_background);
+		$criteria->compare('name_option_background',$this->name_option_background,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
@@ -105,7 +111,7 @@ class TblDuringConsultation extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblDuringConsultation the static model class
+	 * @return OptionBackground the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

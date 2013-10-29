@@ -1,15 +1,13 @@
 <?php
 
 /**
- * This is the model class for table "tbl_phone".
+ * This is the model class for table "tbl_country".
  *
- * The followings are the available columns in table 'tbl_phone':
- * @property integer $id_tbl_phone
- * @property integer $id_tbl_user
- * @property integer $id_tbl_anamnesis
- * @property string $type_phone
- * @property string $phone
- * @property string $phone_extension
+ * The followings are the available columns in table 'tbl_country':
+ * @property integer $id_tbl_country
+ * @property integer $country_code
+ * @property string $name_country
+ * @property string $postal_code
  * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
@@ -17,17 +15,17 @@
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblUser $idTblUser
- * @property TblAnamnesis $idTblAnamnesis
+ * @property Anamnesis[] $anamnesises
+ * @property City[] $cities
  */
-class TblPhone extends CActiveRecord
+class Country extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_phone';
+		return 'tbl_country';
 	}
 
 	/**
@@ -38,12 +36,13 @@ class TblPhone extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_user, id_tbl_anamnesis, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('type_phone, phone, phone_extension', 'length', 'max'=>64),
+			array('name_country', 'required'),
+			array('country_code, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('name_country, postal_code', 'length', 'max'=>128),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_phone, id_tbl_user, id_tbl_anamnesis, type_phone, phone, phone_extension, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_country, country_code, name_country, postal_code, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,8 +54,8 @@ class TblPhone extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idTblUser' => array(self::BELONGS_TO, 'TblUser', 'id_tbl_user'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'TblAnamnesis', 'id_tbl_anamnesis'),
+			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_country'),
+			'cities' => array(self::HAS_MANY, 'City', 'id_tbl_country'),
 		);
 	}
 
@@ -66,12 +65,10 @@ class TblPhone extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_phone' => 'Id Tbl Phone',
-			'id_tbl_user' => 'Id Tbl User',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'type_phone' => 'Type Phone',
-			'phone' => 'Phone',
-			'phone_extension' => 'Phone Extension',
+			'id_tbl_country' => 'Id Tbl Country',
+			'country_code' => 'Country Code',
+			'name_country' => 'Name Country',
+			'postal_code' => 'Postal Code',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -98,12 +95,10 @@ class TblPhone extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_phone',$this->id_tbl_phone);
-		$criteria->compare('id_tbl_user',$this->id_tbl_user);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('type_phone',$this->type_phone,true);
-		$criteria->compare('phone',$this->phone,true);
-		$criteria->compare('phone_extension',$this->phone_extension,true);
+		$criteria->compare('id_tbl_country',$this->id_tbl_country);
+		$criteria->compare('country_code',$this->country_code);
+		$criteria->compare('name_country',$this->name_country,true);
+		$criteria->compare('postal_code',$this->postal_code,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
@@ -119,7 +114,7 @@ class TblPhone extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblPhone the static model class
+	 * @return Country the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

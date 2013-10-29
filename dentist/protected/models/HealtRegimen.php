@@ -1,25 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "tbl_physical_history".
+ * This is the model class for table "tbl_healt_regimen".
  *
- * The followings are the available columns in table 'tbl_physical_history':
- * @property integer $id_tbl_physical_history
- * @property string $tbl_physical_historycol
- * @property integer $id_tbl_anamnesis
- * @property string $tbl_physical_historycol1
+ * The followings are the available columns in table 'tbl_healt_regimen':
+ * @property integer $id_tbl_healt_regimen
+ * @property string $name_healt_regimen
+ * @property string $description
+ * @property integer $create_user_id
+ * @property string $create_time
+ * @property integer $update_user_id
+ * @property string $update_time
  *
  * The followings are the available model relations:
- * @property TblAnamnesis $idTblAnamnesis
+ * @property Anamnesis[] $anamnesises
+ * @property HealtInstitution[] $healtInstitutions
  */
-class TblPhysicalHistory extends CActiveRecord
+class HealtRegimen extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_physical_history';
+		return 'tbl_healt_regimen';
 	}
 
 	/**
@@ -30,11 +34,12 @@ class TblPhysicalHistory extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
-			array('tbl_physical_historycol, tbl_physical_historycol1', 'length', 'max'=>45),
+			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('name_healt_regimen', 'length', 'max'=>128),
+			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_physical_history, tbl_physical_historycol, id_tbl_anamnesis, tbl_physical_historycol1', 'safe', 'on'=>'search'),
+			array('id_tbl_healt_regimen, name_healt_regimen, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,7 +51,8 @@ class TblPhysicalHistory extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'TblAnamnesis', 'id_tbl_anamnesis'),
+			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_healt_regimen'),
+			'healtInstitutions' => array(self::HAS_MANY, 'HealtInstitution', 'id_tbl_healt_regimen'),
 		);
 	}
 
@@ -56,10 +62,13 @@ class TblPhysicalHistory extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_physical_history' => 'Id Tbl Physical History',
-			'tbl_physical_historycol' => 'Tbl Physical Historycol',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'tbl_physical_historycol1' => 'Tbl Physical Historycol1',
+			'id_tbl_healt_regimen' => 'Id Tbl Healt Regimen',
+			'name_healt_regimen' => 'Name Healt Regimen',
+			'description' => 'Description',
+			'create_user_id' => 'Create User',
+			'create_time' => 'Create Time',
+			'update_user_id' => 'Update User',
+			'update_time' => 'Update Time',
 		);
 	}
 
@@ -81,10 +90,13 @@ class TblPhysicalHistory extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_tbl_physical_history',$this->id_tbl_physical_history);
-		$criteria->compare('tbl_physical_historycol',$this->tbl_physical_historycol,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('tbl_physical_historycol1',$this->tbl_physical_historycol1,true);
+		$criteria->compare('id_tbl_healt_regimen',$this->id_tbl_healt_regimen);
+		$criteria->compare('name_healt_regimen',$this->name_healt_regimen,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('create_user_id',$this->create_user_id);
+		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('update_user_id',$this->update_user_id);
+		$criteria->compare('update_time',$this->update_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -95,7 +107,7 @@ class TblPhysicalHistory extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TblPhysicalHistory the static model class
+	 * @return HealtRegimen the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
