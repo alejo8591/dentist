@@ -8,6 +8,7 @@
  * @property integer $id_tbl_user
  * @property integer $id_tbl_anamnesis
  * @property string $type_address
+ * @property string $address
  * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
@@ -15,8 +16,8 @@
  * @property string $update_time
  *
  * The followings are the available model relations:
- * @property User $idTblUser
  * @property Anamnesis $idTblAnamnesis
+ * @property User $idTblUser
  */
 class Address extends CActiveRecord
 {
@@ -39,10 +40,11 @@ class Address extends CActiveRecord
 			array('id_tbl_user', 'required'),
 			array('id_tbl_user, id_tbl_anamnesis, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
 			array('type_address', 'length', 'max'=>64),
+			array('address', 'length', 'max'=>256),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_address, id_tbl_user, id_tbl_anamnesis, type_address, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_address, id_tbl_user, id_tbl_anamnesis, type_address, address, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,8 +56,8 @@ class Address extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idTblUser' => array(self::BELONGS_TO, 'User', 'id_tbl_user'),
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
+			'idTblUser' => array(self::BELONGS_TO, 'User', 'id_tbl_user'),
 		);
 	}
 
@@ -69,6 +71,7 @@ class Address extends CActiveRecord
 			'id_tbl_user' => 'Id Tbl User',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'type_address' => 'Type Address',
+			'address' => 'Address',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -99,6 +102,7 @@ class Address extends CActiveRecord
 		$criteria->compare('id_tbl_user',$this->id_tbl_user);
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('type_address',$this->type_address,true);
+		$criteria->compare('address',$this->address,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
@@ -120,4 +124,17 @@ class Address extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	/**
+	 * Returns the diferent type of Address for users
+	 * @return Array $typeDocuments
+	 */
+
+	public function getTypeAddresses()
+	{
+		$typeAddresses = array('Casa', 'Residencia Estudiantil', 'Trabajo',);
+
+		return $typeAddresses;
+	}
+
 }

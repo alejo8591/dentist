@@ -124,6 +124,10 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	/**
+	 * Returns the diferent type of Address for users
+	 * @return Array $typeDocuments
+	 */
 
 	public function getTypeDocuments()
 	{

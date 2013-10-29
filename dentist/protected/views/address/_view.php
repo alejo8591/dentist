@@ -21,6 +21,10 @@
 	<?php echo CHtml::encode($data->type_address); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('address')); ?>:</b>
+	<?php echo CHtml::encode($data->address); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
@@ -29,11 +33,11 @@
 	<?php echo CHtml::encode($data->create_user_id); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
 	<?php echo CHtml::encode($data->create_time); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('update_user_id')); ?>:</b>
 	<?php echo CHtml::encode($data->update_user_id); ?>
 	<br />

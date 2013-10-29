@@ -25,6 +25,7 @@ $this->menu=array(
 		'id_tbl_user',
 		'id_tbl_anamnesis',
 		'type_address',
+		'address',
 		'description',
 		'create_user_id',
 		'create_time',

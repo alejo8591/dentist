@@ -86,3 +86,33 @@ Stack trace:
 REQUEST_URI=/dentist/dentist/index.php?r=user/create
 HTTP_REFERER=http://localhost:8888/dentist/dentist/index.php?r=user
 ---
+2013/10/28 21:26:53 [error] [exception.CException] exception 'CException' with message 'Address and its behaviors do not have a method or closure named "getTypeAdresses".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getTypeAdresses', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/address/_form.php(36): CActiveRecord->__call('getTypeAdresses', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/address/_form.php(36): Address->getTypeAdresses()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/views/address/create.php(18): CController->renderPartial('_form', Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#11 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/AddressController.php(79): CController->render('create', Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): AddressController->actionCreate()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#22 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('address/create')
+#23 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/dentist/dentist/index.php?r=address/create
+---

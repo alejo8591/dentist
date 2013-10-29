@@ -32,6 +32,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'address'); ?>
+		<?php echo $form->textField($model,'address',array('size'=>60,'maxlength'=>256)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
