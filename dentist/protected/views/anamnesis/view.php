@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
+
 $this->menu=array(
 	array('label'=>'List Anamnesis', 'url'=>array('index')),
 	array('label'=>'Create Anamnesis', 'url'=>array('create')),

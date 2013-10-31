@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'tbl_personal_history':
  * @property integer $id_tbl_personal_history
  * @property string $name_personal_history
- * @property string $Description
+ * @property string $description
  * @property integer $create_user_id
  * @property string $create_time
  * @property integer $update_user_id
@@ -35,10 +35,10 @@ class PersonalHistory extends CActiveRecord
 		return array(
 			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
 			array('name_personal_history', 'length', 'max'=>256),
-			array('Description, create_time, update_time', 'safe'),
+			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_personal_history, name_personal_history, Description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_personal_history, name_personal_history, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +62,7 @@ class PersonalHistory extends CActiveRecord
 		return array(
 			'id_tbl_personal_history' => 'Id Tbl Personal History',
 			'name_personal_history' => 'Name Personal History',
-			'Description' => 'Description',
+			'description' => 'Description',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -90,7 +90,7 @@ class PersonalHistory extends CActiveRecord
 
 		$criteria->compare('id_tbl_personal_history',$this->id_tbl_personal_history);
 		$criteria->compare('name_personal_history',$this->name_personal_history,true);
-		$criteria->compare('Description',$this->Description,true);
+		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_user_id',$this->update_user_id);

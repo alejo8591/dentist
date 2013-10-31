@@ -13,8 +13,8 @@
 	<?php echo CHtml::encode($data->name_personal_history); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Description')); ?>:</b>
-	<?php echo CHtml::encode($data->Description); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
+	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_user_id')); ?>:</b>
