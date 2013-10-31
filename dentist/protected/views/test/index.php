@@ -1,18 +1,18 @@
 <?php
-/* @var $this AnamnesisController */
+/* @var $this CityController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Anamnesises',
+	'Address',
 );
 
 $this->menu=array(
-	array('label'=>'Create Anamnesis', 'url'=>array('create')),
-	array('label'=>'Manage Anamnesis', 'url'=>array('admin')),
+	array('label'=>'Create City', 'url'=>array('create')),
+	array('label'=>'Manage City', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Anamnesises</h1>
+<h1>Test</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
