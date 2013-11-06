@@ -1,1 +1,0 @@
-<?php echo $this->renderPartial('_form', array('address'=>$address, 'city'=>$city)); ?>
