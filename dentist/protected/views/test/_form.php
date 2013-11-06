@@ -72,6 +72,38 @@
 		<?php echo $form->error($address,'description'); ?>
 	</div>
 
+ 	<h1>TABLA 2</h1>
+
+ 	<div class="row">
+		<?php echo $form->labelEx($address,'id_tbl_user'); ?>
+		<?php echo $form->textField($address,'id_tbl_user'); ?>
+		<?php echo $form->error($address,'id_tbl_user'); ?>
+	</div>
+
+ 	<div class="row">
+		<?php echo $form->labelEx($address,'id_tbl_anamnesis'); ?>
+		<?php echo $form->textField($address,'id_tbl_anamnesis'); ?>
+		<?php echo $form->error($address,'id_tbl_anamnesis'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($address,'type_address'); ?>
+		<?php echo $form->dropDownList($address,'type_address', $address->getTypeAddresses()); ?>
+		<?php echo $form->error($address,'type_address'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($address,'address'); ?>
+		<?php echo $form->textField($address,'address',array('size'=>60,'maxlength'=>256)); ?>
+		<?php echo $form->error($address,'address'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($address,'description'); ?>
+		<?php echo $form->textArea($address,'description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($address,'description'); ?>
+	</div>
+
     <div class="row buttons">
         <?php echo CHtml::submitButton($address->isNewRecord ? 'Create' : 'Save'); ?>
     </div>
