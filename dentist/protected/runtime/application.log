@@ -953,3 +953,13 @@ in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
 in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
 2013/11/06 19:43:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dentist.city' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `city`.
 in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/11/06 20:08:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('atm/create')
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dentist/dentist/index.php/atm/create
+---
