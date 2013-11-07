@@ -100,38 +100,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dentist`.`tbl_healt_institution`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `dentist`.`tbl_healt_institution` (
-  `id_tbl_healt_institution` INT NOT NULL AUTO_INCREMENT ,
-  `name_healt_institution` VARCHAR(128) NULL ,
-  `id_healt_institution` VARCHAR(45) NULL ,
-  `description` TEXT NULL ,
-  `create_user_id` VARCHAR(64) NULL ,
-  `create_time` DATETIME NULL ,
-  `update_user_id` VARCHAR(64) NULL ,
-  `update_time` DATETIME NULL ,
-  PRIMARY KEY (`id_tbl_healt_institution`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `dentist`.`tbl_healt_regimen`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dentist`.`tbl_healt_regimen` (
   `id_tbl_healt_regimen` INT NOT NULL AUTO_INCREMENT ,
-  `id_tbl_healt_institution` INT NOT NULL ,
   `name_healt_regimen` VARCHAR(128) NULL ,
   `description` TEXT NULL ,
   `create_user_id` VARCHAR(64) NULL ,
   `create_time` DATETIME NULL ,
   `update_user_id` VARCHAR(64) NULL ,
   `update_time` DATETIME NULL ,
-  PRIMARY KEY (`id_tbl_healt_regimen`) ,
-  INDEX `fk_tbl_healt_regimen_tbl_healt_institution1_idx` (`id_tbl_healt_institution` ASC) ,
-  CONSTRAINT `fk_tbl_healt_regimen_tbl_healt_institution`
-    FOREIGN KEY (`id_tbl_healt_institution` )
-    REFERENCES `dentist`.`tbl_healt_institution` (`id_tbl_healt_institution` )
+  PRIMARY KEY (`id_tbl_healt_regimen`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dentist`.`tbl_healt_institution`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `dentist`.`tbl_healt_institution` (
+  `id_tbl_healt_institution` INT NOT NULL AUTO_INCREMENT ,
+  `id_tbl_healt_regimen` INT NOT NULL ,
+  `name_healt_institution` VARCHAR(128) NULL ,
+  `id_healt_institution` VARCHAR(45) NULL ,
+  `description` TEXT NULL ,
+  `create_user_id` VARCHAR(64) NULL ,
+  `update_time` DATETIME NULL ,
+  `create_time` DATETIME NULL ,
+  `update_user_id` VARCHAR(64) NULL ,
+  PRIMARY KEY (`id_tbl_healt_institution`) ,
+  INDEX `fk_tbl_healt_institution_tbl_healt_regimen1_idx` (`id_tbl_healt_regimen` ASC) ,
+  CONSTRAINT `fk_tbl_healt_institution_tbl_healt_regimen1`
+    FOREIGN KEY (`id_tbl_healt_regimen` )
+    REFERENCES `dentist`.`tbl_healt_regimen` (`id_tbl_healt_regimen` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
