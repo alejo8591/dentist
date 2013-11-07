@@ -13,6 +13,8 @@ return array(
 	'theme'=>'classic',
 	//options languajes for app
 	'language'=>'es', 
+	//options languajes for source code app
+	 'sourceLanguage' => 'en_us',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
