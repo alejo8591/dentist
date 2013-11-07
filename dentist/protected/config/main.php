@@ -11,6 +11,8 @@ return array(
 
 	// themes adition 
 	'theme'=>'classic',
+	//options languajes for app
+	'language'=>'es', 
 
 	// preloading 'log' component
 	'preload'=>array('log'),

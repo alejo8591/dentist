@@ -58,6 +58,7 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username', 'required'),
+			array('id_document username email', 'unique'),
 			array('user_status, type_user, id_document', 'numerical', 'integerOnly'=>true),
 			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('type_document, email, password', 'length', 'max'=>128),
