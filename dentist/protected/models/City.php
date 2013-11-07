@@ -38,6 +38,7 @@ class City extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_tbl_country', 'required'),
+			array('city_code', 'unique'),
 			array('id_tbl_country, city_code', 'numerical', 'integerOnly'=>true),
 			array('name_city, postal_code', 'length', 'max'=>128),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
@@ -123,5 +124,15 @@ class City extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	/**
+	 * @return array of valid countries create for user
+	 */
+	public function getCountries()
+	{
+		$countries = new Country;
+		$userArray = CHtml::listData(Country::model()->findAll(array('order'=>'name_country')), 'id_tbl_country', 'name_country');
+		return $userArray;
 	}
 }

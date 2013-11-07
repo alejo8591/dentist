@@ -21,7 +21,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_tbl_country'); ?>
-		<?php echo $form->textField($model,'id_tbl_country'); ?>
+		<?php echo $form->dropDownList($model,'id_tbl_country', $model->getCountries()); ?>
 		<?php echo $form->error($model,'id_tbl_country'); ?>
 	</div>
 

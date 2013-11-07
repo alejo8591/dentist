@@ -36,7 +36,7 @@ class Country extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_country. country_code', 'required'),
+			array('name_country, country_code', 'required'),
 			array('country_code', 'unique'),
 			array('country_code', 'numerical', 'integerOnly'=>true),
 			array('name_country, postal_code', 'length', 'max'=>128),
