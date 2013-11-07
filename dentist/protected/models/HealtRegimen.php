@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_healt_regimen':
  * @property integer $id_tbl_healt_regimen
- * @property integer $id_tbl_healt_institution
  * @property string $name_healt_regimen
  * @property string $description
  * @property string $create_user_id
@@ -15,7 +14,7 @@
  *
  * The followings are the available model relations:
  * @property Anamnesis[] $anamnesises
- * @property HealtInstitution $idTblHealtInstitution
+ * @property HealtInstitution[] $healtInstitutions
  */
 class HealtRegimen extends CActiveRecord
 {
@@ -35,14 +34,12 @@ class HealtRegimen extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_healt_institution', 'required'),
-			array('id_tbl_healt_institution', 'numerical', 'integerOnly'=>true),
 			array('name_healt_regimen', 'length', 'max'=>128),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_healt_regimen, id_tbl_healt_institution, name_healt_regimen, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_healt_regimen, name_healt_regimen, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +52,7 @@ class HealtRegimen extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_healt_regimen'),
-			'idTblHealtInstitution' => array(self::BELONGS_TO, 'HealtInstitution', 'id_tbl_healt_institution'),
+			'healtInstitutions' => array(self::HAS_MANY, 'HealtInstitution', 'id_tbl_healt_regimen'),
 		);
 	}
 
@@ -66,7 +63,6 @@ class HealtRegimen extends CActiveRecord
 	{
 		return array(
 			'id_tbl_healt_regimen' => 'Id Tbl Healt Regimen',
-			'id_tbl_healt_institution' => 'Id Tbl Healt Institution',
 			'name_healt_regimen' => 'Name Healt Regimen',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
@@ -95,7 +91,6 @@ class HealtRegimen extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_healt_regimen',$this->id_tbl_healt_regimen);
-		$criteria->compare('id_tbl_healt_institution',$this->id_tbl_healt_institution);
 		$criteria->compare('name_healt_regimen',$this->name_healt_regimen,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id,true);

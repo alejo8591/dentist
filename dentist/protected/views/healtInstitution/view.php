@@ -22,12 +22,13 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id_tbl_healt_institution',
+		'id_tbl_healt_regimen',
 		'name_healt_institution',
 		'id_healt_institution',
 		'description',
 		'create_user_id',
+		'update_time',
 		'create_time',
 		'update_user_id',
-		'update_time',
 	),
 )); ?>

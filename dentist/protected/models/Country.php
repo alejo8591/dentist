@@ -36,7 +36,8 @@ class Country extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_country', 'required'),
+			array('name_country. country_code', 'required'),
+			array('country_code', 'unique'),
 			array('country_code', 'numerical', 'integerOnly'=>true),
 			array('name_country, postal_code', 'length', 'max'=>128),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
@@ -67,10 +68,10 @@ class Country extends CActiveRecord
 	{
 		return array(
 			'id_tbl_country' => 'Id Tbl Country',
-			'country_code' => 'Country Code',
-			'name_country' => 'Name Country',
-			'postal_code' => 'Postal Code',
-			'description' => 'Description',
+			'country_code' => 'Código del Pais',
+			'name_country' => 'Nombre del Pais',
+			'postal_code' => 'Codigo Postal',
+			'description' => 'Descripción',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

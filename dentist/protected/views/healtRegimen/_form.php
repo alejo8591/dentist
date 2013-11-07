@@ -20,12 +20,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_healt_institution'); ?>
-		<?php echo $form->textField($model,'id_tbl_healt_institution'); ?>
-		<?php echo $form->error($model,'id_tbl_healt_institution'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'name_healt_regimen'); ?>
 		<?php echo $form->textField($model,'name_healt_regimen',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'name_healt_regimen'); ?>

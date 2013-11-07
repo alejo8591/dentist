@@ -5,17 +5,18 @@
  *
  * The followings are the available columns in table 'tbl_healt_institution':
  * @property integer $id_tbl_healt_institution
+ * @property integer $id_tbl_healt_regimen
  * @property string $name_healt_institution
  * @property string $id_healt_institution
  * @property string $description
  * @property string $create_user_id
+ * @property string $update_time
  * @property string $create_time
  * @property string $update_user_id
- * @property string $update_time
  *
  * The followings are the available model relations:
  * @property Anamnesis[] $anamnesises
- * @property HealtRegimen[] $healtRegimens
+ * @property HealtRegimen $idTblHealtRegimen
  */
 class HealtInstitution extends CActiveRecord
 {
@@ -35,13 +36,15 @@ class HealtInstitution extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('id_tbl_healt_regimen', 'required'),
+			array('id_tbl_healt_regimen', 'numerical', 'integerOnly'=>true),
 			array('name_healt_institution', 'length', 'max'=>128),
 			array('id_healt_institution', 'length', 'max'=>45),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
-			array('description, create_time, update_time', 'safe'),
+			array('description, update_time, create_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_healt_institution, name_healt_institution, id_healt_institution, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_healt_institution, id_tbl_healt_regimen, name_healt_institution, id_healt_institution, description, create_user_id, update_time, create_time, update_user_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +57,7 @@ class HealtInstitution extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'anamnesises' => array(self::HAS_MANY, 'Anamnesis', 'id_tbl_healt_institution'),
-			'healtRegimens' => array(self::HAS_MANY, 'HealtRegimen', 'id_tbl_healt_institution'),
+			'idTblHealtRegimen' => array(self::BELONGS_TO, 'HealtRegimen', 'id_tbl_healt_regimen'),
 		);
 	}
 
@@ -65,13 +68,14 @@ class HealtInstitution extends CActiveRecord
 	{
 		return array(
 			'id_tbl_healt_institution' => 'Id Tbl Healt Institution',
+			'id_tbl_healt_regimen' => 'Id Tbl Healt Regimen',
 			'name_healt_institution' => 'Name Healt Institution',
 			'id_healt_institution' => 'Id Healt Institution',
 			'description' => 'Description',
 			'create_user_id' => 'Create User',
+			'update_time' => 'Update Time',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
-			'update_time' => 'Update Time',
 		);
 	}
 
@@ -94,13 +98,14 @@ class HealtInstitution extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_healt_institution',$this->id_tbl_healt_institution);
+		$criteria->compare('id_tbl_healt_regimen',$this->id_tbl_healt_regimen);
 		$criteria->compare('name_healt_institution',$this->name_healt_institution,true);
 		$criteria->compare('id_healt_institution',$this->id_healt_institution,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
+		$criteria->compare('update_time',$this->update_time,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_user_id',$this->update_user_id,true);
-		$criteria->compare('update_time',$this->update_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

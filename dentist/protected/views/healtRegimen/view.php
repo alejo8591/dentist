@@ -22,7 +22,6 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id_tbl_healt_regimen',
-		'id_tbl_healt_institution',
 		'name_healt_regimen',
 		'description',
 		'create_user_id',
