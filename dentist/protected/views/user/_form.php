@@ -27,26 +27,20 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'type_document'); ?>
-		<?php echo $form->textField($model,'type_document',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->dropDownList($model, 'type_document', $model->getTypeDocuments()); ?>
 		<?php echo $form->error($model,'type_document'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'user_status'); ?>
-		<?php echo $form->textField($model,'user_status'); ?>
-		<?php echo $form->error($model,'user_status'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'type_user'); ?>
-		<?php echo $form->textField($model,'type_user'); ?>
-		<?php echo $form->error($model,'type_user'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_document'); ?>
 		<?php echo $form->textField($model,'id_document'); ?>
 		<?php echo $form->error($model,'id_document'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'type_user'); ?>
+		<?php echo $form->dropDownList($model,'type_user', $model->getTypeUsers()); ?>
+		<?php echo $form->error($model,'type_user'); ?>
 	</div>
 
 	<div class="row">
@@ -59,36 +53,6 @@
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'password'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'last_login_time'); ?>
-		<?php echo $form->textField($model,'last_login_time'); ?>
-		<?php echo $form->error($model,'last_login_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'update_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
 	</div>
 
 	<div class="row buttons">

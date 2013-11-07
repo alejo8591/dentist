@@ -23,6 +23,25 @@
 class User extends CActiveRecord
 {
 	/**
+	* Constants for types of documents
+	*/
+	const TYPE_DOCUMENT     = 0;
+	const TYPE_ID = 1;
+	const TYPE_ID_FOREIGNER = 2;
+	const TYPE_PASSPORT     = 3;
+	const TYPE_REGISTER     = 4;
+	const TYPE_ID_MINOR     = 5;
+
+	/**
+	* Constants for types users
+	*/
+	const TYPE_USER  = 0;
+	const TYPE_USER_ADMINISTRATOR = 1;
+	const TYPE_USER_PATIENT       = 2;
+	const TYPE_USER_DENTIST       = 3;
+	const TYPE_USER_AUXILIAR      = 4;
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -67,11 +86,11 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'username' => 'Username',
-			'type_document' => 'Type Document',
+			'username' => 'Código Usuario',
+			'type_document' => 'Tipo Documento',
 			'user_status' => 'User Status',
-			'type_user' => 'Type User',
-			'id_document' => 'Id Document',
+			'type_user' => 'Tipo de Usuario',
+			'id_document' => 'Número Documento Identidad',
 			'email' => 'Email',
 			'password' => 'Password',
 			'last_login_time' => 'Last Login Time',
@@ -128,4 +147,34 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	/**
+	 * Returns array for options documents type for users
+	 * @return array $typeDocuments
+	 */
+	public function getTypeDocuments()
+	{
+		return array(
+				self::TYPE_DOCUMENT => 'Selecccione tipo de Documento',
+				self::TYPE_ID => 'Cédula de Ciudadania',
+				self::TYPE_ID_FOREIGNER => 'Cédula Extranjeria',
+				self::TYPE_PASSPORT => 'Pasaporte',
+				self::TYPE_REGISTER => 'Registro Civil',
+				self::TYPE_ID_MINOR => 'Tarjeta de Identidad',
+			);
+	}
+	/**
+	 * Returns array for options type for users
+	 * @return array $typeUsers
+	 */
+	public function getTypeUsers()
+	{
+		return array(
+				self::TYPE_USER => 'Selecccione tipo de Usuario',
+				self::TYPE_USER_ADMINISTRATOR => 'Administrador',
+				self::TYPE_USER_AUXILIAR => 'Auxiliar',
+				self::TYPE_USER_DENTIST => 'Odontologo',
+				self::TYPE_USER_PATIENT => 'Paciente',
+			);
+	}
+
 }
