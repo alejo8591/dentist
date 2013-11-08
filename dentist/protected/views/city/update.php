@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List City', 'url'=>array('index')),
-	array('label'=>'Create City', 'url'=>array('create')),
-	array('label'=>'View City', 'url'=>array('view', 'id'=>$model->id_tbl_city)),
-	array('label'=>'Manage City', 'url'=>array('admin')),
+	array('label'=>'Listar Ciudades', 'url'=>array('index')),
+	array('label'=>'Crear Ciudad', 'url'=>array('create')),
+	array('label'=>'Cer Ciudades', 'url'=>array('view', 'id'=>$model->id_tbl_city)),
+	array('label'=>'Administrar Ciudades', 'url'=>array('admin')),
 );
 ?>
 

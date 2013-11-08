@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List City', 'url'=>array('index')),
-	array('label'=>'Create City', 'url'=>array('create')),
-	array('label'=>'Update City', 'url'=>array('update', 'id'=>$model->id_tbl_city)),
-	array('label'=>'Delete City', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_city),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage City', 'url'=>array('admin')),
+	array('label'=>'Listar Ciudades', 'url'=>array('index')),
+	array('label'=>'Crear Ciudad', 'url'=>array('create')),
+	array('label'=>'Actualizar Ciudad', 'url'=>array('update', 'id'=>$model->id_tbl_city)),
+	array('label'=>'Eliminar Ciudad', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_city),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrador de Ciudades', 'url'=>array('admin')),
 );
 ?>
 
