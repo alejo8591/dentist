@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Country', 'url'=>array('index')),
-	array('label'=>'Create Country', 'url'=>array('create')),
-	array('label'=>'View Country', 'url'=>array('view', 'id'=>$model->id_tbl_country)),
-	array('label'=>'Manage Country', 'url'=>array('admin')),
+	array('label'=>'Listar Paises', 'url'=>array('index')),
+	array('label'=>'Crear País', 'url'=>array('create')),
+	array('label'=>'Ver País', 'url'=>array('view', 'id'=>$model->id_tbl_country)),
+	array('label'=>'Administrar Paises', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Country <?php echo $model->id_tbl_country; ?></h1>
+<h1>Actualizar País <?php echo $model->id_tbl_country; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

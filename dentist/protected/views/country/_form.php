@@ -19,8 +19,8 @@
 		<li><h4>Consultar código Postal en el siguiente <a href="www.mapanet.es">Link </a></h4></li>
 	</ul>	
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
+	<p class="note">Campos con el <span class="required">*</span> son obligatorios.</p>
+	
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">

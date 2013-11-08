@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Country', 'url'=>array('create')),
-	array('label'=>'Manage Country', 'url'=>array('admin')),
+	array('label'=>'Crear País', 'url'=>array('create')),
+	array('label'=>'Administrar Paises', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Countries</h1>
+<h1>Paises</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
