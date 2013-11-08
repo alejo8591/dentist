@@ -33,6 +33,7 @@ class Profession extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('name_profession, description', 'required'),
 			array('name_profession', 'length', 'max'=>45),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('description, create_time, update_time', 'safe'),
@@ -61,8 +62,8 @@ class Profession extends CActiveRecord
 	{
 		return array(
 			'id_tbl_profession' => 'Id Tbl Profession',
-			'name_profession' => 'Name Profession',
-			'description' => 'Description',
+			'name_profession' => 'Nombre de la Profesión',
+			'description' => 'Descripción',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

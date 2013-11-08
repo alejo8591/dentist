@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create LevelSchooling', 'url'=>array('create')),
-	array('label'=>'Manage LevelSchooling', 'url'=>array('admin')),
+	array('label'=>'Crear nivel de Escolaridad', 'url'=>array('create')),
+	array('label'=>'Administrar Niveles', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Level Schoolings</h1>
+<h1>Nivel de Escolaridad</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

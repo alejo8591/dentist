@@ -32,4 +32,32 @@ $cs->registerScriptFile('jquery.js');
 	<ul>
 		<li><a id="listCities">Lista de Ciudades</a></li>
 	</ul>
+	<h2>Gestion de Regimen de Salud</h2>
+	<ul>
+		<li><a id="createRegimen">Crear Regimen de Salud</a></li>
+	</ul>
+	<ul>
+		<li><a id="listRegimenes">Listar los Regimen de Salud</a></li>
+	</ul>
+	<h2>Gestion de Entidades Prestadoras de Salud</h2>
+	<ul>
+		<li><a id="createEntity">Crear Entidad Prestadora de Salud</a></li>
+	</ul>
+	<ul>
+		<li><a id="listEntities">Listar las Entidades Prestadoras de Salud</a></li>
+	</ul>
+	<h2>Gestion de Nivel de Escolaridad</h2>
+	<ul>
+		<li><a id="createLevelSchooling">Crear Nivel de Escolaridad</a></li>
+	</ul>
+	<ul>
+		<li><a id="listLevelSchooling">Listar Niveles de Escolaridad</a></li>
+	</ul>
+	<h2>Gestion de Profesiones</h2>
+	<ul>
+		<li><a id="createProfession">Crear Profesión</a></li>
+	</ul>
+	<ul>
+		<li><a id="listProfessions">Listar Profesiones</a></li>
+	</ul>
 </div>

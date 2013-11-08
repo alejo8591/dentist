@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Profession', 'url'=>array('index')),
-	array('label'=>'Manage Profession', 'url'=>array('admin')),
+	array('label'=>'Listar Profesiones', 'url'=>array('index')),
+	array('label'=>'Administrar Profesiones', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Profession</h1>
+<h1>Crear Profesión</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

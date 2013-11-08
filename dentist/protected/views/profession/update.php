@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Profession', 'url'=>array('index')),
-	array('label'=>'Create Profession', 'url'=>array('create')),
-	array('label'=>'View Profession', 'url'=>array('view', 'id'=>$model->id_tbl_profession)),
-	array('label'=>'Manage Profession', 'url'=>array('admin')),
+	array('label'=>'Listar Profesiones', 'url'=>array('index')),
+	array('label'=>'Crear Profesiones', 'url'=>array('create')),
+	array('label'=>'Ver Profesiones', 'url'=>array('view', 'id'=>$model->id_tbl_profession)),
+	array('label'=>'Administrar Profesiones', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Profession <?php echo $model->id_tbl_profession; ?></h1>
+<h1>Actualizar Profesión <?php echo $model->id_tbl_profession; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

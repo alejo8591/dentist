@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List LevelSchooling', 'url'=>array('index')),
-	array('label'=>'Create LevelSchooling', 'url'=>array('create')),
-	array('label'=>'View LevelSchooling', 'url'=>array('view', 'id'=>$model->id_tbl_level_schooling)),
-	array('label'=>'Manage LevelSchooling', 'url'=>array('admin')),
+	array('label'=>'Listar Niveles de Escolaridad', 'url'=>array('index')),
+	array('label'=>'Crear Nivel de Escolaridad', 'url'=>array('create')),
+	array('label'=>'Ver Nivel de Escolaridad', 'url'=>array('view', 'id'=>$model->id_tbl_level_schooling)),
+	array('label'=>'Administrar Niveles', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update LevelSchooling <?php echo $model->id_tbl_level_schooling; ?></h1>
+<h1>Actualizar Nivel de Escolaridad <?php echo $model->id_tbl_level_schooling; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

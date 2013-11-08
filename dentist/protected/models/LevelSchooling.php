@@ -33,6 +33,7 @@ class LevelSchooling extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('name_level_schooling, description', 'required'),
 			array('name_level_schooling', 'length', 'max'=>128),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('description, create_time, update_time', 'safe'),
@@ -61,8 +62,8 @@ class LevelSchooling extends CActiveRecord
 	{
 		return array(
 			'id_tbl_level_schooling' => 'Id Tbl Level Schooling',
-			'name_level_schooling' => 'Name Level Schooling',
-			'description' => 'Description',
+			'name_level_schooling' => 'Nombre del Nivel de Escolaridad',
+			'description' => 'Descripción',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

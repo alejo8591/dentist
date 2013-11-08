@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Profession', 'url'=>array('create')),
+	array('label'=>'Crear Profesión', 'url'=>array('create')),
 	array('label'=>'Manage Profession', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Professions</h1>
+<h1>Profesiones</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

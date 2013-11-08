@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List LevelSchooling', 'url'=>array('index')),
-	array('label'=>'Manage LevelSchooling', 'url'=>array('admin')),
+	array('label'=>'Listar Niveles de Escolaridad', 'url'=>array('index')),
+	array('label'=>'Administrar Niveles', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create LevelSchooling</h1>
+<h1>Crear Nivel de Escolaridad</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
