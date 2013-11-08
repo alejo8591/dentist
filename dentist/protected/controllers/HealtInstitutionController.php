@@ -65,7 +65,7 @@ class HealtInstitutionController extends Controller
 		$model=new HealtInstitution;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['HealtInstitution']))
 		{

@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List HealtRegimen', 'url'=>array('index')),
-	array('label'=>'Create HealtRegimen', 'url'=>array('create')),
-	array('label'=>'Update HealtRegimen', 'url'=>array('update', 'id'=>$model->id_tbl_healt_regimen)),
-	array('label'=>'Delete HealtRegimen', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_healt_regimen),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage HealtRegimen', 'url'=>array('admin')),
+	array('label'=>'Listar los Regimen', 'url'=>array('index')),
+	array('label'=>'Crear Regimen', 'url'=>array('create')),
+	array('label'=>'Actualizar Regimen', 'url'=>array('update', 'id'=>$model->id_tbl_healt_regimen)),
+	array('label'=>'Eliminar Regimen', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_healt_regimen),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar los Regimen', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View HealtRegimen #<?php echo $model->id_tbl_healt_regimen; ?></h1>
+<h1>Ver los Regimen de Salud #<?php echo $model->id_tbl_healt_regimen; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

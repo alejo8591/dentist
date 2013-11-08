@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create HealtRegimen', 'url'=>array('create')),
-	array('label'=>'Manage HealtRegimen', 'url'=>array('admin')),
+	array('label'=>'Crear Regimen', 'url'=>array('create')),
+	array('label'=>'Administrar los Regimen', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Healt Regimens</h1>
+<h1>Regimen de Salud Disponibles</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

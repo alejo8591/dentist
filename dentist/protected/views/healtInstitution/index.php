@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create HealtInstitution', 'url'=>array('create')),
-	array('label'=>'Manage HealtInstitution', 'url'=>array('admin')),
+	array('label'=>'Crear Entidad', 'url'=>array('create')),
+	array('label'=>'Administrar Entidades', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Healt Institutions</h1>
+<h1>Entidades Prestadoras de Salud</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

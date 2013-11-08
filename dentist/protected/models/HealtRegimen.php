@@ -63,8 +63,8 @@ class HealtRegimen extends CActiveRecord
 	{
 		return array(
 			'id_tbl_healt_regimen' => 'Id Tbl Healt Regimen',
-			'name_healt_regimen' => 'Name Healt Regimen',
-			'description' => 'Description',
+			'name_healt_regimen' => 'Nombre del regimen de Salud',
+			'description' => 'Descripción',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

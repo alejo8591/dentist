@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List HealtInstitution', 'url'=>array('index')),
-	array('label'=>'Create HealtInstitution', 'url'=>array('create')),
-	array('label'=>'Update HealtInstitution', 'url'=>array('update', 'id'=>$model->id_tbl_healt_institution)),
-	array('label'=>'Delete HealtInstitution', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_healt_institution),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage HealtInstitution', 'url'=>array('admin')),
+	array('label'=>'Listar Entidades', 'url'=>array('index')),
+	array('label'=>'Crear Entidad', 'url'=>array('create')),
+	array('label'=>'Actualizar Entidad', 'url'=>array('update', 'id'=>$model->id_tbl_healt_institution)),
+	array('label'=>'Eliminar Entidad', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_healt_institution),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Entidades', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View HealtInstitution #<?php echo $model->id_tbl_healt_institution; ?></h1>
+<h1>Ver Entidad Prestadora de Salud #<?php echo $model->id_tbl_healt_institution; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

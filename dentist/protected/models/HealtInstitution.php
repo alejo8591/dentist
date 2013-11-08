@@ -36,7 +36,8 @@ class HealtInstitution extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_healt_regimen', 'required'),
+			array('id_tbl_healt_regimen, name_healt_institution, id_healt_institution', 'required'),
+			array('id_tbl_healt_institution', 'unique'),
 			array('id_tbl_healt_regimen', 'numerical', 'integerOnly'=>true),
 			array('name_healt_institution', 'length', 'max'=>128),
 			array('id_healt_institution', 'length', 'max'=>45),
@@ -67,11 +68,11 @@ class HealtInstitution extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tbl_healt_institution' => 'Id Tbl Healt Institution',
-			'id_tbl_healt_regimen' => 'Id Tbl Healt Regimen',
-			'name_healt_institution' => 'Name Healt Institution',
-			'id_healt_institution' => 'Id Healt Institution',
-			'description' => 'Description',
+			'id_tbl_healt_institution' => 'Tipo de Regimen de Salud',
+			'id_tbl_healt_regimen' => 'Tipo de Regimen de Salud',
+			'name_healt_institution' => 'Nombre de la Institución Prestadora de Salud',
+			'id_healt_institution' => 'número (NIT, identificación) de la Institución',
+			'description' => 'Descripción',
 			'create_user_id' => 'Create User',
 			'update_time' => 'Update Time',
 			'create_time' => 'Create Time',
@@ -121,5 +122,15 @@ class HealtInstitution extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	/**
+	 * @return array of valid Healt Regimen
+	 */
+	public function getHealtRegimenes()
+	{
+		$countries = new Country;
+		$userArray = CHtml::listData(HealtRegimen::model()->findAll(array('order'=>'name_healt_regimen')), 'id_tbl_healt_regimen', 'name_healt_regimen');
+		return $userArray;
 	}
 }

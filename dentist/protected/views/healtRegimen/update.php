@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List HealtRegimen', 'url'=>array('index')),
-	array('label'=>'Create HealtRegimen', 'url'=>array('create')),
-	array('label'=>'View HealtRegimen', 'url'=>array('view', 'id'=>$model->id_tbl_healt_regimen)),
-	array('label'=>'Manage HealtRegimen', 'url'=>array('admin')),
+	array('label'=>'Listar los Regime', 'url'=>array('index')),
+	array('label'=>'Crear Regimen', 'url'=>array('create')),
+	array('label'=>'Ver Regimen', 'url'=>array('view', 'id'=>$model->id_tbl_healt_regimen)),
+	array('label'=>'Administrar los Regimen', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update HealtRegimen <?php echo $model->id_tbl_healt_regimen; ?></h1>
+<h1>Actualizar Regimen de Salud <?php echo $model->id_tbl_healt_regimen; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

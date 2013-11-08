@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List HealtRegimen', 'url'=>array('index')),
-	array('label'=>'Manage HealtRegimen', 'url'=>array('admin')),
+	array('label'=>'Listar los Regimen', 'url'=>array('index')),
+	array('label'=>'Administrar los Regimen', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create HealtRegimen</h1>
+<h1>Crear Regimen de Salud</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

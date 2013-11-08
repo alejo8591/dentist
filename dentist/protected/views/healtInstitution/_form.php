@@ -12,16 +12,16 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Campos con el <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_tbl_healt_regimen'); ?>
-		<?php echo $form->textField($model,'id_tbl_healt_regimen'); ?>
+		<?php echo $form->dropDownList($model,'id_tbl_healt_regimen', $model->getHealtRegimenes()); ?>
 		<?php echo $form->error($model,'id_tbl_healt_regimen'); ?>
 	</div>
 
@@ -41,30 +41,6 @@
 		<?php echo $form->labelEx($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'description'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'update_user_id'); ?>
 	</div>
 
 	<div class="row buttons">
