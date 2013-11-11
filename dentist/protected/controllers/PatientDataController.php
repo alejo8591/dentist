@@ -33,41 +33,41 @@ class PatientDataController extends Controller{
   	public function actionCreate()
    	{
 	      $anamnesis = new Anamnesis;
-	      $address = new Address;
-	      $phone = new Phone;
-	      $validAddress = true;
-	      $validPhone = true;
+	      $addresses = new Address;
+	      $phones = new Phone;
+	      $validAddresses = true;
+	      $validPhones = true;
 	      $validAnamnesis = true;
 
 	      if (isset($_POST['Anamnesis'], $_POST['Address'], $_POST['Phone'])) 
 	      {
 	      	$anamnesis->attributes = $_POST['Anamnesis'];
-	      	$address->attributes = $_POST['Address'];
-	      	$phone->attributes = $_POST['Phone'];
+	      	$addresses->attributes = $_POST['Address'];
+	      	$phones->attributes = $_POST['Phone'];
 
-	      	foreach ($address as $key => $value) {
+	      	foreach($addresses as $key => $value) {
 	      		$value->attributes = $_POST['Address'][$key];
-	      		$validAddress = $value->validate() && $validAddress;
+	      		$validAddresses = $value->validate() && $validAddresses;
 	      	}
 
-	      	foreach ($phone as $key => $value) {
-	      		$value->attributes = $_POST['Phone'][$key];
-	      		$validPhone = $value->validate() && $validPhone; 
+	      	foreach($phones as $i => $phone) {
+	      		$phone->attributes = $_POST['Phone'][$i];
+	      		$validPhones = $phone->validate() && $validPhones; 
 	      	}
 
 	      	$validAnamnesis = $anamnesis->validate() && $validAnamnesis;
 
-	      	if($validAnamnesis && $validPhone && $validAddress){
+	      	if($validAnamnesis && $validPhones && $validAddresses){
 	      		$anamnesis->save(false);
-	      		$address->save(false);
-	      		$phone->save(false);
+	      		$addresses->save(false);
+	      		$phones->save(false);
 	      	}
 	      }
 
 	      $this->render('create', array(
 	      	'anamnesis'=> $anamnesis,
-	      	'address' => $address,
-	      	'phone' => $phone,
+	      	'addresses' => $addresses,
+	      	'phones' => $phones,
 	      ));
 	}
 }

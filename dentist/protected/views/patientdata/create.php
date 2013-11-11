@@ -1,24 +1,6 @@
 <div class="form">
-<?php echo CHtml::beginForm()?>
 <ul class="phone">
-   <li>
-      <div class="row">
-         <?php echo CHtml::activeLabel($phone, "type_phone")?>
-         <?php echo CHtml::activeTextField($phone, "type_phone")?>
-      </div>
-      <div class="row">
-         <?php echo CHtml::activeLabel($phone, "phone")?>
-         <?php echo CHtml::activeTextField($phone, "phone")?>
-      </div> 
-      <div class="row">
-         <?php echo CHtml::activeLabel($phone, "phone_extension")?>
-         <?php echo CHtml::activeTextField($phone, "phone_extension")?>
-      </div> 
-      <div class="row">
-         <?php echo CHtml::activeLabel($phone, "description")?>
-         <?php echo CHtml::activeTextArea($phone, "description")?>
-      </div> 
-</li>
+      <?php $this->renderPartial('_phone', array('phones'=>$phones), false, true); ?>
 </div>
 <div class="row buttons">
    <?php echo CHtml::button('Add phone',
@@ -41,5 +23,4 @@
             });
          </script>
       </div>
-   <?php echo CHtml::endForm()?>
    </div>
