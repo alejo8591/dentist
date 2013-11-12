@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_social_habits':
  * @property integer $id_tbl_option_social_habits
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_personal_background
  * @property string $name_option_social_habits
  * @property integer $flag_option_social_habits
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property PersonalBackground $idTblPersonalBackground
- * @property PersonalBackground $username0
- * @property PersonalBackground $idTblAnamnesis
  */
 class OptionsSocialHabits extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class OptionsSocialHabits extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis, id_tbl_personal_background', 'required'),
-			array('id_tbl_anamnesis, id_tbl_personal_background, flag_option_social_habits', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_personal_background', 'required'),
+			array('id_tbl_personal_background, flag_option_social_habits', 'numerical', 'integerOnly'=>true),
 			array('name_option_social_habits', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_social_habits, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_social_habits, username, id_tbl_anamnesis, id_tbl_personal_background, name_option_social_habits, flag_option_social_habits, observation_option_social_habits, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_social_habits, id_tbl_personal_background, name_option_social_habits, flag_option_social_habits, observation_option_social_habits, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class OptionsSocialHabits extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPersonalBackground' => array(self::BELONGS_TO, 'PersonalBackground', 'id_tbl_personal_background'),
-			'username0' => array(self::BELONGS_TO, 'PersonalBackground', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PersonalBackground', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -71,8 +65,6 @@ class OptionsSocialHabits extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_social_habits' => 'Id Tbl Option Social Habits',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
 			'name_option_social_habits' => 'Name Option Social Habits',
 			'flag_option_social_habits' => 'Flag Option Social Habits',
@@ -103,8 +95,6 @@ class OptionsSocialHabits extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_social_habits',$this->id_tbl_option_social_habits);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_personal_background',$this->id_tbl_personal_background);
 		$criteria->compare('name_option_social_habits',$this->name_option_social_habits,true);
 		$criteria->compare('flag_option_social_habits',$this->flag_option_social_habits);

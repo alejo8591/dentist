@@ -6,8 +6,6 @@
  * The followings are the available columns in table 'tbl_options_oral_habits':
  * @property integer $id_tbl_option_oral_habits
  * @property integer $id_tbl_personal_background
- * @property integer $id_tbl_anamnesis
- * @property string $username
  * @property string $name_option_oral_habits
  * @property integer $flag_option_oral_habits
  * @property string $observation_option_oral_habits
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property PersonalBackground $idTblPersonalBackground
- * @property PersonalBackground $username0
- * @property PersonalBackground $idTblAnamnesis
  */
 class OptionsOralHabits extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class OptionsOralHabits extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_personal_background, id_tbl_anamnesis, username', 'required'),
-			array('id_tbl_personal_background, id_tbl_anamnesis, flag_option_oral_habits', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_personal_background', 'required'),
+			array('id_tbl_personal_background, flag_option_oral_habits', 'numerical', 'integerOnly'=>true),
 			array('name_option_oral_habits', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_oral_habits, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_oral_habits, id_tbl_personal_background, id_tbl_anamnesis, username, name_option_oral_habits, flag_option_oral_habits, observation_option_oral_habits, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_oral_habits, id_tbl_personal_background, name_option_oral_habits, flag_option_oral_habits, observation_option_oral_habits, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class OptionsOralHabits extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPersonalBackground' => array(self::BELONGS_TO, 'PersonalBackground', 'id_tbl_personal_background'),
-			'username0' => array(self::BELONGS_TO, 'PersonalBackground', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PersonalBackground', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -72,8 +66,6 @@ class OptionsOralHabits extends CActiveRecord
 		return array(
 			'id_tbl_option_oral_habits' => 'Id Tbl Option Oral Habits',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'username' => 'Username',
 			'name_option_oral_habits' => 'Name Option Oral Habits',
 			'flag_option_oral_habits' => 'Flag Option Oral Habits',
 			'observation_option_oral_habits' => 'Observation Option Oral Habits',
@@ -104,8 +96,6 @@ class OptionsOralHabits extends CActiveRecord
 
 		$criteria->compare('id_tbl_option_oral_habits',$this->id_tbl_option_oral_habits);
 		$criteria->compare('id_tbl_personal_background',$this->id_tbl_personal_background);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('name_option_oral_habits',$this->name_option_oral_habits,true);
 		$criteria->compare('flag_option_oral_habits',$this->flag_option_oral_habits);
 		$criteria->compare('observation_option_oral_habits',$this->observation_option_oral_habits,true);

@@ -29,7 +29,6 @@
  *
  * The followings are the available model relations:
  * @property Address[] $addresses
- * @property Address[] $addresses1
  * @property Country $idTblCountry
  * @property City $idTblCity
  * @property LevelSchooling $idTblLevelSchooling
@@ -38,21 +37,13 @@
  * @property HealtInstitution $idTblHealtInstitution
  * @property User $username0
  * @property Atm[] $atms
- * @property Atm[] $atms1
  * @property DentalExamination[] $dentalExaminations
- * @property DentalExamination[] $dentalExaminations1
  * @property Diagnosis[] $diagnosises
- * @property Diagnosis[] $diagnosises1
  * @property PeriodontalExamination[] $periodontalExaminations
- * @property PeriodontalExamination[] $periodontalExaminations1
  * @property PersonalBackground[] $personalBackgrounds
- * @property PersonalBackground[] $personalBackgrounds1
  * @property Phone[] $phones
- * @property Phone[] $phones1
  * @property PhysicalExamination[] $physicalExaminations
- * @property PhysicalExamination[] $physicalExaminations1
  * @property Prognosis[] $prognosises
- * @property Prognosis[] $prognosises1
  */
 class Anamnesis extends CActiveRecord
 {
@@ -92,7 +83,6 @@ class Anamnesis extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'addresses' => array(self::HAS_MANY, 'Address', 'id_tbl_anamnesis'),
-			'addresses1' => array(self::HAS_MANY, 'Address', 'username'),
 			'idTblCountry' => array(self::BELONGS_TO, 'Country', 'id_tbl_country'),
 			'idTblCity' => array(self::BELONGS_TO, 'City', 'id_tbl_city'),
 			'idTblLevelSchooling' => array(self::BELONGS_TO, 'LevelSchooling', 'id_tbl_level_schooling'),
@@ -101,21 +91,13 @@ class Anamnesis extends CActiveRecord
 			'idTblHealtInstitution' => array(self::BELONGS_TO, 'HealtInstitution', 'id_tbl_healt_institution'),
 			'username0' => array(self::BELONGS_TO, 'User', 'username'),
 			'atms' => array(self::HAS_MANY, 'Atm', 'id_tbl_anamnesis'),
-			'atms1' => array(self::HAS_MANY, 'Atm', 'username'),
 			'dentalExaminations' => array(self::HAS_MANY, 'DentalExamination', 'id_tbl_anamnesis'),
-			'dentalExaminations1' => array(self::HAS_MANY, 'DentalExamination', 'username'),
 			'diagnosises' => array(self::HAS_MANY, 'Diagnosis', 'id_tbl_anamnesis'),
-			'diagnosises1' => array(self::HAS_MANY, 'Diagnosis', 'username'),
 			'periodontalExaminations' => array(self::HAS_MANY, 'PeriodontalExamination', 'id_tbl_anamnesis'),
-			'periodontalExaminations1' => array(self::HAS_MANY, 'PeriodontalExamination', 'username'),
 			'personalBackgrounds' => array(self::HAS_MANY, 'PersonalBackground', 'id_tbl_anamnesis'),
-			'personalBackgrounds1' => array(self::HAS_MANY, 'PersonalBackground', 'username'),
 			'phones' => array(self::HAS_MANY, 'Phone', 'id_tbl_anamnesis'),
-			'phones1' => array(self::HAS_MANY, 'Phone', 'username'),
 			'physicalExaminations' => array(self::HAS_MANY, 'PhysicalExamination', 'id_tbl_anamnesis'),
-			'physicalExaminations1' => array(self::HAS_MANY, 'PhysicalExamination', 'username'),
 			'prognosises' => array(self::HAS_MANY, 'Prognosis', 'id_tbl_anamnesis'),
-			'prognosises1' => array(self::HAS_MANY, 'Prognosis', 'username'),
 		);
 	}
 
@@ -206,11 +188,4 @@ class Anamnesis extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
 }

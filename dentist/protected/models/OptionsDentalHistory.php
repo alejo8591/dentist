@@ -5,9 +5,7 @@
  *
  * The followings are the available columns in table 'tbl_options_dental_history':
  * @property integer $id_tbl_option_dental_history
- * @property string $username
  * @property integer $id_tbl_personal_background
- * @property integer $id_tbl_anamnesis
  * @property string $name_option_dental_history
  * @property integer $flag_option_dental_history
  * @property string $observation_option_dental_history
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property PersonalBackground $idTblPersonalBackground
- * @property PersonalBackground $username0
- * @property PersonalBackground $idTblAnamnesis
  */
 class OptionsDentalHistory extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class OptionsDentalHistory extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_personal_background, id_tbl_anamnesis', 'required'),
-			array('id_tbl_personal_background, id_tbl_anamnesis, flag_option_dental_history', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_personal_background', 'required'),
+			array('id_tbl_personal_background, flag_option_dental_history', 'numerical', 'integerOnly'=>true),
 			array('name_option_dental_history', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_dental_history, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_dental_history, username, id_tbl_personal_background, id_tbl_anamnesis, name_option_dental_history, flag_option_dental_history, observation_option_dental_history, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_dental_history, id_tbl_personal_background, name_option_dental_history, flag_option_dental_history, observation_option_dental_history, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class OptionsDentalHistory extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPersonalBackground' => array(self::BELONGS_TO, 'PersonalBackground', 'id_tbl_personal_background'),
-			'username0' => array(self::BELONGS_TO, 'PersonalBackground', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PersonalBackground', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -71,9 +65,7 @@ class OptionsDentalHistory extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_dental_history' => 'Id Tbl Option Dental History',
-			'username' => 'Username',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'name_option_dental_history' => 'Name Option Dental History',
 			'flag_option_dental_history' => 'Flag Option Dental History',
 			'observation_option_dental_history' => 'Observation Option Dental History',
@@ -103,9 +95,7 @@ class OptionsDentalHistory extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_dental_history',$this->id_tbl_option_dental_history);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_personal_background',$this->id_tbl_personal_background);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('name_option_dental_history',$this->name_option_dental_history,true);
 		$criteria->compare('flag_option_dental_history',$this->flag_option_dental_history);
 		$criteria->compare('observation_option_dental_history',$this->observation_option_dental_history,true);
