@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_dental_pieces':
  * @property integer $id_tbl_dental_piece
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_dental_examination
  * @property integer $number_dental_piece
  * @property string $state_dental_piece
@@ -20,8 +18,6 @@
  *
  * The followings are the available model relations:
  * @property DentalExamination $idTblDentalExamination
- * @property DentalExamination $username0
- * @property DentalExamination $idTblAnamnesis
  * @property TreatmentDecisionDentalPieces[] $treatmentDecisionDentalPieces
  */
 class DentalPieces extends CActiveRecord
@@ -42,15 +38,15 @@ class DentalPieces extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_dental_piece, username, id_tbl_anamnesis, id_tbl_dental_examination', 'required'),
-			array('id_tbl_dental_piece, id_tbl_anamnesis, id_tbl_dental_examination, number_dental_piece, flag_dental_piece', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_dental_piece, id_tbl_dental_examination', 'required'),
+			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece, flag_dental_piece', 'numerical', 'integerOnly'=>true),
 			array('state_dental_piece', 'length', 'max'=>256),
 			array('type_dental_piece', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_dental_piece, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_dental_piece, username, id_tbl_anamnesis, id_tbl_dental_examination, number_dental_piece, state_dental_piece, flag_dental_piece, type_dental_piece, observation_dental_piece, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece, state_dental_piece, flag_dental_piece, type_dental_piece, observation_dental_piece, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,8 +59,6 @@ class DentalPieces extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblDentalExamination' => array(self::BELONGS_TO, 'DentalExamination', 'id_tbl_dental_examination'),
-			'username0' => array(self::BELONGS_TO, 'DentalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'DentalExamination', 'id_tbl_anamnesis'),
 			'treatmentDecisionDentalPieces' => array(self::HAS_MANY, 'TreatmentDecisionDentalPieces', 'id_tbl_dental_piece'),
 		);
 	}
@@ -76,8 +70,6 @@ class DentalPieces extends CActiveRecord
 	{
 		return array(
 			'id_tbl_dental_piece' => 'Id Tbl Dental Piece',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_dental_examination' => 'Id Tbl Dental Examination',
 			'number_dental_piece' => 'Number Dental Piece',
 			'state_dental_piece' => 'State Dental Piece',
@@ -110,8 +102,6 @@ class DentalPieces extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_dental_piece',$this->id_tbl_dental_piece);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_dental_examination',$this->id_tbl_dental_examination);
 		$criteria->compare('number_dental_piece',$this->number_dental_piece);
 		$criteria->compare('state_dental_piece',$this->state_dental_piece,true);

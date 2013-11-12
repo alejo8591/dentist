@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_periodontal_risk_classification':
  * @property integer $id_tbl_periodontal_risk_classification
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_dental_examination
  * @property string $name_periodontal_risk_classification
  * @property integer $flag_periodontal_risk_classification
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property DentalExamination $idTblDentalExamination
- * @property DentalExamination $username0
- * @property DentalExamination $idTblAnamnesis
  */
 class PeriodontalRiskClassification extends CActiveRecord
 {
@@ -39,13 +35,13 @@ class PeriodontalRiskClassification extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_periodontal_risk_classification, username, id_tbl_anamnesis, id_tbl_dental_examination', 'required'),
-			array('id_tbl_periodontal_risk_classification, id_tbl_anamnesis, id_tbl_dental_examination, flag_periodontal_risk_classification', 'numerical', 'integerOnly'=>true),
-			array('username, name_periodontal_risk_classification, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_periodontal_risk_classification, id_tbl_dental_examination', 'required'),
+			array('id_tbl_periodontal_risk_classification, id_tbl_dental_examination, flag_periodontal_risk_classification', 'numerical', 'integerOnly'=>true),
+			array('name_periodontal_risk_classification, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_periodontal_risk_classification, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_periodontal_risk_classification, username, id_tbl_anamnesis, id_tbl_dental_examination, name_periodontal_risk_classification, flag_periodontal_risk_classification, observation_periodontal_risk_classification, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_periodontal_risk_classification, id_tbl_dental_examination, name_periodontal_risk_classification, flag_periodontal_risk_classification, observation_periodontal_risk_classification, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,8 +54,6 @@ class PeriodontalRiskClassification extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblDentalExamination' => array(self::BELONGS_TO, 'DentalExamination', 'id_tbl_dental_examination'),
-			'username0' => array(self::BELONGS_TO, 'DentalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'DentalExamination', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -70,8 +64,6 @@ class PeriodontalRiskClassification extends CActiveRecord
 	{
 		return array(
 			'id_tbl_periodontal_risk_classification' => 'Id Tbl Periodontal Risk Classification',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_dental_examination' => 'Id Tbl Dental Examination',
 			'name_periodontal_risk_classification' => 'Name Periodontal Risk Classification',
 			'flag_periodontal_risk_classification' => 'Flag Periodontal Risk Classification',
@@ -102,8 +94,6 @@ class PeriodontalRiskClassification extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_periodontal_risk_classification',$this->id_tbl_periodontal_risk_classification);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_dental_examination',$this->id_tbl_dental_examination);
 		$criteria->compare('name_periodontal_risk_classification',$this->name_periodontal_risk_classification,true);
 		$criteria->compare('flag_periodontal_risk_classification',$this->flag_periodontal_risk_classification);
