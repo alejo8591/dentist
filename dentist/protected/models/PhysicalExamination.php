@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_physical_examination':
  * @property integer $id_tbl_physical_examination
- * @property string $username
  * @property integer $id_tbl_anamnesis
  * @property string $create_user_id
  * @property string $create_time
@@ -14,22 +13,11 @@
  *
  * The followings are the available model relations:
  * @property OptionsExtraoralExamination[] $optionsExtraoralExaminations
- * @property OptionsExtraoralExamination[] $optionsExtraoralExaminations1
- * @property OptionsExtraoralExamination[] $optionsExtraoralExaminations2
  * @property OptionsLymphadenopathy[] $optionsLymphadenopathies
- * @property OptionsLymphadenopathy[] $optionsLymphadenopathies1
- * @property OptionsLymphadenopathy[] $optionsLymphadenopathies2
  * @property OptionsNeck[] $optionsNecks
- * @property OptionsNeck[] $optionsNecks1
- * @property OptionsNeck[] $optionsNecks2
  * @property OptionsSystems[] $optionsSystems
- * @property OptionsSystems[] $optionsSystems1
- * @property OptionsSystems[] $optionsSystems2
- * @property OptionsVital signs[] $optionsVital signs
- * @property OptionsVital signs[] $optionsVital signs1
- * @property OptionsVital signs[] $optionsVital signs2
+ * @property OptionsVitalSigns[] $optionsVitalSigns
  * @property Anamnesis $idTblAnamnesis
- * @property Anamnesis $username0
  */
 class PhysicalExamination extends CActiveRecord
 {
@@ -49,13 +37,13 @@ class PhysicalExamination extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis', 'required'),
+			array('id_tbl_anamnesis', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_physical_examination, username, id_tbl_anamnesis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_physical_examination, id_tbl_anamnesis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,22 +56,11 @@ class PhysicalExamination extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'optionsExtraoralExaminations' => array(self::HAS_MANY, 'OptionsExtraoralExamination', 'id_tbl_physical_examination'),
-			'optionsExtraoralExaminations1' => array(self::HAS_MANY, 'OptionsExtraoralExamination', 'username'),
-			'optionsExtraoralExaminations2' => array(self::HAS_MANY, 'OptionsExtraoralExamination', 'id_tbl_anamnesis'),
 			'optionsLymphadenopathies' => array(self::HAS_MANY, 'OptionsLymphadenopathy', 'id_tbl_physical_examination'),
-			'optionsLymphadenopathies1' => array(self::HAS_MANY, 'OptionsLymphadenopathy', 'username'),
-			'optionsLymphadenopathies2' => array(self::HAS_MANY, 'OptionsLymphadenopathy', 'id_tbl_anamnesis'),
 			'optionsNecks' => array(self::HAS_MANY, 'OptionsNeck', 'id_tbl_physical_examination'),
-			'optionsNecks1' => array(self::HAS_MANY, 'OptionsNeck', 'username'),
-			'optionsNecks2' => array(self::HAS_MANY, 'OptionsNeck', 'id_tbl_anamnesis'),
 			'optionsSystems' => array(self::HAS_MANY, 'OptionsSystems', 'id_tbl_physical_examination'),
-			'optionsSystems1' => array(self::HAS_MANY, 'OptionsSystems', 'username'),
-			'optionsSystems2' => array(self::HAS_MANY, 'OptionsSystems', 'id_tbl_anamnesis'),
-			'optionsVital signs' => array(self::HAS_MANY, 'OptionsVital signs', 'id_tbl_physical_examination'),
-			'optionsVital signs1' => array(self::HAS_MANY, 'OptionsVital signs', 'username'),
-			'optionsVital signs2' => array(self::HAS_MANY, 'OptionsVital signs', 'id_tbl_anamnesis'),
+			'optionsVitalSigns' => array(self::HAS_MANY, 'OptionsVitalSigns', 'id_tbl_physical_examination'),
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
-			'username0' => array(self::BELONGS_TO, 'Anamnesis', 'username'),
 		);
 	}
 
@@ -94,7 +71,6 @@ class PhysicalExamination extends CActiveRecord
 	{
 		return array(
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
-			'username' => 'Username',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -122,7 +98,6 @@ class PhysicalExamination extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_physical_examination',$this->id_tbl_physical_examination);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
 		$criteria->compare('create_time',$this->create_time,true);

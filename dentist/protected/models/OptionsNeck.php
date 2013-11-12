@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_neck':
  * @property integer $id_tbl_option_neck
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_physical_examination
  * @property string $name_option_neck
  * @property integer $flag_option_neck
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property PhysicalExamination $idTblPhysicalExamination
- * @property PhysicalExamination $username0
- * @property PhysicalExamination $idTblAnamnesis
  */
 class OptionsNeck extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class OptionsNeck extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis, id_tbl_physical_examination', 'required'),
-			array('id_tbl_anamnesis, id_tbl_physical_examination, flag_option_neck', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_physical_examination', 'required'),
+			array('id_tbl_physical_examination, flag_option_neck', 'numerical', 'integerOnly'=>true),
 			array('name_option_neck', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_neck, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_neck, username, id_tbl_anamnesis, id_tbl_physical_examination, name_option_neck, flag_option_neck, observation_option_neck, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_neck, id_tbl_physical_examination, name_option_neck, flag_option_neck, observation_option_neck, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class OptionsNeck extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPhysicalExamination' => array(self::BELONGS_TO, 'PhysicalExamination', 'id_tbl_physical_examination'),
-			'username0' => array(self::BELONGS_TO, 'PhysicalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PhysicalExamination', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -71,8 +65,6 @@ class OptionsNeck extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_neck' => 'Id Tbl Option Neck',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
 			'name_option_neck' => 'Name Option Neck',
 			'flag_option_neck' => 'Flag Option Neck',
@@ -103,8 +95,6 @@ class OptionsNeck extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_neck',$this->id_tbl_option_neck);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_physical_examination',$this->id_tbl_physical_examination);
 		$criteria->compare('name_option_neck',$this->name_option_neck,true);
 		$criteria->compare('flag_option_neck',$this->flag_option_neck);

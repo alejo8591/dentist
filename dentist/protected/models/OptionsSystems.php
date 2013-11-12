@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_systems':
  * @property integer $id_tbl_option_systems
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_physical_examination
  * @property string $name_option_systems
  * @property integer $flag_option_systems
@@ -19,8 +17,6 @@
  *
  * The followings are the available model relations:
  * @property PhysicalExamination $idTblPhysicalExamination
- * @property PhysicalExamination $username0
- * @property PhysicalExamination $idTblAnamnesis
  */
 class OptionsSystems extends CActiveRecord
 {
@@ -40,14 +36,14 @@ class OptionsSystems extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis, id_tbl_physical_examination', 'required'),
-			array('id_tbl_anamnesis, id_tbl_physical_examination, flag_option_systems', 'numerical', 'integerOnly'=>true),
-			array('username, type_option_systems, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_physical_examination', 'required'),
+			array('id_tbl_physical_examination, flag_option_systems', 'numerical', 'integerOnly'=>true),
 			array('name_option_systems', 'length', 'max'=>128),
+			array('type_option_systems, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_systems, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_systems, username, id_tbl_anamnesis, id_tbl_physical_examination, name_option_systems, flag_option_systems, type_option_systems, observation_option_systems, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_systems, id_tbl_physical_examination, name_option_systems, flag_option_systems, type_option_systems, observation_option_systems, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +56,6 @@ class OptionsSystems extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPhysicalExamination' => array(self::BELONGS_TO, 'PhysicalExamination', 'id_tbl_physical_examination'),
-			'username0' => array(self::BELONGS_TO, 'PhysicalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PhysicalExamination', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -72,8 +66,6 @@ class OptionsSystems extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_systems' => 'Id Tbl Option Systems',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
 			'name_option_systems' => 'Name Option Systems',
 			'flag_option_systems' => 'Flag Option Systems',
@@ -105,8 +97,6 @@ class OptionsSystems extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_systems',$this->id_tbl_option_systems);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_physical_examination',$this->id_tbl_physical_examination);
 		$criteria->compare('name_option_systems',$this->name_option_systems,true);
 		$criteria->compare('flag_option_systems',$this->flag_option_systems);
