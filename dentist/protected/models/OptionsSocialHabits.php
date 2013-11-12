@@ -20,6 +20,12 @@
 class OptionsSocialHabits extends CActiveRecord
 {
 	/**
+	 * Constants for type for Options response
+	 */
+	const TYPE_OPTIONS     = 0;
+	const TYPE_OPTIONS_YES = 1;
+	const TYPE_OPTIONS_NO  = 2;
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -119,4 +125,21 @@ class OptionsSocialHabits extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+	public function behaviors()
+    {
+        return array('ESaveRelatedBehavior' => array(
+                'class' => 'application.components.ESaveRelatedBehavior')
+        );
+    }
+
+    public function getOptions()
+    {
+    	return array(
+    		slef::TYPE_OPTIONS  => 'Seleccione una Opción'
+    		self::TYPE_OPTIONS_YES => 'Sí',
+    		self::TYPE_OPTIONS_NO =>'No',
+    	);
+    }
 }

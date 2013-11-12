@@ -16,6 +16,7 @@ class PersonalBackgroundController extends Controller
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+			'ajaxOnly + loadOptionsSocialHabitsByAjax',
 		);
 	}
 
@@ -32,7 +33,7 @@ class PersonalBackgroundController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadOptionsSocialHabitsByAjax'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,13 +66,22 @@ class PersonalBackgroundController extends Controller
 		$model=new PersonalBackground;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['PersonalBackground']))
 		{
-			$model->attributes=$_POST['PersonalBackground'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_personal_background));
+			$model->attributes = $_POST['PersonalBackground'];
+
+			if (isset($_POST['OptionsSocialHabits'])) 
+			{
+				$model->optionsSocialHabits = $_POST['OptionsSocialHabits'];
+				$model->saveWithRelated('optionsSocialHabits');
+
+			}	
+			if ($model->save()) 
+			{
+				$this->redirect(array('view', 'id'=>$model->id_tbl_personal_background));
+			}	
 		}
 
 		$this->render('create',array(
@@ -170,4 +180,17 @@ class PersonalBackgroundController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * @return Object with renderPartial for Options Social Habits for user
+	 */
+	public function actionLoadOptionsSocialHabitsByAjax($index)
+	{
+		$model = new OptionsSocialHabits;
+		$this->renderPartial('_optionssocialhabits', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
 }

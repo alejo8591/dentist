@@ -138,7 +138,7 @@
             ));
         endforeach;
         ?>
-    </div> 
+  </div> 
    <div>
       <?php echo CHtml::link('Agregar Dirección(es)', '#', array('id' => 'loadAddressByAjax')); ?>
    </div>

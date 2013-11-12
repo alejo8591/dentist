@@ -73,7 +73,7 @@ class PersonalBackground extends CActiveRecord
 	{
 		return array(
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
+			'id_tbl_anamnesis' => 'Identificación del Paciente',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -120,5 +120,22 @@ class PersonalBackground extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function behaviors()
+    {
+        return array('ESaveRelatedBehavior' => array(
+                'class' => 'application.components.ESaveRelatedBehavior')
+        );
+    }
+
+
+	/**
+	 * @return array of valid anamnesis creates
+	 */
+	public function getAnamnesies()
+	{
+		$userArray = CHtml::listData(Anamnesis::model()->findAll(array('order'=>'username')), 'username', 'username');
+		return $userArray;
 	}
 }

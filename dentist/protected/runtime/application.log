@@ -3795,3 +3795,59 @@ Stack trace:
 REQUEST_URI=/dentist/dentist/index.php/patientdata/6
 HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
 ---
+2013/11/12 14:08:16 [error] [exception.CException] exception 'CException' with message 'PersonalBackground y sus behaviors no tienen un método o closure llamado "getAnamnesies".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getAnamnesies', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/_form.php(24): CActiveRecord->__call('getAnamnesies', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/_form.php(24): PersonalBackground->getAnamnesies()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/create.php(18): CController->renderPartial('_form', Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#11 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php(79): CController->render('create', Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): PersonalBackgroundController->actionCreate()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#22 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#23 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/create
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground
+---
+2013/11/12 15:11:38 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_personal_background`, CONSTRAINT `fk_tbl_personal_background_tbl_anamnesis1` FOREIGN KEY (`id_tbl_anamnesis`) REFERENCES `tbl_anamnesis` (`id_tbl_anamnesis`) ON DELETE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `tbl_personal_background` (`id_tbl_anamnesis`) VALUES (:yp0).
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php (73)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/11/12 15:11:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`dentist`.`tbl_personal_background`, CONSTRAINT `fk_tbl_personal_background_tbl_anamnesis1` FOREIGN KEY (`id_tbl_anamnesis`) REFERENCES `tbl_anamnesis` (`id_tbl_anamnesis`) ON DELETE NO ACTION). The SQL statement executed was: INSERT INTO `tbl_personal_background` (`id_tbl_anamnesis`) VALUES (:yp0)' in /Applications/MAMP/htdocs/dentist/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php(73): CActiveRecord->save()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): PersonalBackgroundController->actionCreate()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/create
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground/create
+---
