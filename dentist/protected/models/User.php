@@ -23,8 +23,8 @@
 class User extends CActiveRecord
 {
 	/**
-	* Constants for types of documents
-	*/
+	 * Constants for types of documents
+	 */
 	const TYPE_DOCUMENT     = 0;
 	const TYPE_ID = 1;
 	const TYPE_ID_FOREIGNER = 2;
@@ -33,8 +33,8 @@ class User extends CActiveRecord
 	const TYPE_ID_MINOR     = 5;
 
 	/**
-	* Constants for types users
-	*/
+	 * Constants for types users
+	 */
 	const TYPE_USER  = 0;
 	const TYPE_USER_ADMINISTRATOR = 1;
 	const TYPE_USER_PATIENT       = 2;

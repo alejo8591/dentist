@@ -57,25 +57,25 @@
 
   <div class="row">
     <?php echo $form->labelEx($model,'id_tbl_country'); ?>
-    <?php echo $form->textField($model,'id_tbl_country'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_country', $model->getCountries()); ?>
     <?php echo $form->error($model,'id_tbl_country'); ?>
   </div>
 
   <div class="row">
     <?php echo $form->labelEx($model,'id_tbl_city'); ?>
-    <?php echo $form->textField($model,'id_tbl_city'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_city', $model->getCities()); ?>
     <?php echo $form->error($model,'id_tbl_city'); ?>
   </div>
 
   <div class="row">
     <?php echo $form->labelEx($model,'id_tbl_level_schooling'); ?>
-    <?php echo $form->textField($model,'id_tbl_level_schooling'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_level_schooling', $model->getLevelSchooling()); ?>
     <?php echo $form->error($model,'id_tbl_level_schooling'); ?>
   </div>
 
   <div class="row">
     <?php echo $form->labelEx($model,'id_tbl_profession'); ?>
-    <?php echo $form->textField($model,'id_tbl_profession'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_profession', $model->getProfessions()); ?>
     <?php echo $form->error($model,'id_tbl_profession'); ?>
   </div>
 
@@ -93,13 +93,13 @@
 
   <div class="row">
     <?php echo $form->labelEx($model,'id_tbl_healt_regimen'); ?>
-    <?php echo $form->textField($model,'id_tbl_healt_regimen'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_healt_regimen', $model->getHealtRegimen()); ?>
     <?php echo $form->error($model,'id_tbl_healt_regimen'); ?>
   </div>
 
   <div class="row">
     <?php echo $form->labelEx($model,'id_tbl_healt_institution'); ?>
-    <?php echo $form->textField($model,'id_tbl_healt_institution'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_healt_institution', $model->getHealtInstitutions()); ?>
     <?php echo $form->error($model,'id_tbl_healt_institution'); ?>
   </div>
 

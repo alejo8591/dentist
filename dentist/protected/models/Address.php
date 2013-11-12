@@ -20,6 +20,13 @@
 class Address extends CActiveRecord
 {
 	/**
+	 * Constants for type address
+	 */
+	const TYPE_ADDRESS    = 0;
+	const TYPE_HOME       = 1;
+	const TYPE_OFFICE     = 2;
+	const TYPE_FAMILY     = 3;
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -126,4 +133,17 @@ class Address extends CActiveRecord
                 'class' => 'application.components.ESaveRelatedBehavior')
         );
     }
+
+    /**
+	 * @return array of valid type of Address create for user
+	 */
+	public function getTypeAddress()
+	{
+		
+		return array(
+			self::TYPE_ADDRESS => 'Tipo de Dirección',
+			self::TYPE_HOME => 'Hogar o Casa',
+			self::TYPE_OFFICE => 'Oficina o Trabajo',
+		);
+	}	
 }

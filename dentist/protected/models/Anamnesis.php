@@ -48,6 +48,13 @@
 class Anamnesis extends CActiveRecord
 {
 	/**
+	 * Constants for type address
+	 */
+	const TYPE_ADDRESS    = 0;
+	const TYPE_HOME       = 1;
+	const TYPE_OFFICE     = 2;
+	const TYPE_FAMILY     = 3;
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -195,4 +202,71 @@ class Anamnesis extends CActiveRecord
                 'class' => 'application.components.ESaveRelatedBehavior')
         );
     }
+
+    /**
+	 * @return array of valid countries create for user
+	 */
+	public function getCountries()
+	{
+		$userArray = CHtml::listData(Country::model()->findAll(array('order'=>'name_country')), 'id_tbl_country', 'name_country');
+		return $userArray;
+	}
+
+	/**
+	 * @return array of valid cities create for user
+	 */
+	public function getCities()
+	{
+		$userArray = CHtml::listData(City::model()->findAll(array('order'=>'name_city')), 'id_tbl_city', 'name_city');
+		return $userArray;
+	}
+
+	/**
+	 * @return array of valid level of Schooling create for user
+	 */
+	public function getLevelSchooling()
+	{
+		$userArray = CHtml::listData(LevelSchooling::model()->findAll(array('order'=>'name_level_schooling')), 'id_tbl_level_schooling', 'name_level_schooling');
+		return $userArray;
+	}
+
+	/**
+	 * @return array of valid level of Schooling create for user
+	 */
+	public function getProfessions()
+	{
+		$userArray = CHtml::listData(Profession::model()->findAll(array('order'=>'name_profession')), 'id_tbl_profession', 'name_profession');
+		return $userArray;
+	}
+
+	/**
+	 * @return array of valid level of Schooling create for user
+	 */
+	public function getHealtRegimen()
+	{
+		$userArray = CHtml::listData(HealtRegimen::model()->findAll(array('order'=>'name_healt_regimen')), 'id_tbl_healt_regimen', 'name_healt_regimen');
+		return $userArray;
+	}	
+
+	/**
+	 * @return array of valid level of Schooling create for user
+	 */
+	public function getHealtInstitutions()
+	{
+		$userArray = CHtml::listData(HealtInstitution::model()->findAll(array('order'=>'name_healt_institution')), 'id_tbl_healt_institution', 'name_healt_institution');
+		return $userArray;
+	}	
+
+	/**
+	 * @return array of valid level of Schooling create for user
+	 */
+	public function getTypeAddress()
+	{
+		
+		return array(
+			self::TYPE_ADDRESS => 'Tipo de Dirección',
+			self::TYPE_HOME => 'Hogar o Casa',
+			self::TYPE_OFFICE => 'Oficina o Trabajo',
+		);
+	}	
 }

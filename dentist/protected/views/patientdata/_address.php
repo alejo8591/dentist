@@ -1,6 +1,6 @@
 <div class="row">
 	<?php echo CHtml::activeLabelEx($model,'['.$index.']type_address'); ?>
-	<?php echo CHtml::activeTextField($model,'['.$index.']type_address',array('size'=>60,'maxlength'=>64)); ?>
+	<?php echo CHtml::activeDropDownList($model,'['.$index.']type_address',$model->getTypeAddress()); ?>
 	<?php echo CHtml::error($model,'type_address'); ?>
 </div>
 
