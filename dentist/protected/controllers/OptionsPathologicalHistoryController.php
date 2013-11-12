@@ -1,6 +1,6 @@
 <?php
 
-class OptionsPersonalBackgroundController extends Controller
+class OptionsPathologicalHistoryController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,16 +62,16 @@ class OptionsPersonalBackgroundController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new OptionsPersonalBackground;
+		$model=new OptionsPathologicalHistory;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OptionsPersonalBackground']))
+		if(isset($_POST['OptionsPathologicalHistory']))
 		{
-			$model->attributes=$_POST['OptionsPersonalBackground'];
+			$model->attributes=$_POST['OptionsPathologicalHistory'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_option_personal_background));
+				$this->redirect(array('view','id'=>$model->id_tbl_option_pathological_history));
 		}
 
 		$this->render('create',array(
@@ -91,11 +91,11 @@ class OptionsPersonalBackgroundController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OptionsPersonalBackground']))
+		if(isset($_POST['OptionsPathologicalHistory']))
 		{
-			$model->attributes=$_POST['OptionsPersonalBackground'];
+			$model->attributes=$_POST['OptionsPathologicalHistory'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_option_personal_background));
+				$this->redirect(array('view','id'=>$model->id_tbl_option_pathological_history));
 		}
 
 		$this->render('update',array(
@@ -122,7 +122,7 @@ class OptionsPersonalBackgroundController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('OptionsPersonalBackground');
+		$dataProvider=new CActiveDataProvider('OptionsPathologicalHistory');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class OptionsPersonalBackgroundController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new OptionsPersonalBackground('search');
+		$model=new OptionsPathologicalHistory('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['OptionsPersonalBackground']))
-			$model->attributes=$_GET['OptionsPersonalBackground'];
+		if(isset($_GET['OptionsPathologicalHistory']))
+			$model->attributes=$_GET['OptionsPathologicalHistory'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class OptionsPersonalBackgroundController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return OptionsPersonalBackground the loaded model
+	 * @return OptionsPathologicalHistory the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=OptionsPersonalBackground::model()->findByPk($id);
+		$model=OptionsPathologicalHistory::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class OptionsPersonalBackgroundController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param OptionsPersonalBackground $model the model to be validated
+	 * @param OptionsPathologicalHistory $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='options-personal-background-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='options-pathological-history-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

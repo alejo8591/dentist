@@ -1,13 +1,20 @@
 <?php
 /* @var $this OptionsDentalHistoryController */
+/* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Options Dental History',
+	'Options Dental Histories',
+);
+
+$this->menu=array(
+	array('label'=>'Create OptionsDentalHistory', 'url'=>array('create')),
+	array('label'=>'Manage OptionsDentalHistory', 'url'=>array('admin')),
 );
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
 
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
+<h1>Options Dental Histories</h1>
+
+<?php $this->widget('zii.widgets.CListView', array(
+	'dataProvider'=>$dataProvider,
+	'itemView'=>'_view',
+)); ?>
