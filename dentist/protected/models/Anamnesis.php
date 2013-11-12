@@ -83,7 +83,7 @@ class Anamnesis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username', 'required'),
+			array('username, occupation, name, surname, date_birth, place_of_birth, genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, occupation, contact, id_tbl_healt_regimen, id_tbl_healt_institution, description_healt, family_history', 'required'),
 			array('genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, id_tbl_healt_regimen, id_tbl_healt_institution', 'numerical', 'integerOnly'=>true),
 			array('username, occupation, contact, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('name, surname, place_of_birth', 'length', 'max'=>128),

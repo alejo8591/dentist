@@ -43,7 +43,7 @@ class Phone extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis', 'required'),
+			array('type_phone, phone, description', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
 			array('type_phone, phone, phone_extension, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('description, create_time, update_time', 'safe'),

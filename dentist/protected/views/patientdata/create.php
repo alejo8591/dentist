@@ -2,12 +2,12 @@
    <?php 
       Yii::app()->clientScript->registerCoreScript('jquery');
       $form=$this->beginWidget('CActiveForm', array(
-      'id'=>'patienDataController-form',
+      'id'=>'patienData-form',
       // Please note: When you enable ajax validation, make sure the corresponding
       // controller action is handling ajax validation correctly.
       // There is a call to performAjaxValidation() commented in generated controller code.
       // See class documentation of CActiveForm for details on this.
-      'enableAjaxValidation'=>false,
+      'enableAjaxValidation'=>true,
    )); ?>
 
    <p class="note">Campos con el <span class="required">*</span> son obligatorios.</p>
@@ -170,7 +170,7 @@
       Yii::app()->clientScript->registerScript('loadscripts', '
       var _index = ' . $index . ';
       $("#loadAddressByAjax").click(function(e){
-         //e.preventDefault();
+         e.preventDefault();
          var _url = "' . Yii::app()->controller->createUrl("loadAddressByAjax", array("load_for_one" => $this->action->id)) . '&index="+_index;
          $.ajax({
             url: _url,
@@ -187,7 +187,7 @@
 
       var __index = ' . $index . ';
       $("#loadPhoneByAjax").click(function(e){
-         //e.preventDefault();
+         e.preventDefault();
          var __url = "' . Yii::app()->controller->createUrl("loadPhoneByAjax", array("load_for_two" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
