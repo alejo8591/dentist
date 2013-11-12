@@ -45,8 +45,7 @@
                                 'showAnim' => 'slideDown',
                                 ),
               'htmlOptions'=>array('size'=>30,'class'=>'date'),
-        )
-      );
+              ));
     ?>
       <?php echo $form->error($model,'date_birth'); ?>
   </div>
