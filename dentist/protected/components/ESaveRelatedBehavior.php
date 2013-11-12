@@ -289,6 +289,7 @@ class ESaveRelatedBehavior extends CActiveRecordBehavior
 		if ($t && !$result) {
 		    $t->rollback(); // rollback on errors if transaction was started in this behavior
 		}
-		return $result;
+		
+        return $result;
 	}
 }
