@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_diagnosis':
  * @property integer $id_tbl_option_diagnosis
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_diagnosis
  * @property string $name_option_diagnosis
  * @property integer $type_option_diagnosis
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property Diagnosis $idTblDiagnosis
- * @property Diagnosis $username0
- * @property Diagnosis $idTblAnamnesis
  */
 class OptionsDiagnosis extends CActiveRecord
 {
@@ -39,15 +35,15 @@ class OptionsDiagnosis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_option_diagnosis, username, id_tbl_anamnesis, id_tbl_diagnosis', 'required'),
-			array('id_tbl_option_diagnosis, id_tbl_anamnesis, id_tbl_diagnosis, type_option_diagnosis', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_option_diagnosis, id_tbl_diagnosis', 'required'),
+			array('id_tbl_option_diagnosis, id_tbl_diagnosis, type_option_diagnosis', 'numerical', 'integerOnly'=>true),
 			array('name_option_diagnosis', 'length', 'max'=>128),
 			array('observation_option_diagnosis', 'length', 'max'=>45),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_diagnosis, username, id_tbl_anamnesis, id_tbl_diagnosis, name_option_diagnosis, type_option_diagnosis, observation_option_diagnosis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_diagnosis, id_tbl_diagnosis, name_option_diagnosis, type_option_diagnosis, observation_option_diagnosis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +56,6 @@ class OptionsDiagnosis extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblDiagnosis' => array(self::BELONGS_TO, 'Diagnosis', 'id_tbl_diagnosis'),
-			'username0' => array(self::BELONGS_TO, 'Diagnosis', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'Diagnosis', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -72,8 +66,6 @@ class OptionsDiagnosis extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_diagnosis' => 'Id Tbl Option Diagnosis',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_diagnosis' => 'Id Tbl Diagnosis',
 			'name_option_diagnosis' => 'Name Option Diagnosis',
 			'type_option_diagnosis' => 'Type Option Diagnosis',
@@ -104,8 +96,6 @@ class OptionsDiagnosis extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_diagnosis',$this->id_tbl_option_diagnosis);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_diagnosis',$this->id_tbl_diagnosis);
 		$criteria->compare('name_option_diagnosis',$this->name_option_diagnosis,true);
 		$criteria->compare('type_option_diagnosis',$this->type_option_diagnosis);

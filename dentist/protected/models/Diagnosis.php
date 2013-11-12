@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_diagnosis':
  * @property integer $id_tbl_diagnosis
- * @property string $username
  * @property integer $id_tbl_anamnesis
  * @property string $create_user_id
  * @property string $create_time
@@ -14,10 +13,7 @@
  *
  * The followings are the available model relations:
  * @property Anamnesis $idTblAnamnesis
- * @property Anamnesis $username0
  * @property OptionsDiagnosis[] $optionsDiagnosises
- * @property OptionsDiagnosis[] $optionsDiagnosises1
- * @property OptionsDiagnosis[] $optionsDiagnosises2
  */
 class Diagnosis extends CActiveRecord
 {
@@ -37,13 +33,13 @@ class Diagnosis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis', 'required'),
+			array('id_tbl_anamnesis', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_diagnosis, username, id_tbl_anamnesis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_diagnosis, id_tbl_anamnesis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,10 +52,7 @@ class Diagnosis extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
-			'username0' => array(self::BELONGS_TO, 'Anamnesis', 'username'),
 			'optionsDiagnosises' => array(self::HAS_MANY, 'OptionsDiagnosis', 'id_tbl_diagnosis'),
-			'optionsDiagnosises1' => array(self::HAS_MANY, 'OptionsDiagnosis', 'username'),
-			'optionsDiagnosises2' => array(self::HAS_MANY, 'OptionsDiagnosis', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -70,7 +63,6 @@ class Diagnosis extends CActiveRecord
 	{
 		return array(
 			'id_tbl_diagnosis' => 'Id Tbl Diagnosis',
-			'username' => 'Username',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -98,7 +90,6 @@ class Diagnosis extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_diagnosis',$this->id_tbl_diagnosis);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
 		$criteria->compare('create_time',$this->create_time,true);
