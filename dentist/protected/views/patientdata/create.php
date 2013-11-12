@@ -13,9 +13,10 @@
    <p class="note">Campos con el <span class="required">*</span> son obligatorios.</p>
 
    <?php echo $form->errorSummary($model); ?>
+
    <div class="row">
     <?php echo $form->labelEx($model,'username'); ?>
-    <?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>64)); ?>
+    <?php echo $form->dropDownList($model,'username',$model->getUsernames()); ?>
     <?php echo $form->error($model,'username'); ?>
   </div>
 
@@ -33,22 +34,21 @@
 
   <div class="row">
     <?php echo $form->labelEx($model,'date_birth'); ?>
-    <div class="row">
-  <?php 
-    $this->widget('zii.widgets.jui.CJuiDatePicker',
-      array(
-            'attribute'=>'date_birth',
-            'model'=>$model,
-            'options' => array(
-                              'mode'=>'focus',
-                              'dateFormat'=>'d MM, yy',
-                              'showAnim' => 'slideDown',
-                              ),
-            'htmlOptions'=>array('size'=>30,'class'=>'date'),
-      )
-    );
-  ?>
-    <?php echo $form->error($model,'date_birth'); ?>
+    <?php 
+      $this->widget('zii.widgets.jui.CJuiDatePicker',
+        array(
+              'attribute'=>'date_birth',
+              'model'=>$model,
+              'options' => array(
+                                'mode'=>'focus',
+                                'dateFormat'=>'d MM, yy',
+                                'showAnim' => 'slideDown',
+                                ),
+              'htmlOptions'=>array('size'=>30,'class'=>'date'),
+        )
+      );
+    ?>
+      <?php echo $form->error($model,'date_birth'); ?>
   </div>
 
   <div class="row">
@@ -128,22 +128,35 @@
     <?php echo $form->textArea($model,'family_history',array('rows'=>6, 'cols'=>50)); ?>
     <?php echo $form->error($model,'family_history'); ?>
   </div>
+  <br />
   <div id="address">
         <?php
-        $index = 0;
-        foreach ($model->address as $id => $address):
+        foreach($model->address as $id => $address):
             $this->renderPartial('_address', array(
                 'model' => $address,
                 'index' => $id,
                 'display' => 'block',
             ));
-            $index++;
         endforeach;
         ?>
     </div> 
-   </div>
    <div>
-      <?php echo CHtml::link('Agregar Dirección', '#', array('id' => 'loadAddressByAjax')); ?>
+      <?php echo CHtml::link('Agregar Dirección(es)', '#', array('id' => 'loadAddressByAjax')); ?>
+   </div>
+   <br />
+   <div id="phone">
+        <?php
+        foreach ($model->phone as $id => $phone):
+            $this->renderPartial('_phone', array(
+                'model' => $phone,
+                'index' => $id,
+                'display' => 'block',
+            ));
+        endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar Número(s) de teléfono', '#', array('id' => 'loadPhoneByAjax')); ?>
    </div>
    <br />
     <div class="row buttons">
@@ -151,13 +164,14 @@
     </div>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+
  <?php
    $index = 0;
-      Yii::app()->clientScript->registerScript('loadaddress', '
+      Yii::app()->clientScript->registerScript('loadscripts', '
       var _index = ' . $index . ';
       $("#loadAddressByAjax").click(function(e){
-         e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadAddressByAjax", array("load_for" => $this->action->id)) . '&index="+_index;
+         //e.preventDefault();
+         var _url = "' . Yii::app()->controller->createUrl("loadAddressByAjax", array("load_for_one" => $this->action->id)) . '&index="+_index;
          $.ajax({
             url: _url,
             success:function(response){
@@ -170,5 +184,23 @@
             }
          });
       _index++;});
+
+      var __index = ' . $index . ';
+      $("#loadPhoneByAjax").click(function(e){
+         //e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadPhoneByAjax", array("load_for_two" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#phone").append(response);
+               $("#phone .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
+
       ', CClientScript::POS_END); 
  ?>

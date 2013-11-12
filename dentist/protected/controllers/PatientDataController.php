@@ -43,7 +43,7 @@ class PatientDataController extends Controller{
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'loadAddressByAjax'),
+                'actions' => array('create', 'update', 'loadAddressByAjax', 'loadPhoneByAjax'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -64,10 +64,18 @@ class PatientDataController extends Controller{
 	     {
 	     	$model->attributes = $_POST['Anamnesis'];
 
-	     	if (isset($_POST['Address'])) {
+	     	if (isset($_POST['Address'])) 
+	     	{
 	     		$model->address = $_POST['Address'];
 	     		$model->saveWithRelated('address');
 	     	}
+
+	     	if (isset($_POST['Phone'])) 
+	     	{
+	     		$model->phone = $_POST['Phone'];
+	     		$model->saveWithRelated('phone');
+	     	}
+
 	     	if ($model->save()) {
 	     		$this->redirect(array('view', 'id'=>$model->id_tbl_anamnesis));
 	     	}
@@ -76,11 +84,24 @@ class PatientDataController extends Controller{
 	     	'model'=> $model,
 	     ));
 	}
-
+	/**
+	 * @return Object with renderPartial for one ore more address for user
+	 */
 	public function actionLoadAddressByAjax($index)
 	{
 		$model = new Address;
 		$this->renderPartial('_address', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for one ore more phones for user
+	 */
+	public function actionLoadPhoneByAjax($index)
+	{
+		$model = new Phone;
+		$this->renderPartial('_phone', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

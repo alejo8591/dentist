@@ -3401,3 +3401,117 @@ Stack trace:
 REQUEST_URI=/dentist/dentist/index.php/patientdata/4
 HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
 ---
+2013/11/12 01:25:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loadPhoneByAjax" solicitada.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(270): CController->missingAction('loadPhoneByAjax')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadPhoneByAjax')
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patientdata/loa...')
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dentist/dentist/index.php/patientdata/loadPhoneByAjax?load_for_two=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
+---
+2013/11/12 01:58:50 [error] [exception.CException] exception 'CException' with message 'Phone y sus behaviors no tienen un método o closure llamado "getTypePhone".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getTypePhone', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/_phone.php(3): CActiveRecord->__call('getTypePhone', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/_phone.php(3): Phone->getTypePhone()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PatientdataController.php(107): CController->renderPartial('_phone', Array, false, true)
+#7 [internal function]: PatientDataController->actionLoadPhoneByAjax('0')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PatientDataController), Array)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PatientDataController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadPhoneByAjax')
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patientdata/loa...')
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/dentist/dentist/index.php/patientdata/loadPhoneByAjax?load_for_two=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
+---
+2013/11/12 01:59:12 [error] [exception.CException] exception 'CException' with message 'Phone y sus behaviors no tienen un método o closure llamado "getTypePhone".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getTypePhone', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/_phone.php(3): CActiveRecord->__call('getTypePhone', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/_phone.php(3): Phone->getTypePhone()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PatientdataController.php(107): CController->renderPartial('_phone', Array, false, true)
+#7 [internal function]: PatientDataController->actionLoadPhoneByAjax('1')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PatientDataController), Array)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PatientDataController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadPhoneByAjax')
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patientdata/loa...')
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/dentist/dentist/index.php/patientdata/loadPhoneByAjax?load_for_two=create&index=1
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
+---
+2013/11/12 02:00:55 [error] [exception.CException] exception 'CException' with message 'Phone y sus behaviors no tienen un método o closure llamado "getTypePhones".' in /Applications/MAMP/htdocs/dentist/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('getTypePhones', Array)
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/_phone.php(3): CActiveRecord->__call('getTypePhones', Array)
+#2 /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/_phone.php(3): Phone->getTypePhones()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require('/Applications/M...')
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): CBaseController->renderFile('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PatientdataController.php(107): CController->renderPartial('_phone', Array, false, true)
+#7 [internal function]: PatientDataController->actionLoadPhoneByAjax('0')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PatientDataController), Array)
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PatientDataController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadPhoneByAjax')
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patientdata/loa...')
+#16 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/dentist/dentist/index.php/patientdata/loadPhoneByAjax?load_for_two=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
+---
+2013/11/12 02:06:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "view" solicitada.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(270): CController->missingAction('view')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patientdata/vie...')
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dentist/dentist/index.php/patientdata/5
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/patientdata/create
+---
+2013/11/12 02:09:49 [error] [php] Missing argument 3 for CHtml::listData(), called in /Applications/MAMP/htdocs/dentist/dentist/protected/models/Anamnesis.php on line 311 and defined (/Applications/MAMP/htdocs/dentist/yii/framework/web/helpers/CHtml.php:2073)
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(126): require()
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/CBaseController.php(95): PatientDataController->renderInternal()
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): PatientDataController->renderFile()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(782): PatientDataController->renderPartial()
+#4 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PatientdataController.php(85): PatientDataController->render()
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(49): PatientDataController->actionCreate()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): PatientDataController->runAction()
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): PatientDataController->runActionWithFilters()
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): PatientDataController->run()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CWebApplication->run()
+REQUEST_URI=/dentist/dentist/index.php/patientdata/create
+in /Applications/MAMP/htdocs/dentist/dentist/protected/models/Anamnesis.php (311)
+in /Applications/MAMP/htdocs/dentist/dentist/protected/views/patientdata/create.php (19)
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PatientdataController.php (85)

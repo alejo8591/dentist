@@ -21,6 +21,13 @@
 class Phone extends CActiveRecord
 {
 	/**
+	 * Constants for type genres
+	 */
+	const TYPE_PHONE    = 0;
+	const TYPE_PHONE_HOME     = 1;
+	const TYPE_PHONE_MOBILE   = 2;
+	const TYPE_PHONE_WORK     = 3;
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -66,10 +73,10 @@ class Phone extends CActiveRecord
 		return array(
 			'id_tbl_phone' => 'Id Tbl Phone',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'type_phone' => 'Type Phone',
-			'phone' => 'Phone',
-			'phone_extension' => 'Phone Extension',
-			'description' => 'Description',
+			'type_phone' => 'Tipo de Número Telefónico',
+			'phone' => 'Número de Teléfono',
+			'phone_extension' => 'Extensión',
+			'description' => 'Descripción',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -128,4 +135,18 @@ class Phone extends CActiveRecord
                 'class' => 'application.components.ESaveRelatedBehavior')
         );
     }
+
+    /**
+	 * @return array of valid for types phones create for user
+	 */
+	public function getTypePhones()
+	{
+		
+		return array(
+			self::TYPE_PHONE => 'Tipo de número telefónico',
+			self::TYPE_PHONE_HOME => 'Casa/Hogar',
+			self::TYPE_PHONE_MOBILE => 'Móvil/Celular',
+			self::TYPE_PHONE_WORK => 'Oficina/Trabajo',
+		);
+	}		
 }

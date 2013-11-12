@@ -48,14 +48,6 @@
 class Anamnesis extends CActiveRecord
 {
 	/**
-	 * Constants for type address
-	 */
-	const TYPE_ADDRESS    = 0;
-	const TYPE_HOME       = 1;
-	const TYPE_OFFICE     = 2;
-	const TYPE_FAMILY     = 3;
-
-	/**
 	 * Constants for type genres
 	 */
 	const TYPE_GENRE  = 0;
@@ -63,7 +55,7 @@ class Anamnesis extends CActiveRecord
 	const TYPE_MALE   = 2;
 
 	/**
-	 * Constants for type address
+	 * Constants for type Blood Groups
 	 */
 	const TYPE_BLOOD_GROUP          = 0;
 	const TYPE_BLOOD_O_NEGATIVE     = 1;
@@ -123,7 +115,7 @@ class Anamnesis extends CActiveRecord
 			'diagnosises' => array(self::HAS_MANY, 'Diagnosis', 'id_tbl_anamnesis'),
 			'periodontalExaminations' => array(self::HAS_MANY, 'PeriodontalExamination', 'id_tbl_anamnesis'),
 			'personalBackgrounds' => array(self::HAS_MANY, 'PersonalBackground', 'id_tbl_anamnesis'),
-			'phones' => array(self::HAS_MANY, 'Phone', 'id_tbl_anamnesis'),
+			'phone' => array(self::HAS_MANY, 'Phone', 'id_tbl_anamnesis'),
 			'physicalExaminations' => array(self::HAS_MANY, 'PhysicalExamination', 'id_tbl_anamnesis'),
 			'prognosises' => array(self::HAS_MANY, 'Prognosis', 'id_tbl_anamnesis'),
 		);
@@ -279,19 +271,6 @@ class Anamnesis extends CActiveRecord
 	}	
 
 	/**
-	 * @return array of valid for types in the address create for user
-	 */
-	public function getTypeAddress()
-	{
-		
-		return array(
-			self::TYPE_ADDRESS => 'Tipo de Dirección',
-			self::TYPE_HOME => 'Hogar o Casa',
-			self::TYPE_OFFICE => 'Oficina o Trabajo',
-		);
-	}	
-
-	/**
 	 * @return array of valid genres create for user
 	 */
 	public function getTypeGenre()
@@ -322,7 +301,17 @@ class Anamnesis extends CActiveRecord
 			self::TYPE_BLOOD_AB_POSITIVE => 'AB+',
 			
 		);
-	}	
+	}
+
+	/**
+	 * @return array of valid level of Schooling create for user
+	 */
+	public function getUsernames()
+	{
+		$userArray = CHtml::listData(User::model()->findAll(array('order'=>'username')), 'username', 'username');
+		return $userArray;
+	}
+
 
 	protected function afterFind(){
 		parent::afterFind();
