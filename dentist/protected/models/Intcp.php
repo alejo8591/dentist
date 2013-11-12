@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_intcp':
  * @property integer $id_tbl_intcp
- * @property integer $id_tbl_anamnesis
- * @property string $username
  * @property integer $id_tbl_periodontal_examination
  * @property string $name_option_intcp
  * @property string $code_intcp
@@ -20,8 +18,6 @@
  *
  * The followings are the available model relations:
  * @property PeriodontalExamination $idTblPeriodontalExamination
- * @property PeriodontalExamination $username0
- * @property PeriodontalExamination $idTblAnamnesis
  */
 class Intcp extends CActiveRecord
 {
@@ -41,14 +37,14 @@ class Intcp extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis, username, id_tbl_periodontal_examination', 'required'),
-			array('id_tbl_anamnesis, id_tbl_periodontal_examination, flag_option_intcp', 'numerical', 'integerOnly'=>true),
-			array('username, code_intcp, nt_intcp, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_periodontal_examination', 'required'),
+			array('id_tbl_periodontal_examination, flag_option_intcp', 'numerical', 'integerOnly'=>true),
 			array('name_option_intcp', 'length', 'max'=>128),
+			array('code_intcp, nt_intcp, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_intcp, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_intcp, id_tbl_anamnesis, username, id_tbl_periodontal_examination, name_option_intcp, code_intcp, nt_intcp, observation_option_intcp, flag_option_intcp, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_intcp, id_tbl_periodontal_examination, name_option_intcp, code_intcp, nt_intcp, observation_option_intcp, flag_option_intcp, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,8 +57,6 @@ class Intcp extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPeriodontalExamination' => array(self::BELONGS_TO, 'PeriodontalExamination', 'id_tbl_periodontal_examination'),
-			'username0' => array(self::BELONGS_TO, 'PeriodontalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PeriodontalExamination', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -73,8 +67,6 @@ class Intcp extends CActiveRecord
 	{
 		return array(
 			'id_tbl_intcp' => 'Id Tbl Intcp',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'username' => 'Username',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
 			'name_option_intcp' => 'Name Option Intcp',
 			'code_intcp' => 'Code Intcp',
@@ -107,8 +99,6 @@ class Intcp extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_intcp',$this->id_tbl_intcp);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_periodontal_examination',$this->id_tbl_periodontal_examination);
 		$criteria->compare('name_option_intcp',$this->name_option_intcp,true);
 		$criteria->compare('code_intcp',$this->code_intcp,true);

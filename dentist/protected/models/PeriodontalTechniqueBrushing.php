@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_periodontal_technique_brushing':
  * @property integer $id_tbl_periodontal_technique_brushing
- * @property integer $id_tbl_anamnesis
- * @property string $username
  * @property integer $id_tbl_periodontal_examination
  * @property string $name_option_periodontal_technique_brushing
  * @property integer $flag_option_periodontal_technique_brushing
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property PeriodontalExamination $idTblPeriodontalExamination
- * @property PeriodontalExamination $username0
- * @property PeriodontalExamination $idTblAnamnesis
  */
 class PeriodontalTechniqueBrushing extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class PeriodontalTechniqueBrushing extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis, username, id_tbl_periodontal_examination', 'required'),
-			array('id_tbl_anamnesis, id_tbl_periodontal_examination, flag_option_periodontal_technique_brushing', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_periodontal_examination', 'required'),
+			array('id_tbl_periodontal_examination, flag_option_periodontal_technique_brushing', 'numerical', 'integerOnly'=>true),
 			array('name_option_periodontal_technique_brushing', 'length', 'max'=>45),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observations_periodontal_technique_brushing, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_periodontal_technique_brushing, id_tbl_anamnesis, username, id_tbl_periodontal_examination, name_option_periodontal_technique_brushing, flag_option_periodontal_technique_brushing, observations_periodontal_technique_brushing, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_periodontal_technique_brushing, id_tbl_periodontal_examination, name_option_periodontal_technique_brushing, flag_option_periodontal_technique_brushing, observations_periodontal_technique_brushing, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class PeriodontalTechniqueBrushing extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPeriodontalExamination' => array(self::BELONGS_TO, 'PeriodontalExamination', 'id_tbl_periodontal_examination'),
-			'username0' => array(self::BELONGS_TO, 'PeriodontalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PeriodontalExamination', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -71,8 +65,6 @@ class PeriodontalTechniqueBrushing extends CActiveRecord
 	{
 		return array(
 			'id_tbl_periodontal_technique_brushing' => 'Id Tbl Periodontal Technique Brushing',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'username' => 'Username',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
 			'name_option_periodontal_technique_brushing' => 'Name Option Periodontal Technique Brushing',
 			'flag_option_periodontal_technique_brushing' => 'Flag Option Periodontal Technique Brushing',
@@ -103,8 +95,6 @@ class PeriodontalTechniqueBrushing extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_periodontal_technique_brushing',$this->id_tbl_periodontal_technique_brushing);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_periodontal_examination',$this->id_tbl_periodontal_examination);
 		$criteria->compare('name_option_periodontal_technique_brushing',$this->name_option_periodontal_technique_brushing,true);
 		$criteria->compare('flag_option_periodontal_technique_brushing',$this->flag_option_periodontal_technique_brushing);

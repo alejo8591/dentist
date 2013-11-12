@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_intcp_silness_loe':
  * @property integer $id_tbl_intcp_silness_loe
- * @property integer $id_tbl_anamnesis
- * @property string $username
  * @property integer $id_tbl_periodontal_examination
  * @property integer $flag_option_intcp_silness_loe
  * @property string $create_user_id
@@ -16,8 +14,6 @@
  *
  * The followings are the available model relations:
  * @property PeriodontalExamination $idTblPeriodontalExamination
- * @property PeriodontalExamination $username0
- * @property PeriodontalExamination $idTblAnamnesis
  */
 class IntcpSilnessLoe extends CActiveRecord
 {
@@ -37,13 +33,13 @@ class IntcpSilnessLoe extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis, username, id_tbl_periodontal_examination', 'required'),
-			array('id_tbl_anamnesis, id_tbl_periodontal_examination, flag_option_intcp_silness_loe', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_periodontal_examination', 'required'),
+			array('id_tbl_periodontal_examination, flag_option_intcp_silness_loe', 'numerical', 'integerOnly'=>true),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_intcp_silness_loe, id_tbl_anamnesis, username, id_tbl_periodontal_examination, flag_option_intcp_silness_loe, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_intcp_silness_loe, id_tbl_periodontal_examination, flag_option_intcp_silness_loe, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +52,6 @@ class IntcpSilnessLoe extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblPeriodontalExamination' => array(self::BELONGS_TO, 'PeriodontalExamination', 'id_tbl_periodontal_examination'),
-			'username0' => array(self::BELONGS_TO, 'PeriodontalExamination', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'PeriodontalExamination', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -68,8 +62,6 @@ class IntcpSilnessLoe extends CActiveRecord
 	{
 		return array(
 			'id_tbl_intcp_silness_loe' => 'Id Tbl Intcp Silness Loe',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'username' => 'Username',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
 			'flag_option_intcp_silness_loe' => 'Flag Option Intcp Silness Loe',
 			'create_user_id' => 'Create User',
@@ -98,8 +90,6 @@ class IntcpSilnessLoe extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_intcp_silness_loe',$this->id_tbl_intcp_silness_loe);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_periodontal_examination',$this->id_tbl_periodontal_examination);
 		$criteria->compare('flag_option_intcp_silness_loe',$this->flag_option_intcp_silness_loe);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
