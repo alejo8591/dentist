@@ -30,52 +30,58 @@ class PatientDataController extends Controller{
          ); 
   	}
 
+  	/**
+     * Specifies the access control rules.
+     * This method is used by the 'accessControl' filter.
+     * @return array access control rules
+     */
+    public function accessRules()
+    {
+        return array(
+            array('allow', // allow all users to perform 'index' and 'view' actions
+                'actions' => array('index', 'view'),
+                'users' => array('*'),
+            ),
+            array('allow', // allow authenticated user to perform 'create' and 'update' actions
+                'actions' => array('create', 'update', 'loadAddressByAjax'),
+                'users' => array('@'),
+            ),
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                'actions' => array('admin', 'delete'),
+                'users' => array('admin'),
+            ),
+            array('deny', // deny all users
+                'users' => array('*'),
+            ),
+        );
+    }
+
   	public function actionCreate()
    	{
-	      $anamnesis = new Anamnesis;
-	      $addresses = new Address;
-	      $phones = new Phone;
-	      $validAddresses = true;
-	      $validPhones = true;
-	      $validAnamnesis = true;
+   		$model = new Anamnesis;
 
-	      if (isset($_POST['Anamnesis'], $_POST['Address'], $_POST['Phone'])) 
-	      {
-	      	$anamnesis->attributes = $_POST['Anamnesis'];
-	      	$addresses->attributes = $_POST['Address'];
-	      	$phones->attributes = $_POST['Phone'];
+   		if (isset($_POST['Anamnesis'])) 
+	     {
+	     	$model->attributes = $_POST['Anamnesis'];
 
-	      	foreach($addresses as $key => $value) {
-	      		$value->attributes = $_POST['Address'][$key];
-	      		$validAddresses = $value->validate() && $validAddresses;
-	      	}
-
-	      	foreach($phones as $i => $phone) {
-	      		$phone->attributes = $_POST['Phone'][$i];
-	      		$validPhones = $phone->validate() && $validPhones; 
-	      	}
-
-	      	$validAnamnesis = $anamnesis->validate() && $validAnamnesis;
-
-	      	if($validAnamnesis && $validPhones && $validAddresses){
-	      		$anamnesis->save(false);
-	      		$addresses->save(false);
-	      		$phones->save(false);
-	      	}
-	      }
-
-	      $this->render('create', array(
-	      	'anamnesis'=> $anamnesis,
-	      	'addresses' => $addresses,
-	      	'phones' => $phones,
-	      ));
+	     	if (isset($_POST['Address'])) {
+	     		$model->address = $_POST['Address'];
+	     		$model->saveWithRelated('address');
+	     	}
+	     	if ($model->save()) {
+	     		$this->redirect(array('view', 'id'=>$mdoel->id_tbl_anamnesis));
+	     	}
+	     }
+	     $this->render('create', array(
+	     	'model'=> $model,
+	     ));
 	}
 
-	public function actionLoadPhoneByAjax($index)
+	public function actionLoadAddressByAjax($index)
 	{
-		$phone = new Phone;
-		$this->renderPartial('_phone', array(
-			'phone' => $phone,
+		$model = new Address;
+		$this->renderPartial('_address', array(
+			'model' => $model,
 			'index' => $index,
 		), false, true);
 	}

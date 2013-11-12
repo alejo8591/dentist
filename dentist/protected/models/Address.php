@@ -66,9 +66,9 @@ class Address extends CActiveRecord
 		return array(
 			'id_tbl_address' => 'Id Tbl Address',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'type_address' => 'Type Address',
-			'address' => 'Address',
-			'description' => 'Description',
+			'type_address' => 'Tipo de Dirección',
+			'address' => 'Dirección',
+			'description' => 'Descripción u Observación',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
