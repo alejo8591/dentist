@@ -42,7 +42,7 @@ class Address extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis', 'required'),
+			// array('id_tbl_anamnesis', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
 			array('type_address, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('address', 'length', 'max'=>256),

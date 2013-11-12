@@ -54,6 +54,27 @@ class Anamnesis extends CActiveRecord
 	const TYPE_HOME       = 1;
 	const TYPE_OFFICE     = 2;
 	const TYPE_FAMILY     = 3;
+
+	/**
+	 * Constants for type genres
+	 */
+	const TYPE_GENRE  = 0;
+	const TYPE_FEMALE = 1;
+	const TYPE_MALE   = 2;
+
+	/**
+	 * Constants for type address
+	 */
+	const TYPE_BLOOD_GROUP          = 0;
+	const TYPE_BLOOD_O_NEGATIVE     = 1;
+	const TYPE_BLOOD_O_POSITIVE     = 2;
+	const TYPE_BLOOD_A_NEGATIVE     = 3;
+	const TYPE_BLOOD_A_POSITIVE     = 4;
+	const TYPE_BLOOD_B_NEGATIVE     = 5;
+	const TYPE_BLOOD_B_POSITIVE     = 6;
+	const TYPE_BLOOD_AB_NEGATIVE    = 7;
+	const TYPE_BLOOD_AB_POSITIVE    = 8;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -121,7 +142,7 @@ class Anamnesis extends CActiveRecord
 			'date_birth' => 'Fecha de Nacimiento',
 			'place_of_birth' => 'Lugar de Nacimiento',
 			'genre' => 'Genero',
-			'blood_group' => 'Grupo Sanguineo',
+			'blood_group' => 'Grupo Sanguíneo',
 			'id_tbl_country' => 'País de Residencia',
 			'id_tbl_city' => 'Ciudad de Residencia',
 			'id_tbl_level_schooling' => 'Nivel de Escolaridad',
@@ -258,7 +279,7 @@ class Anamnesis extends CActiveRecord
 	}	
 
 	/**
-	 * @return array of valid level of Schooling create for user
+	 * @return array of valid for types in the address create for user
 	 */
 	public function getTypeAddress()
 	{
@@ -268,5 +289,51 @@ class Anamnesis extends CActiveRecord
 			self::TYPE_HOME => 'Hogar o Casa',
 			self::TYPE_OFFICE => 'Oficina o Trabajo',
 		);
+	}	
+
+	/**
+	 * @return array of valid genres create for user
+	 */
+	public function getTypeGenre()
+	{
+		
+		return array(
+			self::TYPE_GENRE => 'Seleccione el Genero',
+			self::TYPE_FEMALE => 'Femenino',
+			self::TYPE_MALE => 'Masculino',
+		);
+	}
+
+	/**
+	 * @return array of valid genres create for user
+	 */
+	public function getTypeBloodGroup()
+	{
+		
+		return array(
+			self::TYPE_BLOOD_GROUP => 'Tipo de Sangre',
+			self::TYPE_BLOOD_O_NEGATIVE => 'O-',
+			self::TYPE_BLOOD_O_POSITIVE => 'O+',
+			self::TYPE_BLOOD_A_NEGATIVE => 'A-',
+			self::TYPE_BLOOD_A_POSITIVE => 'A+',
+			self::TYPE_BLOOD_B_NEGATIVE => 'B-',
+			self::TYPE_BLOOD_B_POSITIVE => 'B+',
+			self::TYPE_BLOOD_AB_NEGATIVE => 'AB-',
+			self::TYPE_BLOOD_AB_POSITIVE => 'AB+',
+			
+		);
+	}	
+
+	protected function afterFind(){
+		parent::afterFind();
+		$this->date_birth=date('d F, Y', strtotime(str_replace("-", "", $this->date_birth)));       
+	}
+
+	protected function beforeSave(){
+		if(parent::beforeSave()){
+			$this->date_birth=date('Y-m-d', strtotime(str_replace(",", "", $this->date_birth)));
+			return TRUE;
+    	}	
+    	else return false;
 	}	
 }

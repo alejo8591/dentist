@@ -33,7 +33,21 @@
 
   <div class="row">
     <?php echo $form->labelEx($model,'date_birth'); ?>
-    <?php echo $form->textField($model,'date_birth'); ?>
+    <div class="row">
+  <?php 
+    $this->widget('zii.widgets.jui.CJuiDatePicker',
+      array(
+            'attribute'=>'date_birth',
+            'model'=>$model,
+            'options' => array(
+                              'mode'=>'focus',
+                              'dateFormat'=>'d MM, yy',
+                              'showAnim' => 'slideDown',
+                              ),
+            'htmlOptions'=>array('size'=>30,'class'=>'date'),
+      )
+    );
+  ?>
     <?php echo $form->error($model,'date_birth'); ?>
   </div>
 
@@ -45,13 +59,13 @@
 
   <div class="row">
     <?php echo $form->labelEx($model,'genre'); ?>
-    <?php echo $form->textField($model,'genre'); ?>
+    <?php echo $form->dropDownList($model,'genre', $model->getTypeGenre()); ?>
     <?php echo $form->error($model,'genre'); ?>
   </div>
 
   <div class="row">
     <?php echo $form->labelEx($model,'blood_group'); ?>
-    <?php echo $form->textField($model,'blood_group'); ?>
+    <?php echo $form->dropDownList($model,'blood_group', $model->getTypeBloodGroup()); ?>
     <?php echo $form->error($model,'blood_group'); ?>
   </div>
 
@@ -128,9 +142,10 @@
         ?>
     </div> 
    </div>
-
-   <?php echo CHtml::link('Agregar Dirección', '#', array('id' => 'loadAddressByAjax')); ?>
-
+   <div>
+      <?php echo CHtml::link('Agregar Dirección', '#', array('id' => 'loadAddressByAjax')); ?>
+   </div>
+   <br />
     <div class="row buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Crear Anamnesis' : 'Save'); ?>
     </div>
@@ -138,7 +153,7 @@
 </div><!-- form -->
  <?php
    $index = 0;
-      Yii::app()->clientScript->registerScript('loadphone', '
+      Yii::app()->clientScript->registerScript('loadaddress', '
       var _index = ' . $index . ';
       $("#loadAddressByAjax").click(function(e){
          e.preventDefault();

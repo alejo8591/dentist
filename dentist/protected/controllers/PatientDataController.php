@@ -69,7 +69,7 @@ class PatientDataController extends Controller{
 	     		$model->saveWithRelated('address');
 	     	}
 	     	if ($model->save()) {
-	     		$this->redirect(array('view', 'id'=>$mdoel->id_tbl_anamnesis));
+	     		$this->redirect(array('view', 'id'=>$model->id_tbl_anamnesis));
 	     	}
 	     }
 	     $this->render('create', array(
