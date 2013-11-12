@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_atm_soft_tissue':
  * @property integer $id_tbl_option_atm_soft_tissue
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_atm
  * @property string $name_option_atm_soft_tissue
  * @property integer $flag_option_atm_soft_tissue
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property Atm $idTblAtm
- * @property Atm $username0
- * @property Atm $idTblAnamnesis
  */
 class OptionsAtmSoftTissue extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class OptionsAtmSoftTissue extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis, id_tbl_atm', 'required'),
-			array('id_tbl_anamnesis, id_tbl_atm, flag_option_atm_soft_tissue', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_atm', 'required'),
+			array('id_tbl_atm, flag_option_atm_soft_tissue', 'numerical', 'integerOnly'=>true),
 			array('name_option_atm_soft_tissue', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_atm_soft_tissue, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_atm_soft_tissue, username, id_tbl_anamnesis, id_tbl_atm, name_option_atm_soft_tissue, flag_option_atm_soft_tissue, observation_atm_soft_tissue, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_atm_soft_tissue, id_tbl_atm, name_option_atm_soft_tissue, flag_option_atm_soft_tissue, observation_atm_soft_tissue, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class OptionsAtmSoftTissue extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAtm' => array(self::BELONGS_TO, 'Atm', 'id_tbl_atm'),
-			'username0' => array(self::BELONGS_TO, 'Atm', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'Atm', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -71,8 +65,6 @@ class OptionsAtmSoftTissue extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_atm_soft_tissue' => 'Id Tbl Option Atm Soft Tissue',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_atm' => 'Id Tbl Atm',
 			'name_option_atm_soft_tissue' => 'Name Option Atm Soft Tissue',
 			'flag_option_atm_soft_tissue' => 'Flag Option Atm Soft Tissue',
@@ -103,8 +95,6 @@ class OptionsAtmSoftTissue extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_atm_soft_tissue',$this->id_tbl_option_atm_soft_tissue);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_atm',$this->id_tbl_atm);
 		$criteria->compare('name_option_atm_soft_tissue',$this->name_option_atm_soft_tissue,true);
 		$criteria->compare('flag_option_atm_soft_tissue',$this->flag_option_atm_soft_tissue);

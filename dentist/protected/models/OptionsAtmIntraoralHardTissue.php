@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_atm_intraoral_hard_tissue':
  * @property integer $id_tbl_option_atm_intraoral_hard_tissue
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_atm
  * @property string $name_option_atm_intraoral_hard_tissue
  * @property integer $type_option_atm_intraoral_hard_tissue
@@ -19,8 +17,6 @@
  *
  * The followings are the available model relations:
  * @property Atm $idTblAtm
- * @property Atm $username0
- * @property Atm $idTblAnamnesis
  */
 class OptionsAtmIntraoralHardTissue extends CActiveRecord
 {
@@ -40,14 +36,14 @@ class OptionsAtmIntraoralHardTissue extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis, id_tbl_atm', 'required'),
-			array('id_tbl_anamnesis, id_tbl_atm, type_option_atm_intraoral_hard_tissue, flag_option_atm_intraoral_hard_tissue', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_atm', 'required'),
+			array('id_tbl_atm, type_option_atm_intraoral_hard_tissue, flag_option_atm_intraoral_hard_tissue', 'numerical', 'integerOnly'=>true),
 			array('name_option_atm_intraoral_hard_tissue', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_option_hard_intraoral_hard_tissue, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_atm_intraoral_hard_tissue, username, id_tbl_anamnesis, id_tbl_atm, name_option_atm_intraoral_hard_tissue, type_option_atm_intraoral_hard_tissue, observation_option_hard_intraoral_hard_tissue, flag_option_atm_intraoral_hard_tissue, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_atm_intraoral_hard_tissue, id_tbl_atm, name_option_atm_intraoral_hard_tissue, type_option_atm_intraoral_hard_tissue, observation_option_hard_intraoral_hard_tissue, flag_option_atm_intraoral_hard_tissue, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +56,6 @@ class OptionsAtmIntraoralHardTissue extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAtm' => array(self::BELONGS_TO, 'Atm', 'id_tbl_atm'),
-			'username0' => array(self::BELONGS_TO, 'Atm', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'Atm', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -72,8 +66,6 @@ class OptionsAtmIntraoralHardTissue extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_atm_intraoral_hard_tissue' => 'Id Tbl Option Atm Intraoral Hard Tissue',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_atm' => 'Id Tbl Atm',
 			'name_option_atm_intraoral_hard_tissue' => 'Name Option Atm Intraoral Hard Tissue',
 			'type_option_atm_intraoral_hard_tissue' => 'Type Option Atm Intraoral Hard Tissue',
@@ -105,8 +97,6 @@ class OptionsAtmIntraoralHardTissue extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_atm_intraoral_hard_tissue',$this->id_tbl_option_atm_intraoral_hard_tissue);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_atm',$this->id_tbl_atm);
 		$criteria->compare('name_option_atm_intraoral_hard_tissue',$this->name_option_atm_intraoral_hard_tissue,true);
 		$criteria->compare('type_option_atm_intraoral_hard_tissue',$this->type_option_atm_intraoral_hard_tissue);

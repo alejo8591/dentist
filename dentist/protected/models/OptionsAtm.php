@@ -5,8 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_options_atm':
  * @property integer $id_tbl_option_atm
- * @property string $username
- * @property integer $id_tbl_anamnesis
  * @property integer $id_tbl_atm
  * @property string $name_option_atm
  * @property integer $flag_option_atm
@@ -18,8 +16,6 @@
  *
  * The followings are the available model relations:
  * @property Atm $idTblAtm
- * @property Atm $username0
- * @property Atm $idTblAnamnesis
  */
 class OptionsAtm extends CActiveRecord
 {
@@ -39,14 +35,14 @@ class OptionsAtm extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis, id_tbl_atm', 'required'),
-			array('id_tbl_anamnesis, id_tbl_atm, flag_option_atm', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('id_tbl_atm', 'required'),
+			array('id_tbl_atm, flag_option_atm', 'numerical', 'integerOnly'=>true),
 			array('name_option_atm', 'length', 'max'=>128),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_atm, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_atm, username, id_tbl_anamnesis, id_tbl_atm, name_option_atm, flag_option_atm, observation_atm, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_atm, id_tbl_atm, name_option_atm, flag_option_atm, observation_atm, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +55,6 @@ class OptionsAtm extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAtm' => array(self::BELONGS_TO, 'Atm', 'id_tbl_atm'),
-			'username0' => array(self::BELONGS_TO, 'Atm', 'username'),
-			'idTblAnamnesis' => array(self::BELONGS_TO, 'Atm', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -71,8 +65,6 @@ class OptionsAtm extends CActiveRecord
 	{
 		return array(
 			'id_tbl_option_atm' => 'Id Tbl Option Atm',
-			'username' => 'Username',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'id_tbl_atm' => 'Id Tbl Atm',
 			'name_option_atm' => 'Name Option Atm',
 			'flag_option_atm' => 'Flag Option Atm',
@@ -103,8 +95,6 @@ class OptionsAtm extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_option_atm',$this->id_tbl_option_atm);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('id_tbl_atm',$this->id_tbl_atm);
 		$criteria->compare('name_option_atm',$this->name_option_atm,true);
 		$criteria->compare('flag_option_atm',$this->flag_option_atm);

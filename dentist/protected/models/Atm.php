@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_atm':
  * @property integer $id_tbl_atm
- * @property string $username
  * @property integer $id_tbl_anamnesis
  * @property string $observation_atm
  * @property string $create_user_id
@@ -15,22 +14,11 @@
  *
  * The followings are the available model relations:
  * @property Anamnesis $idTblAnamnesis
- * @property Anamnesis $username0
  * @property OptionsAtm[] $optionsAtms
- * @property OptionsAtm[] $optionsAtms1
- * @property OptionsAtm[] $optionsAtms2
  * @property OptionsAtmIntraoralHardTissue[] $optionsAtmIntraoralHardTissues
- * @property OptionsAtmIntraoralHardTissue[] $optionsAtmIntraoralHardTissues1
- * @property OptionsAtmIntraoralHardTissue[] $optionsAtmIntraoralHardTissues2
  * @property OptionsAtmIntraoralSoftTissue[] $optionsAtmIntraoralSoftTissues
- * @property OptionsAtmIntraoralSoftTissue[] $optionsAtmIntraoralSoftTissues1
- * @property OptionsAtmIntraoralSoftTissue[] $optionsAtmIntraoralSoftTissues2
  * @property OptionsAtmMandibularMovements[] $optionsAtmMandibularMovements
- * @property OptionsAtmMandibularMovements[] $optionsAtmMandibularMovements1
- * @property OptionsAtmMandibularMovements[] $optionsAtmMandibularMovements2
  * @property OptionsAtmSoftTissue[] $optionsAtmSoftTissues
- * @property OptionsAtmSoftTissue[] $optionsAtmSoftTissues1
- * @property OptionsAtmSoftTissue[] $optionsAtmSoftTissues2
  */
 class Atm extends CActiveRecord
 {
@@ -50,13 +38,13 @@ class Atm extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis', 'required'),
+			array('id_tbl_anamnesis', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
-			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_atm, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_atm, username, id_tbl_anamnesis, observation_atm, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_atm, id_tbl_anamnesis, observation_atm, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,22 +57,11 @@ class Atm extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
-			'username0' => array(self::BELONGS_TO, 'Anamnesis', 'username'),
 			'optionsAtms' => array(self::HAS_MANY, 'OptionsAtm', 'id_tbl_atm'),
-			'optionsAtms1' => array(self::HAS_MANY, 'OptionsAtm', 'username'),
-			'optionsAtms2' => array(self::HAS_MANY, 'OptionsAtm', 'id_tbl_anamnesis'),
 			'optionsAtmIntraoralHardTissues' => array(self::HAS_MANY, 'OptionsAtmIntraoralHardTissue', 'id_tbl_atm'),
-			'optionsAtmIntraoralHardTissues1' => array(self::HAS_MANY, 'OptionsAtmIntraoralHardTissue', 'username'),
-			'optionsAtmIntraoralHardTissues2' => array(self::HAS_MANY, 'OptionsAtmIntraoralHardTissue', 'id_tbl_anamnesis'),
 			'optionsAtmIntraoralSoftTissues' => array(self::HAS_MANY, 'OptionsAtmIntraoralSoftTissue', 'id_tbl_atm'),
-			'optionsAtmIntraoralSoftTissues1' => array(self::HAS_MANY, 'OptionsAtmIntraoralSoftTissue', 'username'),
-			'optionsAtmIntraoralSoftTissues2' => array(self::HAS_MANY, 'OptionsAtmIntraoralSoftTissue', 'id_tbl_anamnesis'),
 			'optionsAtmMandibularMovements' => array(self::HAS_MANY, 'OptionsAtmMandibularMovements', 'id_tbl_atm'),
-			'optionsAtmMandibularMovements1' => array(self::HAS_MANY, 'OptionsAtmMandibularMovements', 'username'),
-			'optionsAtmMandibularMovements2' => array(self::HAS_MANY, 'OptionsAtmMandibularMovements', 'id_tbl_anamnesis'),
 			'optionsAtmSoftTissues' => array(self::HAS_MANY, 'OptionsAtmSoftTissue', 'id_tbl_atm'),
-			'optionsAtmSoftTissues1' => array(self::HAS_MANY, 'OptionsAtmSoftTissue', 'username'),
-			'optionsAtmSoftTissues2' => array(self::HAS_MANY, 'OptionsAtmSoftTissue', 'id_tbl_anamnesis'),
 		);
 	}
 
@@ -95,7 +72,6 @@ class Atm extends CActiveRecord
 	{
 		return array(
 			'id_tbl_atm' => 'Id Tbl Atm',
-			'username' => 'Username',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'observation_atm' => 'Observation Atm',
 			'create_user_id' => 'Create User',
@@ -124,7 +100,6 @@ class Atm extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_atm',$this->id_tbl_atm);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('observation_atm',$this->observation_atm,true);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
