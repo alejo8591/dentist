@@ -6,7 +6,6 @@
  * The followings are the available columns in table 'tbl_phone':
  * @property integer $id_tbl_phone
  * @property integer $id_tbl_anamnesis
- * @property string $username
  * @property string $type_phone
  * @property string $phone
  * @property string $phone_extension
@@ -18,7 +17,6 @@
  *
  * The followings are the available model relations:
  * @property Anamnesis $idTblAnamnesis
- * @property Anamnesis $username0
  */
 class Phone extends CActiveRecord
 {
@@ -38,13 +36,13 @@ class Phone extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_anamnesis, username', 'required'),
+			array('id_tbl_anamnesis', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
-			array('username, type_phone, phone, phone_extension, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('type_phone, phone, phone_extension, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_phone, id_tbl_anamnesis, username, type_phone, phone, phone_extension, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_phone, id_tbl_anamnesis, type_phone, phone, phone_extension, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,7 +55,6 @@ class Phone extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
-			'username0' => array(self::BELONGS_TO, 'Anamnesis', 'username'),
 		);
 	}
 
@@ -69,7 +66,6 @@ class Phone extends CActiveRecord
 		return array(
 			'id_tbl_phone' => 'Id Tbl Phone',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'username' => 'Username',
 			'type_phone' => 'Type Phone',
 			'phone' => 'Phone',
 			'phone_extension' => 'Phone Extension',
@@ -101,7 +97,6 @@ class Phone extends CActiveRecord
 
 		$criteria->compare('id_tbl_phone',$this->id_tbl_phone);
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('type_phone',$this->type_phone,true);
 		$criteria->compare('phone',$this->phone,true);
 		$criteria->compare('phone_extension',$this->phone_extension,true);

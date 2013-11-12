@@ -70,5 +70,14 @@ class PatientDataController extends Controller{
 	      	'phones' => $phones,
 	      ));
 	}
+
+	public function actionLoadPhoneByAjax($index)
+	{
+		$phone = new Phone;
+		$this->renderPartial('_phone', array(
+			'phone' => $phone,
+			'index' => $index,
+		), false, true);
+	}
 }
 ?>

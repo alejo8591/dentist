@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'tbl_address':
  * @property integer $id_tbl_address
- * @property string $username
  * @property integer $id_tbl_anamnesis
  * @property string $type_address
  * @property string $address
@@ -17,7 +16,6 @@
  *
  * The followings are the available model relations:
  * @property Anamnesis $idTblAnamnesis
- * @property Anamnesis $username0
  */
 class Address extends CActiveRecord
 {
@@ -37,14 +35,14 @@ class Address extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, id_tbl_anamnesis', 'required'),
+			array('id_tbl_anamnesis', 'required'),
 			array('id_tbl_anamnesis', 'numerical', 'integerOnly'=>true),
-			array('username, type_address, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('type_address, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('address', 'length', 'max'=>256),
 			array('description, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_address, username, id_tbl_anamnesis, type_address, address, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_address, id_tbl_anamnesis, type_address, address, description, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,7 +55,6 @@ class Address extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblAnamnesis' => array(self::BELONGS_TO, 'Anamnesis', 'id_tbl_anamnesis'),
-			'username0' => array(self::BELONGS_TO, 'Anamnesis', 'username'),
 		);
 	}
 
@@ -68,7 +65,6 @@ class Address extends CActiveRecord
 	{
 		return array(
 			'id_tbl_address' => 'Id Tbl Address',
-			'username' => 'Username',
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
 			'type_address' => 'Type Address',
 			'address' => 'Address',
@@ -99,7 +95,6 @@ class Address extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tbl_address',$this->id_tbl_address);
-		$criteria->compare('username',$this->username,true);
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('type_address',$this->type_address,true);
 		$criteria->compare('address',$this->address,true);
