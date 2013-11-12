@@ -60,4 +60,11 @@ $cs->registerScriptFile('jquery.js');
 	<ul>
 		<li><a id="listProfessions">Listar Profesiones</a></li>
 	</ul>
+	<h2>Anamnesis</h2>
+	<ul>
+		<li><a id="createAnamnesis">Crear Anamnesis</a></li>
+	</ul>
+	<ul>
+		<li><a id="listAnamnesis">Listar Anamnesis</a></li>
+	</ul>
 </div>
