@@ -1,6 +1,12 @@
-assets/
+#assets/
 protected/runtime/
-themes/classic/views/
+#themes/classic/views/
 .DS_Store
 dentist/themes/abound/
 testapp/
+dentist/assets/
+#dentist/themes/classic/assets/
+yii/demos/hangman/assets/
+yii/framework/cli/views/webapp/assets/
+yii/framework/gii/assets/
+yii/framework/zii/widgets/assets/
