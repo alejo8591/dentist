@@ -33,7 +33,7 @@ class PersonalBackgroundController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOSH', 'loadOOH'),
+				'actions'=>array('create','update', 'loadOSH', 'loadOOH', 'loadODH'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -82,7 +82,13 @@ class PersonalBackgroundController extends Controller
 			if (isset($_POST['OptionsOralHabits'])) {
 				$mdoel->optionsOralHabits = $_POST['OptionsOralHabits'];
 				$model->saveWithRelated('optionsOralHabits');
-			}	
+			}
+			// optionsDentalHistories
+			if (isset($_POST['OptionsDentalHistory'])) {
+				$mdoel->optionsDentalHistories = $_POST['OptionsDentalHistory'];
+				$model->saveWithRelated('optionsDentalHistories');
+			}
+
 			if ($model->save()) 
 			{
 				$this->redirect(array('view', 'id'=>$model->id_tbl_personal_background));
@@ -199,12 +205,23 @@ class PersonalBackgroundController extends Controller
 	}
 
 	/**
-	 * @return Object with renderPartial for one ore more phones for user
+	 * @return Object with renderPartial for Option Oral Habits 
 	 */
 	public function actionLoadOOH($index)
 	{
 		$model = new OptionsOralHabits;
 		$this->renderPartial('_optionsoralhabits', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for one ore more phones for user
+	 */
+	public function actionLoadODH($index)
+	{
+		$model = new OptionsDentalHistory;
+		$this->renderPartial('_optionsdentalhistory', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

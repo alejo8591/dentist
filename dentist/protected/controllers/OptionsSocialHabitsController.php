@@ -65,7 +65,7 @@ class OptionsSocialHabitsController extends Controller
 		$model=new OptionsSocialHabits;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['OptionsSocialHabits']))
 		{

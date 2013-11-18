@@ -1,4 +1,4 @@
-<div class="row">
+	<div class="row">
 		<?php echo CHtml::activeLabelEx($model,'['.$index.']id_tbl_personal_background'); ?>
 		<?php echo CHtml::activeTextField($model,'['.$index.']id_tbl_personal_background'); ?>
 		<?php echo CHtml::error($model,'['.$index.']id_tbl_personal_background'); ?>

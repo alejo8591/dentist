@@ -57,6 +57,21 @@
       <?php echo CHtml::link('Agregar Habitos Orales', '#', array('id' => 'loadOOH')); ?>
    </div>
    <br />
+    <div id="optionsDentalHistories">
+        <?php
+        foreach($model->optionsDentalHistories as $id => $optionsDentalHistories):
+            $this->renderPartial('_optionsdentalhistory', array(
+                'model' => $optionsDentalHistories,
+                'index' => $id,
+                'display' => 'block',
+            ));
+        endforeach;
+        ?>
+   </div> 
+   <div>
+      <?php echo CHtml::link('Agregar Antecedentes Odontológicos', '#', array('id' => 'loadODH')); ?>
+   </div>
+   <br />
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -91,6 +106,23 @@
             success:function(response){
                $("#optionsOrallHabits").append(response);
                $("#optionsOrallHabits .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
+
+      var __index = ' . $index . ';
+      $("#loadODH").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadODH", array("load_for_three" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#optionsDentalHistories").append(response);
+               $("#optionsDentalHistories .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"
