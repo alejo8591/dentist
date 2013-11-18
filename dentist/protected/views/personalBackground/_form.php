@@ -39,7 +39,7 @@
         ?>
   </div> 
    <div>
-      <?php echo CHtml::link('Agregar Habitos Sociales', '#', array('id' => 'loadOSH')); ?>
+      <?php echo CHtml::link('Agregar - Habitos Sociales', '#', array('id' => 'loadOSH')); ?>
    </div>
    <br />
    <div id="optionsOrallHabits">
@@ -54,7 +54,7 @@
         ?>
    </div> 
    <div>
-      <?php echo CHtml::link('Agregar Habitos Orales', '#', array('id' => 'loadOOH')); ?>
+      <?php echo CHtml::link('Agregar - Habitos Orales', '#', array('id' => 'loadOOH')); ?>
    </div>
    <br />
     <div id="optionsDentalHistories">
@@ -69,7 +69,22 @@
         ?>
    </div> 
    <div>
-      <?php echo CHtml::link('Agregar Antecedentes Odontológicos', '#', array('id' => 'loadODH')); ?>
+      <?php echo CHtml::link('Agregar - Antecedentes Odontológicos', '#', array('id' => 'loadODH')); ?>
+   </div>
+   <br /> 
+   <div id="optionsPathologicalHistories">
+        <?php
+        foreach($model->optionsPathologicalHistories as $id => $optionsPathologicalHistories):
+            $this->renderPartial('_optionspathologicalhistory', array(
+                'model' => $optionsPathologicalHistories,
+                'index' => $id,
+                'display' => 'block',
+            ));
+        endforeach;
+        ?>
+   </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Antecedentes Personales Patólogicos', '#', array('id' => 'loadOPH')); ?>
    </div>
    <br />
 	<div class="row buttons">
@@ -84,7 +99,7 @@
       var _index = ' . $index . ';
       $("#loadOSH").click(function(e){
          e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadOSH", array("load_for_one" => $this->action->id)) . '&index="+_index;
+         var _url = "' . Yii::app()->controller->createUrl("loadOSH", array("load" => $this->action->id)) . '&index="+_index;
          $.ajax({
             url: _url,
             success:function(response){
@@ -97,10 +112,11 @@
             }
          });
       _index++;});
+
       var __index = ' . $index . ';
       $("#loadOOH").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOOH", array("load_for_two" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadOOH", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
@@ -117,7 +133,7 @@
       var __index = ' . $index . ';
       $("#loadODH").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadODH", array("load_for_three" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadODH", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
@@ -130,5 +146,22 @@
             }
          });
       __index++;});
+  
+      var _index = ' . $index . ';
+      $("#loadOPH").click(function(e){
+         e.preventDefault();
+         var _url = "' . Yii::app()->controller->createUrl("loadOPH", array("load" => $this->action->id)) . '&index="+_index;
+         $.ajax({
+            url: _url,
+            success:function(response){
+               $("#optionsPathologicalHistories").append(response);
+               $("#optionsPathologicalHistories .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _index++;});
       ', CClientScript::POS_END); 
  ?>

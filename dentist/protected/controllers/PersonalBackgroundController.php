@@ -33,7 +33,7 @@ class PersonalBackgroundController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOSH', 'loadOOH', 'loadODH'),
+				'actions'=>array('create','update', 'loadOSH', 'loadOOH', 'loadODH', 'loadOPH'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -80,13 +80,18 @@ class PersonalBackgroundController extends Controller
 			}
 			// optionsOralHabits
 			if (isset($_POST['OptionsOralHabits'])) {
-				$mdoel->optionsOralHabits = $_POST['OptionsOralHabits'];
+				$model->optionsOralHabits = $_POST['OptionsOralHabits'];
 				$model->saveWithRelated('optionsOralHabits');
 			}
 			// optionsDentalHistories
 			if (isset($_POST['OptionsDentalHistory'])) {
-				$mdoel->optionsDentalHistories = $_POST['OptionsDentalHistory'];
+				$model->optionsDentalHistories = $_POST['OptionsDentalHistory'];
 				$model->saveWithRelated('optionsDentalHistories');
+			}
+			// OptionsPathologicalHistory - optionsPathologicalHistories
+			if (isset($_POST['OptionsPathologicalHistory'])) {
+				$model->optionsPathologicalHistories = $_POST['OptionsPathologicalHistory'];
+				$model->saveWithRelated('optionsPathologicalHistories');
 			}
 
 			if ($model->save()) 
@@ -216,12 +221,24 @@ class PersonalBackgroundController extends Controller
 		), false, true);
 	}
 	/**
-	 * @return Object with renderPartial for one ore more phones for user
+	 * @return Object with renderPartial for Options Dental History
 	 */
 	public function actionLoadODH($index)
 	{
 		$model = new OptionsDentalHistory;
 		$this->renderPartial('_optionsdentalhistory', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for Options Dental History
+	 */
+	public function actionLoadOPH($index)
+	{
+		$model = new OptionsPathologicalHistory;
+		$this->renderPartial('_optionspathologicalhistory', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);
