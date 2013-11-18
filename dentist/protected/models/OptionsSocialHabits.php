@@ -126,14 +126,6 @@ class OptionsSocialHabits extends CActiveRecord
 		return parent::model($className);
 	}
 
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
-
     public function getOptions()
     {
     	return array(
@@ -142,4 +134,12 @@ class OptionsSocialHabits extends CActiveRecord
     		self::TYPE_OPTIONS_NO =>'No',
     	);
     }
+
+    public function behaviors()
+    {
+        return array('ESaveRelatedBehavior' => array(
+                'class' => 'application.components.ESaveRelatedBehavior')
+        );
+    }
+
 }

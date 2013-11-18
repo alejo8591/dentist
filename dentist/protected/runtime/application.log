@@ -3936,3 +3936,136 @@ Stack trace:
 REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOptionsSocialHabitsByAjax?load_for_one=create&index=0
 in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php (189)
 in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/11/18 03:28:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "personaldata/create"' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personaldata/cr...')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dentist/dentist/index.php/personaldata/create
+---
+2013/11/18 03:31:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadOSH')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOSH?load_for_one=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground/create
+---
+2013/11/18 03:31:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadOSH')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOSH?load_for_one=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground/create
+---
+2013/11/18 03:32:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadOSH')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOSH?load_for_one=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground/create
+---
+2013/11/18 03:34:38 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadOSH')
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOSH?load_for_one=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground/create
+---
+2013/11/18 12:09:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loadOOH" solicitada.' in /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(270): CController->missingAction('loadOOH')
+#1 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): CController->run('loadOOH')
+#2 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('personalbackgro...')
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOOH?load_for_two=create&index=0
+HTTP_REFERER=http://127.0.0.1:8888/dentist/dentist/index.php/personalbackground/create
+---
+2013/11/18 12:13:18 [error] [php] Undefined variable: form (/Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/_optionsoralhabits.php:2)
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): PersonalBackgroundController->renderFile()
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php(210): PersonalBackgroundController->renderPartial()
+#2 unknown(0): PersonalBackgroundController->actionLoadOOH()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): PersonalBackgroundController->runAction()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): PersonalBackgroundController->filterAccessControl()
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): PersonalBackgroundController->runActionWithFilters()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): PersonalBackgroundController->run()
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CWebApplication->run()
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOOH?load_for_two=create&index=0
+in /Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/_optionsoralhabits.php (2)
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php (210)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)
+2013/11/18 12:26:11 [error] [php] Undefined variable: form (/Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/_optionsoralhabits.php:2)
+Stack trace:
+#0 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(869): PersonalBackgroundController->renderFile()
+#1 /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php(210): PersonalBackgroundController->renderPartial()
+#2 unknown(0): PersonalBackgroundController->actionLoadOOH()
+#3 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#4 /Applications/MAMP/htdocs/dentist/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#5 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(133): PersonalBackgroundController->runAction()
+#7 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#9 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CInlineFilter.php(58): PersonalBackgroundController->filterAccessControl()
+#10 /Applications/MAMP/htdocs/dentist/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#11 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /Applications/MAMP/htdocs/dentist/yii/framework/web/CController.php(265): PersonalBackgroundController->runActionWithFilters()
+#13 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(282): PersonalBackgroundController->run()
+#14 /Applications/MAMP/htdocs/dentist/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /Applications/MAMP/htdocs/dentist/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /Applications/MAMP/htdocs/dentist/dentist/index.php(13): CWebApplication->run()
+REQUEST_URI=/dentist/dentist/index.php/personalbackground/loadOOH?load_for_two=create&index=0
+in /Applications/MAMP/htdocs/dentist/dentist/protected/views/personalbackground/_optionsoralhabits.php (2)
+in /Applications/MAMP/htdocs/dentist/dentist/protected/controllers/PersonalbackgroundController.php (210)
+in /Applications/MAMP/htdocs/dentist/dentist/index.php (13)

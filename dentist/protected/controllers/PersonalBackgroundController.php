@@ -16,7 +16,7 @@ class PersonalBackgroundController extends Controller
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
-			'ajaxOnly + loadOptionsSocialHabitsByAjax',
+			'ajaxOnly + loadOSH',
 		);
 	}
 
@@ -33,7 +33,7 @@ class PersonalBackgroundController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOptionsSocialHabitsByAjax'),
+				'actions'=>array('create','update', 'loadOSH', 'loadOOH'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -71,12 +71,17 @@ class PersonalBackgroundController extends Controller
 		if(isset($_POST['PersonalBackground']))
 		{
 			$model->attributes = $_POST['PersonalBackground'];
-
+			// optionsSocialHabits 
 			if (isset($_POST['OptionsSocialHabits'])) 
 			{
 				$model->optionsSocialHabits = $_POST['OptionsSocialHabits'];
 				$model->saveWithRelated('optionsSocialHabits');
 
+			}
+			// optionsOralHabits
+			if (isset($_POST['OptionsOralHabits'])) {
+				$mdoel->optionsOralHabits = $_POST['OptionsOralHabits'];
+				$model->saveWithRelated('optionsOralHabits');
 			}	
 			if ($model->save()) 
 			{
@@ -184,7 +189,7 @@ class PersonalBackgroundController extends Controller
 	/**
 	 * @return Object with renderPartial for Options Social Habits for user
 	 */
-	public function actionLoadOptionsSocialHabitsByAjax($index)
+	public function actionLoadOSH($index)
 	{
 		$model = new OptionsSocialHabits;
 		$this->renderPartial('_optionssocialhabits', array(
@@ -193,4 +198,15 @@ class PersonalBackgroundController extends Controller
 		), false, true);
 	}
 
+	/**
+	 * @return Object with renderPartial for one ore more phones for user
+	 */
+	public function actionLoadOOH($index)
+	{
+		$model = new OptionsOralHabits;
+		$this->renderPartial('_optionsoralhabits', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
 }
