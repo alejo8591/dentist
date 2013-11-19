@@ -78,5 +78,15 @@ $(document).ready(function(){
 	$('#listAnamnesis').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/patientdata';
+	});
+	// for new Anamnesis with url for js
+	$('#createPersonalBackground').click(function(event) {
+		var newURL = window.location.pathname;
+		window.location = newURL+'personalbackground/create';
+	});
+	// for list Level Schoolings with url for js
+	$('#listPersonalBackground').click(function(event) {
+		var newURL = window.location.pathname;
+		window.location = newURL+'/personalbackground';
 	});	
 });

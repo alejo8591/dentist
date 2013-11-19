@@ -33,7 +33,7 @@ class PersonalBackgroundController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOSH', 'loadOOH', 'loadODH', 'loadOPH'),
+				'actions'=>array('create','update', 'loadOSH', 'loadOOH', 'loadODH', 'loadOPH', 'loadOOG'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -92,6 +92,11 @@ class PersonalBackgroundController extends Controller
 			if (isset($_POST['OptionsPathologicalHistory'])) {
 				$model->optionsPathologicalHistories = $_POST['OptionsPathologicalHistory'];
 				$model->saveWithRelated('optionsPathologicalHistories');
+			}
+			// OptionsObstetricGynecology - optionsObstetricGynecologies
+			if (isset($_POST['OptionsObstetricGynecology'])) {
+				$model->optionsObstetricGynecologies = $_POST['OptionsObstetricGynecology'];
+				$model->saveWithRelated('optionsObstetricGynecologies');
 			}
 
 			if ($model->save()) 
@@ -239,6 +244,18 @@ class PersonalBackgroundController extends Controller
 	{
 		$model = new OptionsPathologicalHistory;
 		$this->renderPartial('_optionspathologicalhistory', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for Options Obstetric Gynecology
+	 */
+	public function actionLoadOOG($index)
+	{
+		$model = new OptionsObstetricGynecology;
+		$this->renderPartial('_optionsobstetricgynecology', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

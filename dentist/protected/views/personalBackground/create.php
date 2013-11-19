@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PersonalBackground', 'url'=>array('index')),
-	array('label'=>'Manage PersonalBackground', 'url'=>array('admin')),
+	array('label'=>'Lista de Antecedentes Personales', 'url'=>array('index')),
+	// array('label'=>'Manage PersonalBackground', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create PersonalBackground</h1>
+<h1>Crear Antecedentes Personales</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

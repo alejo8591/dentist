@@ -87,6 +87,21 @@
       <?php echo CHtml::link('Agregar - Antecedentes Personales Patólogicos', '#', array('id' => 'loadOPH')); ?>
    </div>
    <br />
+   <div id="optionsObstetricGynecologies">
+        <?php
+        foreach($model->optionsObstetricGynecologies as $id => $optionsObstetricGynecologies):
+            $this->renderPartial('_optionsobstetricgynecology', array(
+                'model' => $optionsObstetricGynecologies,
+                'index' => $id,
+                'display' => 'block',
+            ));
+        endforeach;
+        ?>
+   </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Antecedentes Gineco-Obstétricos', '#', array('id' => 'loadOOG')); ?>
+   </div>
+   <br />
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -163,5 +178,22 @@
             }
          });
       _index++;});
+
+      var __index = ' . $index . ';
+      $("#loadOOG").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadOOG", array("load" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#optionsObstetricGynecologies").append(response);
+               $("#optionsObstetricGynecologies .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
       ', CClientScript::POS_END); 
  ?>
