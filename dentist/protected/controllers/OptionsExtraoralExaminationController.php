@@ -1,6 +1,6 @@
 <?php
 
-class PhysicalExaminationController extends Controller
+class OptionsExtraoralExaminationController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class PhysicalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOVS', 'loadOEE'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,31 +62,16 @@ class PhysicalExaminationController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new PhysicalExamination;
+		$model=new OptionsExtraoralExamination;
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['PhysicalExamination']))
+		if(isset($_POST['OptionsExtraoralExamination']))
 		{
-			$model->attributes = $_POST['PhysicalExamination'];
-
-			// OptionsVitalSigns - optionsVitalSigns
-			if (isset($_POST['OptionsVitalSigns'])) 
-			{
-				$model->optionsVitalSigns = $_POST['OptionsVitalSigns'];
-				$model->saveWithRelated('optionsVitalSigns');
-			}
-			// OptionsExtraoralExamination - optionsExtraoralExaminations
-			if (isset($_POST['OptionsExtraoralExamination'])) 
-			{
-				$model->optionsExtraoralExaminations = $_POST['OptionsExtraoralExamination'];
-				$model->saveWithRelated('optionsExtraoralExaminations');
-			}
-
-			
+			$model->attributes=$_POST['OptionsExtraoralExamination'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_physical_examination));
+				$this->redirect(array('view','id'=>$model->id_tbl_option_extraoral_examination));
 		}
 
 		$this->render('create',array(
@@ -106,22 +91,11 @@ class PhysicalExaminationController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['PhysicalExamination']))
+		if(isset($_POST['OptionsExtraoralExamination']))
 		{
-			if(isset($_POST['PhysicalExamination']))
-			{
-				$model->attributes = $_POST['PhysicalExamination'];
-
-				// OptionsVitalSigns - optionsVitalSigns
-				if (isset($_POST['OptionsVitalSigns'])) 
-				{
-					$model->optionsVitalSigns = $_POST['OptionsVitalSigns'];
-					$model->saveWithRelated('optionsVitalSigns');
-				}
-			}
-
+			$model->attributes=$_POST['OptionsExtraoralExamination'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_physical_examination));
+				$this->redirect(array('view','id'=>$model->id_tbl_option_extraoral_examination));
 		}
 
 		$this->render('update',array(
@@ -148,7 +122,7 @@ class PhysicalExaminationController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('PhysicalExamination');
+		$dataProvider=new CActiveDataProvider('OptionsExtraoralExamination');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -159,10 +133,10 @@ class PhysicalExaminationController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new PhysicalExamination('search');
+		$model=new OptionsExtraoralExamination('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PhysicalExamination']))
-			$model->attributes=$_GET['PhysicalExamination'];
+		if(isset($_GET['OptionsExtraoralExamination']))
+			$model->attributes=$_GET['OptionsExtraoralExamination'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -173,12 +147,12 @@ class PhysicalExaminationController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return PhysicalExamination the loaded model
+	 * @return OptionsExtraoralExamination the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=PhysicalExamination::model()->findByPk($id);
+		$model=OptionsExtraoralExamination::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -186,38 +160,14 @@ class PhysicalExaminationController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param PhysicalExamination $model the model to be validated
+	 * @param OptionsExtraoralExamination $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='physical-examination-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='options-extraoral-examination-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-	}
-
-	/**
-	 * @return Object with renderPartial for Options Social Habits for user
-	 */
-	public function actionLoadOVS($index)
-	{
-		$model = new OptionsVitalSigns;
-		$this->renderPartial('_optionsvitalsigns', array(
-			'model' => $model,
-			'index' => $index,
-		), false, true);
-	}
-
-	/**
-	 * @return Object with renderPartial for Options Social Habits for user
-	 */
-	public function actionLoadOEE($index)
-	{
-		$model = new OptionsExtraoralExamination;
-		$this->renderPartial('_optionsextraoralexaminations', array(
-			'model' => $model,
-			'index' => $index,
-		), false, true);
 	}
 }

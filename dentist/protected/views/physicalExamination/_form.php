@@ -41,6 +41,21 @@
    <div>
       <?php echo CHtml::link('Agregar - Signos Vitales', '#', array('id' => 'loadOVS')); ?>
    </div>
+   <br />
+  	<div id="optionsExtraoralExaminations">
+        <?php
+	        foreach($model->optionsExtraoralExaminations as $id => $optionsExtraoralExaminations):
+	            $this->renderPartial('_optionsextraoralexaminations', array(
+	                'model' => $optionsExtraoralExaminations,
+	                'index' => $id,
+	                'display' => 'block',
+	            ));
+	        endforeach;
+        ?>
+  	</div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Examen Extraoral', '#', array('id' => 'loadOEE')); ?>
+   </div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -50,7 +65,7 @@
 </div><!-- form -->
 <?php
    $index = 0;
-      Yii::app()->clientScript->registerScript('loadsSocial', '
+      Yii::app()->clientScript->registerScript('loadsPhysical', '
       var _index = ' . $index . ';
       $("#loadOVS").click(function(e){
          e.preventDefault();
@@ -69,14 +84,14 @@
       _index++;});
 
       var __index = ' . $index . ';
-      $("#loadOOH").click(function(e){
+      $("#loadOEE").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOOH", array("load" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadOEE", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
-               $("#optionsOrallHabits").append(response);
-               $("#optionsOrallHabits .crow").last().animate({
+               $("#optionsExtraoralExaminations").append(response);
+               $("#optionsExtraoralExaminations .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"
