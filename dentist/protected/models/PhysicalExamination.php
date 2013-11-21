@@ -126,4 +126,13 @@ class PhysicalExamination extends CActiveRecord
                 'class' => 'application.components.ESaveRelatedBehavior')
         );
     }
+
+    /**
+	 * @return array of valid anamnesis creates
+	 */
+	public function getAnamnesies()
+	{
+		$userArray = CHtml::listData(Anamnesis::model()->findAll(array('order'=>'username')), 'username', 'username');
+		return $userArray;
+	}
 }

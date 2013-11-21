@@ -32,7 +32,7 @@ class PhysicalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadOVS'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,7 +65,7 @@ class PhysicalExaminationController extends Controller
 		$model=new PhysicalExamination;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['PhysicalExamination']))
 		{
@@ -93,7 +93,18 @@ class PhysicalExaminationController extends Controller
 
 		if(isset($_POST['PhysicalExamination']))
 		{
-			$model->attributes=$_POST['PhysicalExamination'];
+			if(isset($_POST['PhysicalExamination']))
+			{
+				$model->attributes = $_POST['PhysicalExamination'];
+
+				// OptionsVitalSigns - optionsVitalSigns
+				if (isset($_POST['OptionsVitalSigns'])) 
+				{
+					$model->optionsVitalSigns = $_POST['OptionsVitalSigns'];
+					$model->saveWithRelated('optionsVitalSigns');
+				}
+			}
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_physical_examination));
 		}
@@ -169,5 +180,17 @@ class PhysicalExaminationController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/**
+	 * @return Object with renderPartial for Options Social Habits for user
+	 */
+	public function actionLoadOVS($index)
+	{
+		$model = new OptionsVitalSigns;
+		$this->renderPartial('_optionsvitalsigns', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
 	}
 }

@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="row">
-		<?php CHtml::activeLabelEx($model,'['.$index.']observation_option_dental_history'); ?>
+		<?php echo CHtml::activeLabelEx($model,'['.$index.']observation_option_dental_history'); ?>
 		<?php echo CHtml::activeTextArea($model,'['.$index.']observation_option_dental_history',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo CHtml::error($model,'['.$index.']observation_option_dental_history'); ?>
 	</div>

@@ -76,7 +76,6 @@ class PersonalBackgroundController extends Controller
 			{
 				$model->optionsSocialHabits = $_POST['OptionsSocialHabits'];
 				$model->saveWithRelated('optionsSocialHabits');
-
 			}
 			// optionsOralHabits
 			if (isset($_POST['OptionsOralHabits'])) {
