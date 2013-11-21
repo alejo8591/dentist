@@ -32,7 +32,7 @@ class PhysicalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOVS', 'loadOEE', 'loadON'),
+				'actions'=>array('create','update', 'loadOVS', 'loadOEE', 'loadON', 'loadOL'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -89,7 +89,12 @@ class PhysicalExaminationController extends Controller
 				$model->optionsNecks = $_POST['OptionsNeck'];
 				$model->saveWithRelated('optionsNecks');
 			}
-
+			// OptionsLymphadenopathy - optionsLymphadenopathies
+			if (isset($_POST['OptionsLymphadenopathy'])) 
+			{
+				$model->optionsLymphadenopathies = $_POST['OptionsLymphadenopathy'];
+				$model->saveWithRelated('optionsLymphadenopathies');
+			}
 			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_physical_examination));
@@ -234,6 +239,18 @@ class PhysicalExaminationController extends Controller
 	{
 		$model = new OptionsNeck;
 		$this->renderPartial('_optionsneck', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for Options OptionsLymphadenopathy
+	 */
+	public function actionLoadOL($index)
+	{
+		$model = new OptionsLymphadenopathy;
+		$this->renderPartial('_optionslymphadenopathy', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

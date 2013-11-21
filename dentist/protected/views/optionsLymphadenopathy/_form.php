@@ -1,13 +1,13 @@
 <?php
-/* @var $this OptionsNeckController */
-/* @var $model OptionsNeck */
+/* @var $this OptionsLymphadenopathyController */
+/* @var $model OptionsLymphadenopathy */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'options-neck-form',
+	'id'=>'options-lymphadenopathy-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -26,21 +26,21 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name_option_neck'); ?>
-		<?php echo $form->textField($model,'name_option_neck',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'name_option_neck'); ?>
+		<?php echo $form->labelEx($model,'name_option_lymphadenopathy'); ?>
+		<?php echo $form->textField($model,'name_option_lymphadenopathy',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'name_option_lymphadenopathy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'flag_option_neck'); ?>
-		<?php echo $form->textField($model,'flag_option_neck'); ?>
-		<?php echo $form->error($model,'flag_option_neck'); ?>
+		<?php echo $form->labelEx($model,'flag_option_lymphadenopathy'); ?>
+		<?php echo $form->textField($model,'flag_option_lymphadenopathy'); ?>
+		<?php echo $form->error($model,'flag_option_lymphadenopathy'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'observation_option_neck'); ?>
-		<?php echo $form->textArea($model,'observation_option_neck',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'observation_option_neck'); ?>
+		<?php echo $form->labelEx($model,'observation_option_lymphadenopathy'); ?>
+		<?php echo $form->textArea($model,'observation_option_lymphadenopathy',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'observation_option_lymphadenopathy'); ?>
 	</div>
 
 	<div class="row buttons">
