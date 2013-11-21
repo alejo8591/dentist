@@ -32,7 +32,7 @@ class PhysicalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOVS', 'loadOEE'),
+				'actions'=>array('create','update', 'loadOVS', 'loadOEE', 'loadON'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -82,6 +82,12 @@ class PhysicalExaminationController extends Controller
 			{
 				$model->optionsExtraoralExaminations = $_POST['OptionsExtraoralExamination'];
 				$model->saveWithRelated('optionsExtraoralExaminations');
+			}
+			// OptionsNeck - optionsNecks
+			if (isset($_POST['OptionsNeck'])) 
+			{
+				$model->optionsNecks = $_POST['OptionsNeck'];
+				$model->saveWithRelated('optionsNecks');
 			}
 
 			
@@ -210,12 +216,24 @@ class PhysicalExaminationController extends Controller
 	}
 
 	/**
-	 * @return Object with renderPartial for Options Social Habits for user
+	 * @return Object with renderPartial for Options Estraoral Examination
 	 */
 	public function actionLoadOEE($index)
 	{
 		$model = new OptionsExtraoralExamination;
 		$this->renderPartial('_optionsextraoralexaminations', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for Options neck
+	 */
+	public function actionLoadON($index)
+	{
+		$model = new OptionsNeck;
+		$this->renderPartial('_optionsneck', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);
