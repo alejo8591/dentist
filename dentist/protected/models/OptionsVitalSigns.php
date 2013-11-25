@@ -66,9 +66,9 @@ class OptionsVitalSigns extends CActiveRecord
 		return array(
 			'id_tbl_option_vital_signs' => 'Id Tbl Option Vital Signs',
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
-			'name_option_vital_signs' => 'Name Option Vital Signs',
-			'flag_option_vital_signs' => 'Flag Option Vital Signs',
-			'observation_option_vital_signs' => 'Observation Option Vital Signs',
+			'name_option_vital_signs' => 'Nombre de la opción del signo vital',
+			'flag_option_vital_signs' => 'Selección de opción Si/No',
+			'observation_option_vital_signs' => 'Observaciónes de signo vital',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

@@ -66,9 +66,9 @@ class OptionsDentalHistory extends CActiveRecord
 		return array(
 			'id_tbl_option_dental_history' => 'Id Tbl Option Dental History',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'name_option_dental_history' => 'Name Option Dental History',
-			'flag_option_dental_history' => 'Flag Option Dental History',
-			'observation_option_dental_history' => 'Observation Option Dental History',
+			'name_option_dental_history' => 'Nombre de Opción para la Historia Dental',
+			'flag_option_dental_history' => 'Selección de opción Si/No',
+			'observation_option_dental_history' => 'Observación para la opción de historia Dental',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

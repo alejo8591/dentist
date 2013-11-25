@@ -71,7 +71,7 @@ class PhysicalExamination extends CActiveRecord
 	{
 		return array(
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
+			'id_tbl_anamnesis' => 'Número de Anamnesis',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

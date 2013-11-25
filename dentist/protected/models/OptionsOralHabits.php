@@ -66,9 +66,9 @@ class OptionsOralHabits extends CActiveRecord
 		return array(
 			'id_tbl_option_oral_habits' => 'Id Tbl Option Oral Habits',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'name_option_oral_habits' => 'Name Option Oral Habits',
-			'flag_option_oral_habits' => 'Flag Option Oral Habits',
-			'observation_option_oral_habits' => 'Observation Option Oral Habits',
+			'name_option_oral_habits' => 'Nombre de la Opción de Habito Oral',
+			'flag_option_oral_habits' => 'Selección de opción Si/No',
+			'observation_option_oral_habits' => 'Observaciones del Habito Oral',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

@@ -66,9 +66,9 @@ class OptionsNeck extends CActiveRecord
 		return array(
 			'id_tbl_option_neck' => 'Id Tbl Option Neck',
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
-			'name_option_neck' => 'Name Option Neck',
-			'flag_option_neck' => 'Flag Option Neck',
-			'observation_option_neck' => 'Observation Option Neck',
+			'name_option_neck' => 'Nombre de la Opción para el Cuello',
+			'flag_option_neck' => 'Selección de opción Si/No',
+			'observation_option_neck' => 'Observaciones del Cuello',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

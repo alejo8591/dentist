@@ -82,7 +82,7 @@ $(document).ready(function(){
 	// for new Anamnesis with url for js
 	$('#createPersonalBackground').click(function(event) {
 		var newURL = window.location.pathname;
-		window.location = newURL+'personalbackground/create';
+		window.location = newURL+'/personalbackground/create';
 	});
 	// for list Level Schoolings with url for js
 	$('#listPersonalBackground').click(function(event) {

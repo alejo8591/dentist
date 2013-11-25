@@ -66,9 +66,9 @@ class OptionsSocialHabits extends CActiveRecord
 		return array(
 			'id_tbl_option_social_habits' => 'Id Tbl Option Social Habits',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'name_option_social_habits' => 'Name Option Social Habits',
-			'flag_option_social_habits' => 'Flag Option Social Habits',
-			'observation_option_social_habits' => 'Observation Option Social Habits',
+			'name_option_social_habits' => 'Nombre del Habito Social',
+			'flag_option_social_habits' => 'Selección de Opción Si/No',
+			'observation_option_social_habits' => 'Observaciones del Habito Social',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

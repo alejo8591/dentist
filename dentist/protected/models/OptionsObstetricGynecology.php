@@ -66,9 +66,9 @@ class OptionsObstetricGynecology extends CActiveRecord
 		return array(
 			'id_tbl_option_obstetric_gynecology' => 'Id Tbl Option Obstetric Gynecology',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'name_option_obstetric_gynecology' => 'Name Option Obstetric Gynecology',
-			'flag_option_option_obstetric_gynecology' => 'Flag Option Option Obstetric Gynecology',
-			'observation_option_obstetric_gynecology' => 'Observation Option Obstetric Gynecology',
+			'name_option_obstetric_gynecology' => 'Nombre del Antecedente Gineco-Obstétricos',
+			'flag_option_option_obstetric_gynecology' => 'Selección de opción Si/No',
+			'observation_option_obstetric_gynecology' => 'Observaciones del Antecedente Gineco-Obstétrico',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

@@ -66,9 +66,9 @@ class OptionsPathologicalHistory extends CActiveRecord
 		return array(
 			'id_tbl_option_pathological_history' => 'Id Tbl Option Pathological History',
 			'id_tbl_personal_background' => 'Id Tbl Personal Background',
-			'name_option_pathological_history' => 'Name Option Pathological History',
-			'flag_option_pathological_history' => 'Flag Option Pathological History',
-			'observation_option_pathological_history' => 'Observation Option Pathological History',
+			'name_option_pathological_history' => 'Nombre del Antecedente Patológico',
+			'flag_option_pathological_history' => 'Selección de opción Si/No',
+			'observation_option_pathological_history' => 'Observación del Antecedente Patológico',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
