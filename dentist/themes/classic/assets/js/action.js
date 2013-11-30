@@ -88,5 +88,15 @@ $(document).ready(function(){
 	$('#listPersonalBackground').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/personalbackground';
+	});
+	// for new Anamnesis with url for js
+	$('#createPhysicalExamination').click(function(event) {
+		var newURL = window.location.pathname;
+		window.location = newURL+'/physicalexamination/create';
+	});
+	// for list Level Schoolings with url for js
+	$('#listPhysicalExamination').click(function(event) {
+		var newURL = window.location.pathname;
+		window.location = newURL+'/physicalexamination';
 	});	
 });

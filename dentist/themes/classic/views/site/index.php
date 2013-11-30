@@ -74,6 +74,13 @@ $cs->registerScriptFile('jquery.js');
 	<ul>
 		<li><a id="listPersonalBackground">Listar Antecedentes</a></li>
 	</ul>
+	<h2>Examen Físico</h2>
+	<ul>
+		<li><a id="createPhysicalExamination">Crear Examen Físico</a></li>
+	</ul>
+	<ul>
+		<li><a id="listPhysicalExamination">Listar Examenes Físicos</a></li>
+	</ul>
 	
 
 </div>

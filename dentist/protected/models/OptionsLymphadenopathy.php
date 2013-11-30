@@ -66,9 +66,9 @@ class OptionsLymphadenopathy extends CActiveRecord
 		return array(
 			'id_tbl_option_lymphadenopathy' => 'Id Tbl Option Lymphadenopathy',
 			'id_tbl_physical_examination' => 'Id Tbl Physical Examination',
-			'name_option_lymphadenopathy' => 'Name Option Lymphadenopathy',
-			'flag_option_lymphadenopathy' => 'Flag Option Lymphadenopathy',
-			'observation_option_lymphadenopathy' => 'Observation Option Lymphadenopathy',
+			'name_option_lymphadenopathy' => 'Nombre de la Adenopatía',
+			'flag_option_lymphadenopathy' => 'Selección de opción Si/No',
+			'observation_option_lymphadenopathy' => 'Observación de la Adenopatía',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
