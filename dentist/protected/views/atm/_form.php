@@ -95,6 +95,23 @@
       <?php echo CHtml::link('Agregar - EXAMEN INTRAORAL: Tejidos Blandos', '#', array('id' => 'loadOAIST')); ?>
    </div>
    <br />
+
+   <div id="optionsAtmIntraoralHardTissues">
+        <?php
+	        foreach($model->optionsAtmIntraoralHardTissues as $id => $optionsAtmIntraoralHardTissues):
+	            $this->renderPartial('_optionsatmintraoralhardtissue', array(
+	                'model' => $optionsAtmIntraoralHardTissues,
+	                'index' => $id,
+	                'display' => 'block',
+	            ));
+	        endforeach;
+        ?>
+  	</div> 
+   <div>
+      <?php echo CHtml::link('Agregar - EXAMEN INTRAORAL: Tejidos Duros', '#', array('id' => 'loadOAIHT')); ?>
+   </div>
+   <br />
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -174,14 +191,14 @@
       _index++;});
 
       var __index = ' . $index . ';
-      $("#loadOOG").click(function(e){
+      $("#loadOAIHT").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOOG", array("load" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadOAIHT", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
-               $("#optionsObstetricGynecologies").append(response);
-               $("#optionsObstetricGynecologies .crow").last().animate({
+               $("#optionsAtmIntraoralHardTissues").append(response);
+               $("#optionsAtmIntraoralHardTissues .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"
