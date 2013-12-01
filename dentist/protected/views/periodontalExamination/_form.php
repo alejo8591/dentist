@@ -65,6 +65,23 @@
       <?php echo CHtml::link('Agregar - Evaluación de la Técnica de Cepillado', '#', array('id' => 'loadPTB')); ?>
    </div>
    <br />
+
+   <div id="periodontalBrushings">
+        <?php
+	        foreach($model->periodontalBrushings as $id => $periodontalBrushings):
+	            $this->renderPartial('_periodontalbrushing', array(
+	                'model' => $periodontalBrushings,
+	                'index' => $id,
+	                'display' => 'block',
+	            ));
+	        endforeach;
+        ?>
+  	</div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Orden de Cepillado', '#', array('id' => 'loadPB')); ?>
+   </div>
+   <br />
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -110,14 +127,14 @@
       __index++;});
 
       var __index = ' . $index . ';
-      $("#loadOASF").click(function(e){
+      $("#loadPB").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOASF", array("load" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadPB", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
-               $("#optionsAtmSoftTissues").append(response);
-               $("#optionsAtmSoftTissues .crow").last().animate({
+               $("#periodontalBrushings").append(response);
+               $("#periodontalBrushings .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"

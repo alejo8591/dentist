@@ -67,10 +67,10 @@ class PeriodontalBrushing extends CActiveRecord
 		return array(
 			'id_tbl_periodontal_brushing' => 'Id Tbl Periodontal Brushing',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
-			'name_option_periodontal_brushing' => 'Name Option Periodontal Brushing',
-			'type_periodontal_brushing' => 'Type Periodontal Brushing',
-			'flag_option_periodontal_brushing' => 'Flag Option Periodontal Brushing',
-			'observations_periodontal_brushing' => 'Observations Periodontal Brushing',
+			'name_option_periodontal_brushing' => 'Número de Sextante',
+			'type_periodontal_brushing' => 'Tipo de Segmento',
+			'flag_option_periodontal_brushing' => 'Valor del Sextante - Segmento',
+			'observations_periodontal_brushing' => 'Observación y/o Recomendaciones',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -122,12 +122,4 @@ class PeriodontalBrushing extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
-}
 }
