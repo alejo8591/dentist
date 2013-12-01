@@ -32,7 +32,7 @@ class PeriodontalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadINTCP'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,11 +65,19 @@ class PeriodontalExaminationController extends Controller
 		$model=new PeriodontalExamination;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['PeriodontalExamination']))
 		{
 			$model->attributes=$_POST['PeriodontalExamination'];
+			
+			// Intcp - intcps
+			if (isset($_POST['Intcp'])) 
+			{
+				$model->intcps = $_POST['Intcp'];
+				$model->saveWithRelated('intcps');
+			}
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_periodontal_examination));
 		}
@@ -93,6 +101,12 @@ class PeriodontalExaminationController extends Controller
 
 		if(isset($_POST['PeriodontalExamination']))
 		{
+			// Intcp - intcps
+			if (isset($_POST['Intcp'])) 
+			{
+				$model->intcps = $_POST['Intcp'];
+				$model->saveWithRelated('intcps');
+			}
 			$model->attributes=$_POST['PeriodontalExamination'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_periodontal_examination));
@@ -169,5 +183,17 @@ class PeriodontalExaminationController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/**
+	 * @return Object with renderPartial for Options INTCP
+	 */
+	public function actionLoadINTCP($index)
+	{
+		$model = new Intcp;
+		$this->renderPartial('_intcp', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
 	}
 }

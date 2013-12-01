@@ -68,11 +68,11 @@ class Intcp extends CActiveRecord
 		return array(
 			'id_tbl_intcp' => 'Id Tbl Intcp',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
-			'name_option_intcp' => 'Name Option Intcp',
-			'code_intcp' => 'Code Intcp',
-			'nt_intcp' => 'Nt Intcp',
-			'observation_option_intcp' => 'Observation Option Intcp',
-			'flag_option_intcp' => 'Flag Option Intcp',
+			'name_option_intcp' => 'Nombre del Segmento según INTCP',
+			'code_intcp' => 'Código',
+			'nt_intcp' => 'NT',
+			'observation_option_intcp' => 'Observación sobre el Segmento',
+			'flag_option_intcp' => 'Selección de opción Si/No',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -132,5 +132,4 @@ class Intcp extends CActiveRecord
                 'class' => 'application.components.ESaveRelatedBehavior')
         );
     }
-}
 }
