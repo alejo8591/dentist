@@ -66,9 +66,9 @@ class OptionsAtmSoftTissue extends CActiveRecord
 		return array(
 			'id_tbl_option_atm_soft_tissue' => 'Id Tbl Option Atm Soft Tissue',
 			'id_tbl_atm' => 'Id Tbl Atm',
-			'name_option_atm_soft_tissue' => 'Name Option Atm Soft Tissue',
-			'flag_option_atm_soft_tissue' => 'Flag Option Atm Soft Tissue',
-			'observation_atm_soft_tissue' => 'Observation Atm Soft Tissue',
+			'name_option_atm_soft_tissue' => 'Nombre de la Opción de Tejido Blando',
+			'flag_option_atm_soft_tissue' => 'Tipo de Opción para Tejido Blando',
+			'observation_atm_soft_tissue' => 'Observaciones con respecto al Tejido',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

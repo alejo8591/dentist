@@ -64,6 +64,22 @@
    </div>
    <br />
 
+   <div id="optionsAtmSoftTissues">
+        <?php
+	        foreach($model->optionsAtmSoftTissues as $id => $optionsAtmSoftTissues):
+	            $this->renderPartial('_optionsatmsofttissue', array(
+	                'model' => $optionsAtmSoftTissues,
+	                'index' => $id,
+	                'display' => 'block',
+	            ));
+	        endforeach;
+        ?>
+  	</div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Tejidos Blandos', '#', array('id' => 'loadOASF')); ?>
+   </div>
+   <br />
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -109,14 +125,14 @@
       __index++;});
 
       var __index = ' . $index . ';
-      $("#loadON").click(function(e){
+      $("#loadOASF").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadON", array("load" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadOASF", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
-               $("#optionsNecks").append(response);
-               $("#optionsNecks .crow").last().animate({
+               $("#optionsAtmSoftTissues").append(response);
+               $("#optionsAtmSoftTissues .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"
