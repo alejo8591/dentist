@@ -66,9 +66,9 @@ class PeriodontalTechniqueBrushing extends CActiveRecord
 		return array(
 			'id_tbl_periodontal_technique_brushing' => 'Id Tbl Periodontal Technique Brushing',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
-			'name_option_periodontal_technique_brushing' => 'Name Option Periodontal Technique Brushing',
-			'flag_option_periodontal_technique_brushing' => 'Flag Option Periodontal Technique Brushing',
-			'observations_periodontal_technique_brushing' => 'Observations Periodontal Technique Brushing',
+			'name_option_periodontal_technique_brushing' => 'Nombre del tipo de ítem de la Evaluación',
+			'flag_option_periodontal_technique_brushing' => 'Selección de opción Si/No',
+			'observations_periodontal_technique_brushing' => 'Observación ítem de la Evaluación',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -126,5 +126,4 @@ class PeriodontalTechniqueBrushing extends CActiveRecord
                 'class' => 'application.components.ESaveRelatedBehavior')
         );
     }
-}
 }

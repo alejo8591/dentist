@@ -32,7 +32,7 @@ class PeriodontalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadINTCP'),
+				'actions'=>array('create','update', 'loadINTCP', 'loadPTB'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,7 +70,7 @@ class PeriodontalExaminationController extends Controller
 		if(isset($_POST['PeriodontalExamination']))
 		{
 			$model->attributes=$_POST['PeriodontalExamination'];
-			
+
 			// Intcp - intcps
 			if (isset($_POST['Intcp'])) 
 			{
@@ -107,6 +107,13 @@ class PeriodontalExaminationController extends Controller
 				$model->intcps = $_POST['Intcp'];
 				$model->saveWithRelated('intcps');
 			}
+			// PeriodontalTechniqueBrushing - periodontalTechniqueBrushings
+			if (isset($_POST['PeriodontalTechniqueBrushing'])) 
+			{
+				$model->periodontalTechniqueBrushings = $_POST['PeriodontalTechniqueBrushing'];
+				$model->saveWithRelated('periodontalTechniqueBrushings');
+			}
+
 			$model->attributes=$_POST['PeriodontalExamination'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_periodontal_examination));
@@ -192,6 +199,17 @@ class PeriodontalExaminationController extends Controller
 	{
 		$model = new Intcp;
 		$this->renderPartial('_intcp', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for Options Peridontal Technique Brushing
+	 */
+	public function actionLoadPTB($index)
+	{
+		$model = new PeriodontalTechniqueBrushing;
+		$this->renderPartial('_periodontaltechniquebrushing', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);
