@@ -80,6 +80,21 @@
    </div>
    <br />
 
+   <div id="optionsAtmIntraoralSoftTissues">
+        <?php
+	        foreach($model->optionsAtmIntraoralSoftTissues as $id => $optionsAtmIntraoralSoftTissues):
+	            $this->renderPartial('_optionsatmintraoralsofttissue', array(
+	                'model' => $optionsAtmIntraoralSoftTissues,
+	                'index' => $id,
+	                'display' => 'block',
+	            ));
+	        endforeach;
+        ?>
+  	</div> 
+   <div>
+      <?php echo CHtml::link('Agregar - EXAMEN INTRAORAL: Tejidos Blandos', '#', array('id' => 'loadOAIST')); ?>
+   </div>
+   <br />
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -142,14 +157,14 @@
       __index++;});
   
       var _index = ' . $index . ';
-      $("#loadOL").click(function(e){
+      $("#loadOAIST").click(function(e){
          e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadOL", array("load" => $this->action->id)) . '&index="+_index;
+         var _url = "' . Yii::app()->controller->createUrl("loadOAIST", array("load" => $this->action->id)) . '&index="+_index;
          $.ajax({
             url: _url,
             success:function(response){
-               $("#optionsLymphadenopathies").append(response);
-               $("#optionsLymphadenopathies .crow").last().animate({
+               $("#optionsAtmIntraoralSoftTissues").append(response);
+               $("#optionsAtmIntraoralSoftTissues .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"

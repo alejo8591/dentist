@@ -32,7 +32,7 @@ class AtmController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadOA', 'loadOAMM', 'loadOASF'),
+				'actions'=>array('create','update', 'loadOA', 'loadOAMM', 'loadOASF', 'loadOAIST'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -88,6 +88,12 @@ class AtmController extends Controller
 			{
 				$model->optionsAtmSoftTissues = $_POST['OptionsAtmSoftTissue'];
 				$model->saveWithRelated('optionsAtmSoftTissues');
+			}
+			// OptionsAtmIntraoralSoftTissue - optionsAtmIntraoralSoftTissues
+			if (isset($_POST['OptionsAtmIntraoralSoftTissue'])) 
+			{
+				$model->optionsAtmIntraoralSoftTissues = $_POST['OptionsAtmIntraoralSoftTissue'];
+				$model->saveWithRelated('optionsAtmIntraoralSoftTissues');
 			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_atm));
@@ -219,6 +225,17 @@ class AtmController extends Controller
 	{
 		$model = new OptionsAtmSoftTissue;
 		$this->renderPartial('_optionsatmsofttissue', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for Options ATM Intraoral Soft Tissue
+	 */
+	public function actionLoadOAIST($index)
+	{
+		$model = new OptionsAtmIntraoralSoftTissue;
+		$this->renderPartial('_optionsatmintraoralsofttissue', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

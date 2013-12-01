@@ -20,12 +20,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_atm'); ?>
-		<?php echo $form->textField($model,'id_tbl_atm'); ?>
-		<?php echo $form->error($model,'id_tbl_atm'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'name_option_atm_intraoral_soft_tissue'); ?>
 		<?php echo $form->textField($model,'name_option_atm_intraoral_soft_tissue',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'name_option_atm_intraoral_soft_tissue'); ?>
@@ -47,30 +41,6 @@
 		<?php echo $form->labelEx($model,'flag_option_atm_intraoral_soft_tissue'); ?>
 		<?php echo $form->textField($model,'flag_option_atm_intraoral_soft_tissue'); ?>
 		<?php echo $form->error($model,'flag_option_atm_intraoral_soft_tissue'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'update_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
 	</div>
 
 	<div class="row buttons">
