@@ -1,6 +1,6 @@
 <?php
 
-class PeriodontalTechniqueBrushingController extends Controller
+class IntcpController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,16 +62,16 @@ class PeriodontalTechniqueBrushingController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new PeriodontalTechniqueBrushing;
+		$model=new Intcp;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['PeriodontalTechniqueBrushing']))
+		if(isset($_POST['Intcp']))
 		{
-			$model->attributes=$_POST['PeriodontalTechniqueBrushing'];
+			$model->attributes=$_POST['Intcp'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_periodontal_technique_brushing));
+				$this->redirect(array('view','id'=>$model->id_tbl_intcp));
 		}
 
 		$this->render('create',array(
@@ -91,11 +91,11 @@ class PeriodontalTechniqueBrushingController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['PeriodontalTechniqueBrushing']))
+		if(isset($_POST['Intcp']))
 		{
-			$model->attributes=$_POST['PeriodontalTechniqueBrushing'];
+			$model->attributes=$_POST['Intcp'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_tbl_periodontal_technique_brushing));
+				$this->redirect(array('view','id'=>$model->id_tbl_intcp));
 		}
 
 		$this->render('update',array(
@@ -122,7 +122,7 @@ class PeriodontalTechniqueBrushingController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('PeriodontalTechniqueBrushing');
+		$dataProvider=new CActiveDataProvider('Intcp');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class PeriodontalTechniqueBrushingController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new PeriodontalTechniqueBrushing('search');
+		$model=new Intcp('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PeriodontalTechniqueBrushing']))
-			$model->attributes=$_GET['PeriodontalTechniqueBrushing'];
+		if(isset($_GET['Intcp']))
+			$model->attributes=$_GET['Intcp'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class PeriodontalTechniqueBrushingController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return PeriodontalTechniqueBrushing the loaded model
+	 * @return Intcp the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=PeriodontalTechniqueBrushing::model()->findByPk($id);
+		$model=Intcp::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class PeriodontalTechniqueBrushingController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param PeriodontalTechniqueBrushing $model the model to be validated
+	 * @param Intcp $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='periodontal-technique-brushing-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='intcp-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
