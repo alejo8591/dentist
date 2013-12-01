@@ -66,9 +66,9 @@ class OptionsAtm extends CActiveRecord
 		return array(
 			'id_tbl_option_atm' => 'Id Tbl Option Atm',
 			'id_tbl_atm' => 'Id Tbl Atm',
-			'name_option_atm' => 'Name Option Atm',
-			'flag_option_atm' => 'Flag Option Atm',
-			'observation_atm' => 'Observation Atm',
+			'name_option_atm' => 'Nombre de la Opción ATM',
+			'flag_option_atm' => 'Selección de opción Si/No',
+			'observation_atm' => 'Observación de la Opción ATM',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

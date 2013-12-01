@@ -32,7 +32,7 @@ class AtmController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadOA', 'loadOAMM'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,11 +65,24 @@ class AtmController extends Controller
 		$model=new Atm;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Atm']))
 		{
 			$model->attributes=$_POST['Atm'];
+
+			// OptionsAtm - optionsAtms
+			if (isset($_POST['OptionsAtm'])) 
+			{
+				$model->optionsAtms = $_POST['OptionsAtm'];
+				$model->saveWithRelated('optionsAtms');
+			}
+			// OptionsAtmMandibularMovements - optionsAtms
+			if (isset($_POST['OptionsAtmMandibularMovements'])) 
+			{
+				$model->optionsAtmMandibularMovements = $_POST['OptionsAtmMandibularMovements'];
+				$model->saveWithRelated('optionsAtmMandibularMovements');
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_atm));
 		}
@@ -169,5 +182,28 @@ class AtmController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/**
+	 * @return Object with renderPartial for Options ATM
+	 */
+	public function actionLoadOA($index)
+	{
+		$model = new OptionsAtm;
+		$this->renderPartial('_optionsatm', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for Options ATM Mandibular Movements
+	 */
+	public function actionLoadOAMM($index)
+	{
+		$model = new OptionsAtmMandibularMovements;
+		$this->renderPartial('_optionsatmmandibularmovements', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
 	}
 }
