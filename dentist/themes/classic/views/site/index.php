@@ -81,6 +81,11 @@ $cs->registerScriptFile('jquery.js');
 	<ul>
 		<li><a id="listPhysicalExamination">Listar Examenes Físicos</a></li>
 	</ul>
-	
-
+	<h2>ATM</h2>
+	<ul>
+		<li><a id="createAtm">Crear ATM</a></li>
+	</ul>
+	<ul>
+		<li><a id="listAtms">Listar ATMs</a></li>
+	</ul>	
 </div>

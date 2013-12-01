@@ -64,39 +64,49 @@ $(document).ready(function(){
 		var newURL = window.location.pathname;
 		window.location = newURL+'/profession/create';
 	});
-	// for list Level Schoolings with url for js
+	// for list professions with url for js
 	$('#listProfessions').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/profession';
 	});	
-	// for new Anamnesis with url for js
+	// for new Patient data with url for js
 	$('#createAnamnesis').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/patientdata/create';
 	});
-	// for list Level Schoolings with url for js
+	// for list Patient Data with url for js
 	$('#listAnamnesis').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/patientdata';
 	});
-	// for new Anamnesis with url for js
+	// for new Personal Background with url for js
 	$('#createPersonalBackground').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/personalbackground/create';
 	});
-	// for list Level Schoolings with url for js
+	// for list Persona Background with url for js
 	$('#listPersonalBackground').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/personalbackground';
 	});
-	// for new Anamnesis with url for js
+	// for new Phyiscal Examination with url for js
 	$('#createPhysicalExamination').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/physicalexamination/create';
 	});
-	// for list Level Schoolings with url for js
+	// for list Physical Examination with url for js
 	$('#listPhysicalExamination').click(function(event) {
 		var newURL = window.location.pathname;
 		window.location = newURL+'/physicalexamination';
+	});
+	// for new ATM with url for js
+	$('#createAtm').click(function(event) {
+		var newURL = window.location.pathname;
+		window.location = newURL+'/atm/create';
+	});
+	// for list ATMs with url for js
+	$('#listAtms').click(function(event) {
+		var newURL = window.location.pathname;
+		window.location = newURL+'/atm';
 	});	
 });

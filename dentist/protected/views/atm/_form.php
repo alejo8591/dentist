@@ -23,9 +23,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_tbl_anamnesis'); ?>
-		<?php echo $form->textField($model,'id_tbl_anamnesis'); ?>
+		<?php echo $form->dropDownList($model,'id_tbl_anamnesis', $model->getAnamnesies()); ?>
 		<?php echo $form->error($model,'id_tbl_anamnesis'); ?>
 	</div>
+	<br />
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'observation_atm'); ?>
