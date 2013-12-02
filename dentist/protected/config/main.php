@@ -10,7 +10,7 @@ return array(
 	'name'=>'Dentist',
 
 	// themes adition 
-	'theme'=>'classic',
+	'theme'=>'blackboot',
 	//options languajes for app
 	'language'=>'es', 
 	//options languajes for source code app
