@@ -89,6 +89,12 @@ class PeriodontalExaminationController extends Controller
 				$model->periodontalBrushings = $_POST['PeriodontalBrushing'];
 				$model->saveWithRelated('periodontalBrushings');
 			}
+			// IntcpSilnessLoe - intcpSilnessLoes
+			if (isset($_POST['IntcpSilnessLoe'])) 
+			{
+				$model->intcpSilnessLoes = $_POST['IntcpSilnessLoe'];
+				$model->saveWithRelated('intcpSilnessLoes');
+			}
 
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_periodontal_examination));
@@ -233,6 +239,17 @@ class PeriodontalExaminationController extends Controller
 	{
 		$model = new PeriodontalBrushing;
 		$this->renderPartial('_periodontalbrushing', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for Options Peridontal Technique Brushing
+	 */
+	public function actionLoadPISL($index)
+	{
+		$model = new IntcpSilnessLoe;
+		$this->renderPartial('_intcpsilnessloe', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);
