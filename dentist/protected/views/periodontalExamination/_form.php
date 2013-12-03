@@ -98,6 +98,22 @@
    </div>
    <br />
 
+   <div id="periodontalCharts">
+        <?php
+          foreach($model->periodontalCharts as $id => $periodontalCharts):
+              $this->renderPartial('_periodontalchart', array(
+                  'model' => $periodontalCharts,
+                  'index' => $id,
+                  'display' => 'block',
+              ));
+          endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Periodontograma', '#', array('id' => 'loadPC')); ?>
+   </div>
+   <br />
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -177,14 +193,14 @@
       _index++;});
 
       var __index = ' . $index . ';
-      $("#loadOAIHT").click(function(e){
+      $("#loadPC").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOAIHT", array("load" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadPC", array("load" => $this->action->id)) . '&index="+__index;
          $.ajax({
             url: __url,
             success:function(response){
-               $("#optionsAtmIntraoralHardTissues").append(response);
-               $("#optionsAtmIntraoralHardTissues .crow").last().animate({
+               $("#periodontalCharts").append(response);
+               $("#periodontalCharts .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"

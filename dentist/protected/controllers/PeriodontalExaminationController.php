@@ -32,7 +32,7 @@ class PeriodontalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadINTCP', 'loadPTB', 'loadPB', 'loadPISL'),
+				'actions'=>array('create','update', 'loadINTCP', 'loadPTB', 'loadPB', 'loadPISL', 'loadPC'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -94,6 +94,12 @@ class PeriodontalExaminationController extends Controller
 			{
 				$model->intcpSilnessLoes = $_POST['IntcpSilnessLoe'];
 				$model->saveWithRelated('intcpSilnessLoes');
+			}
+			// PeriodontalChart - periodontalCharts
+			if (isset($_POST['PeriodontalChart'])) 
+			{
+				$model->periodontalCharts = $_POST['PeriodontalChart'];
+				$model->saveWithRelated('periodontalCharts');
 			}
 
 			if($model->save())
@@ -233,7 +239,7 @@ class PeriodontalExaminationController extends Controller
 		), false, true);
 	}
 	/**
-	 * @return Object with renderPartial for Options Peridontal Technique Brushing
+	 * @return Object with renderPartial for Options Peridontal Brushing
 	 */
 	public function actionLoadPB($index)
 	{
@@ -250,6 +256,17 @@ class PeriodontalExaminationController extends Controller
 	{
 		$model = new IntcpSilnessLoe;
 		$this->renderPartial('_intcpsilnessloe', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for Options Peridontal Chart
+	 */
+	public function actionLoadPC($index)
+	{
+		$model = new PeriodontalChart;
+		$this->renderPartial('_periodontalchart', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

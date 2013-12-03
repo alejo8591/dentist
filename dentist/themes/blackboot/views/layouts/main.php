@@ -2,6 +2,13 @@
 	Yii::app()->clientscript->registerCoreScript( 'jquery' );
 
 	Yii::app()->clientscript->registerScriptFile( Yii::app()->theme->baseUrl . '/js/action.js', CClientScript::POS_END );
+
+    Yii::app()->clientscript->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jsapi.js', CClientScript::POS_HEAD );
+
+    Yii::app()->clientScript->registerScript('loadPeridontal','//google.load("jquery", "1.10.1"); 
+    google.load("visualization", "1", {packages: ["corechart"]});', CClientScript::POS_HEAD );
+
+
 		// use it when you need it!
 		/*
 		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap.css' )
