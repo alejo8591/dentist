@@ -72,7 +72,7 @@ class PeriodontalExamination extends CActiveRecord
 	{
 		return array(
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
-			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
+			'id_tbl_anamnesis' => 'Número de la Anamnesis',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',

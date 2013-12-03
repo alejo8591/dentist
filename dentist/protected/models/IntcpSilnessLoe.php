@@ -63,7 +63,7 @@ class IntcpSilnessLoe extends CActiveRecord
 		return array(
 			'id_tbl_intcp_silness_loe' => 'Id Tbl Intcp Silness Loe',
 			'id_tbl_periodontal_examination' => 'Id Tbl Periodontal Examination',
-			'flag_option_intcp_silness_loe' => 'Flag Option Intcp Silness Loe',
+			'flag_option_intcp_silness_loe' => 'Valor de Placa Bacteriana',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -112,4 +112,11 @@ class IntcpSilnessLoe extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function behaviors()
+    {
+        return array('ESaveRelatedBehavior' => array(
+                'class' => 'application.components.ESaveRelatedBehavior')
+        );
+    }
 }
