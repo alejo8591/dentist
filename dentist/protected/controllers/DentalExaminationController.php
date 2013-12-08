@@ -32,7 +32,7 @@ class DentalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadDP', 'loadEDP', 'loadTDDP'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -177,5 +177,39 @@ class DentalExaminationController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/**
+	 * @return Object with renderPartial for Dental Pieces
+	 */
+	public function actionLoadDP($index)
+	{
+		$model = new DentalPieces;
+		$this->renderPartial('_dentalpieces', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for options Dental Pieces
+	 */
+	public function actionLoadEDP($index)
+	{
+		$model = new ExaminationDentalPieces;
+		$this->renderPartial('_examinationdentalpieces', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+	/**
+	 * @return Object with renderPartial for options Dental Pieces
+	 */
+	public function actionLoadTDDP($index)
+	{
+		$model = new TreatmentDecisionDentalPieces;
+		$this->renderPartial('_treatmentdecisiondentalpieces', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
 	}
 }

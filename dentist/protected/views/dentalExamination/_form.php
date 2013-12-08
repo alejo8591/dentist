@@ -6,13 +6,15 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'dental-examination-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+<?php 
+	Yii::app()->clientScript->registerCoreScript('jquery');
+	$form=$this->beginWidget('CActiveForm', array(
+		'id'=>'dental-examination-form',
+		// Please note: When you enable ajax validation, make sure the corresponding
+		// controller action is handling ajax validation correctly.
+		// There is a call to performAjaxValidation() commented in generated controller code.
+		// See class documentation of CActiveForm for details on this.
+		'enableAjaxValidation'=>false,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -24,6 +26,23 @@
 		<?php echo $form->dropDownList($model,'id_tbl_anamnesis', $model->getAnamnesies()); ?>
 		<?php echo $form->error($model,'id_tbl_anamnesis'); ?>
 	</div>
+	<br />
+
+   <div id="dentalPieces">
+        <?php
+	        foreach($model->dentalPieces as $id => $dentalPieces):
+	            $this->renderPartial('_dentalpieces', array(
+	                'model' => $dentalPieces,
+	                'index' => $id,
+	                'display' => 'block',
+	            ));
+	        endforeach;
+        ?>
+  	</div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Pieza Dental', '#', array('id' => 'loadDP')); ?>
+   </div>
+   <br />
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
@@ -32,3 +51,92 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<?php
+   $index = 0;
+      Yii::app()->clientScript->registerScript('loadsAtms', '
+      var _index = ' . $index . ';
+      $("#loadDP").click(function(e){
+         e.preventDefault();
+         var _url = "' . Yii::app()->controller->createUrl("loadDP", array("load" => $this->action->id)) . '&index="+_index;
+         $.ajax({
+            url: _url,
+            success:function(response){
+               $("#dentalPieces").append(response);
+               $("#dentalPieces .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _index++;});
+
+      var __index = ' . $index . ';
+      $("#loadOAMM").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadOAMM", array("load" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#optionsAtmMandibularMovements").append(response);
+               $("#optionsAtmMandibularMovements .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
+
+      var __index = ' . $index . ';
+      $("#loadOASF").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadOASF", array("load" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#optionsAtmSoftTissues").append(response);
+               $("#optionsAtmSoftTissues .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
+  
+      var _index = ' . $index . ';
+      $("#loadOAIST").click(function(e){
+         e.preventDefault();
+         var _url = "' . Yii::app()->controller->createUrl("loadOAIST", array("load" => $this->action->id)) . '&index="+_index;
+         $.ajax({
+            url: _url,
+            success:function(response){
+               $("#optionsAtmIntraoralSoftTissues").append(response);
+               $("#optionsAtmIntraoralSoftTissues .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _index++;});
+
+      var __index = ' . $index . ';
+      $("#loadOAIHT").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadOAIHT", array("load" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#optionsAtmIntraoralHardTissues").append(response);
+               $("#optionsAtmIntraoralHardTissues .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
+      ', CClientScript::POS_END); 
+ ?>
