@@ -121,4 +121,11 @@ class CariesRiskClassification extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function behaviors()
+    {
+        return array('ESaveRelatedBehavior' => array(
+                'class' => 'application.components.ESaveRelatedBehavior')
+        );
+    }
 }
