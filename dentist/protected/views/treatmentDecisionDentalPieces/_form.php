@@ -20,12 +20,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_treatment_decision_dental_piece'); ?>
-		<?php echo $form->textField($model,'id_tbl_treatment_decision_dental_piece'); ?>
-		<?php echo $form->error($model,'id_tbl_treatment_decision_dental_piece'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'id_tbl_dental_piece'); ?>
 		<?php echo $form->textField($model,'id_tbl_dental_piece'); ?>
 		<?php echo $form->error($model,'id_tbl_dental_piece'); ?>

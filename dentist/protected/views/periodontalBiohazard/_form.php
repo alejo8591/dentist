@@ -1,13 +1,13 @@
 <?php
-/* @var $this PeriodontalRiskClassificationController */
-/* @var $model PeriodontalRiskClassification */
+/* @var $this PeriodontalBiohazardController */
+/* @var $model PeriodontalBiohazard */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'periodontal-risk-classification-form',
+	'id'=>'periodontal-biohazard-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -26,21 +26,21 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name_periodontal_risk_classification'); ?>
-		<?php echo $form->textField($model,'name_periodontal_risk_classification',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'name_periodontal_risk_classification'); ?>
+		<?php echo $form->labelEx($model,'name_periodontal_biohazard'); ?>
+		<?php echo $form->textField($model,'name_periodontal_biohazard',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'name_periodontal_biohazard'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'flag_periodontal_risk_classification'); ?>
-		<?php echo $form->textField($model,'flag_periodontal_risk_classification'); ?>
-		<?php echo $form->error($model,'flag_periodontal_risk_classification'); ?>
+		<?php echo $form->labelEx($model,'flag_periodontal_biohazard'); ?>
+		<?php echo $form->textField($model,'flag_periodontal_biohazard'); ?>
+		<?php echo $form->error($model,'flag_periodontal_biohazard'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'observation_periodontal_risk_classification'); ?>
-		<?php echo $form->textArea($model,'observation_periodontal_risk_classification',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'observation_periodontal_risk_classification'); ?>
+		<?php echo $form->labelEx($model,'observation_periodontal_biohazard'); ?>
+		<?php echo $form->textArea($model,'observation_periodontal_biohazard',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'observation_periodontal_biohazard'); ?>
 	</div>
 
 	<div class="row">
