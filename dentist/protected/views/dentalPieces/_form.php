@@ -38,24 +38,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'state_dental_piece'); ?>
-		<?php echo $form->textField($model,'state_dental_piece',array('size'=>60,'maxlength'=>256)); ?>
-		<?php echo $form->error($model,'state_dental_piece'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'flag_dental_piece'); ?>
-		<?php echo $form->textField($model,'flag_dental_piece'); ?>
-		<?php echo $form->error($model,'flag_dental_piece'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'type_dental_piece'); ?>
-		<?php echo $form->textField($model,'type_dental_piece',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'type_dental_piece'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'observation_dental_piece'); ?>
 		<?php echo $form->textArea($model,'observation_dental_piece',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'observation_dental_piece'); ?>

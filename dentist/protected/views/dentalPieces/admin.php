@@ -48,13 +48,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id_tbl_dental_piece',
 		'id_tbl_dental_examination',
 		'number_dental_piece',
-		'state_dental_piece',
-		'flag_dental_piece',
-		'type_dental_piece',
-		/*
 		'observation_dental_piece',
 		'create_user_id',
 		'create_time',
+		/*
 		'update_user_id',
 		'update_time',
 		*/

@@ -7,9 +7,6 @@
  * @property integer $id_tbl_dental_piece
  * @property integer $id_tbl_dental_examination
  * @property integer $number_dental_piece
- * @property string $state_dental_piece
- * @property integer $flag_dental_piece
- * @property string $type_dental_piece
  * @property string $observation_dental_piece
  * @property string $create_user_id
  * @property string $create_time
@@ -40,14 +37,12 @@ class DentalPieces extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_tbl_dental_piece, id_tbl_dental_examination', 'required'),
-			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece, flag_dental_piece', 'numerical', 'integerOnly'=>true),
-			array('state_dental_piece', 'length', 'max'=>256),
-			array('type_dental_piece', 'length', 'max'=>128),
+			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece', 'numerical', 'integerOnly'=>true),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_dental_piece, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece, state_dental_piece, flag_dental_piece, type_dental_piece, observation_dental_piece, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece, observation_dental_piece, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,9 +69,6 @@ class DentalPieces extends CActiveRecord
 			'id_tbl_dental_piece' => 'Id Tbl Dental Piece',
 			'id_tbl_dental_examination' => 'Id Tbl Dental Examination',
 			'number_dental_piece' => 'Number Dental Piece',
-			'state_dental_piece' => 'State Dental Piece',
-			'flag_dental_piece' => 'Flag Dental Piece',
-			'type_dental_piece' => 'Type Dental Piece',
 			'observation_dental_piece' => 'Observation Dental Piece',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -106,9 +98,6 @@ class DentalPieces extends CActiveRecord
 		$criteria->compare('id_tbl_dental_piece',$this->id_tbl_dental_piece);
 		$criteria->compare('id_tbl_dental_examination',$this->id_tbl_dental_examination);
 		$criteria->compare('number_dental_piece',$this->number_dental_piece);
-		$criteria->compare('state_dental_piece',$this->state_dental_piece,true);
-		$criteria->compare('flag_dental_piece',$this->flag_dental_piece);
-		$criteria->compare('type_dental_piece',$this->type_dental_piece,true);
 		$criteria->compare('observation_dental_piece',$this->observation_dental_piece,true);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
 		$criteria->compare('create_time',$this->create_time,true);
@@ -130,11 +119,4 @@ class DentalPieces extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
 }

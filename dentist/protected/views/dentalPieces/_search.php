@@ -27,21 +27,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'state_dental_piece'); ?>
-		<?php echo $form->textField($model,'state_dental_piece',array('size'=>60,'maxlength'=>256)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'flag_dental_piece'); ?>
-		<?php echo $form->textField($model,'flag_dental_piece'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'type_dental_piece'); ?>
-		<?php echo $form->textField($model,'type_dental_piece',array('size'=>60,'maxlength'=>128)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'observation_dental_piece'); ?>
 		<?php echo $form->textArea($model,'observation_dental_piece',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
