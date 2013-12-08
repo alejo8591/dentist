@@ -8,6 +8,7 @@
  * @property string $type_document
  * @property integer $user_status
  * @property integer $type_user
+ * @property integer $id_document
  * @property string $email
  * @property string $password
  * @property string $last_login_time
@@ -56,15 +57,15 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, type_document, user_status, type_user, email, password', 'required'),
-			array('username, email', 'unique'), 
-			array('user_status, type_user', 'numerical', 'integerOnly'=>true),
+			array('username', 'required'),
+			array('id_document username email', 'unique'),
+			array('user_status, type_user, id_document', 'numerical', 'integerOnly'=>true),
 			array('username, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('type_document, email, password', 'length', 'max'=>128),
 			array('last_login_time, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('username, type_document, user_status, type_user, email, password, last_login_time, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('username, type_document, user_status, type_user, id_document, email, password, last_login_time, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,10 +87,11 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'username' => 'Documento de Identidad',
-			'type_document' => 'Tipo de Documento',
+			'username' => 'Código Usuario',
+			'type_document' => 'Tipo Documento',
 			'user_status' => 'User Status',
 			'type_user' => 'Tipo de Usuario',
+			'id_document' => 'Número Documento Identidad',
 			'email' => 'Email',
 			'password' => 'Password',
 			'last_login_time' => 'Last Login Time',
@@ -122,6 +124,7 @@ class User extends CActiveRecord
 		$criteria->compare('type_document',$this->type_document,true);
 		$criteria->compare('user_status',$this->user_status);
 		$criteria->compare('type_user',$this->type_user);
+		$criteria->compare('id_document',$this->id_document);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('last_login_time',$this->last_login_time,true);
@@ -145,15 +148,7 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
-
-    /**
+	/**
 	 * Returns array for options documents type for users
 	 * @return array $typeDocuments
 	 */
@@ -184,5 +179,3 @@ class User extends CActiveRecord
 	}
 
 }
-
-

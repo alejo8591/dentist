@@ -22,13 +22,23 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->label($model,'first_name'); ?>
+		<?php echo $form->textField($model,'first_name',array('size'=>60,'maxlength'=>64)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'surname'); ?>
-		<?php echo $form->textField($model,'surname',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->label($model,'middle_name'); ?>
+		<?php echo $form->textField($model,'middle_name',array('size'=>60,'maxlength'=>64)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'paternal_surname'); ?>
+		<?php echo $form->textField($model,'paternal_surname',array('size'=>60,'maxlength'=>64)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'mothers_maiden_name'); ?>
+		<?php echo $form->textField($model,'mothers_maiden_name',array('size'=>60,'maxlength'=>64)); ?>
 	</div>
 
 	<div class="row">
@@ -39,6 +49,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'place_of_birth'); ?>
 		<?php echo $form->textField($model,'place_of_birth',array('size'=>60,'maxlength'=>128)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'age'); ?>
+		<?php echo $form->textField($model,'age'); ?>
 	</div>
 
 	<div class="row">
@@ -59,6 +74,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'id_tbl_city'); ?>
 		<?php echo $form->textField($model,'id_tbl_city'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'locality'); ?>
+		<?php echo $form->textField($model,'locality',array('size'=>60,'maxlength'=>64)); ?>
 	</div>
 
 	<div class="row">

@@ -72,12 +72,12 @@ $(document).ready(function(){
 	// for new Patient data with url for js
 	$('#createAnamnesis').click(function(event) {
 		var newURL = window.location.origin;
-		window.location = newURL+'/dentist/dentist/index.php/patientdata/create';
+		window.location = newURL+'/dentist/dentist/index.php/anamnesis/create';
 	});
 	// for list Patient Data with url for js
 	$('#listAnamnesis').click(function(event) {
 		var newURL = window.location.origin;
-		window.location = newURL+'/dentist/dentist/index.php/patientdata';
+		window.location = newURL+'/dentist/dentist/index.php/anamnesis';
 	});
 	// for new Personal Background with url for js
 	$('#createPersonalBackground').click(function(event) {

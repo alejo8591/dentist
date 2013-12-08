@@ -25,7 +25,6 @@ $this->menu=array(
 		'type_document',
 		'user_status',
 		'type_user',
-		'id_document',
 		'email',
 		'password',
 		'last_login_time',

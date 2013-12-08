@@ -49,10 +49,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'type_document',
 		'user_status',
 		'type_user',
-		'id_document',
 		'email',
-		/*
 		'password',
+		/*
 		'last_login_time',
 		'create_user_id',
 		'create_time',

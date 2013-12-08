@@ -32,11 +32,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_document'); ?>
-		<?php echo $form->textField($model,'id_document'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
 	</div>

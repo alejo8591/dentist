@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Anamnesises'=>array('index'),
-	$model->name=>array('view','id'=>$model->id_tbl_anamnesis),
+	$model->id_tbl_anamnesis=>array('view','id'=>$model->id_tbl_anamnesis),
 	'Update',
 );
 

@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Anamnesises'=>array('index'),
-	$model->name,
+	$model->id_tbl_anamnesis,
 );
 
 $this->menu=array(
@@ -23,14 +23,18 @@ $this->menu=array(
 	'attributes'=>array(
 		'id_tbl_anamnesis',
 		'username',
-		'name',
-		'surname',
+		'first_name',
+		'middle_name',
+		'paternal_surname',
+		'mothers_maiden_name',
 		'date_birth',
 		'place_of_birth',
+		'age',
 		'genre',
 		'blood_group',
 		'id_tbl_country',
 		'id_tbl_city',
+		'locality',
 		'id_tbl_level_schooling',
 		'id_tbl_profession',
 		'occupation',

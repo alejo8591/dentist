@@ -13,27 +13,39 @@
 	<?php echo CHtml::encode($data->username); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('first_name')); ?>:</b>
+	<?php echo CHtml::encode($data->first_name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('surname')); ?>:</b>
-	<?php echo CHtml::encode($data->surname); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('middle_name')); ?>:</b>
+	<?php echo CHtml::encode($data->middle_name); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('paternal_surname')); ?>:</b>
+	<?php echo CHtml::encode($data->paternal_surname); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('mothers_maiden_name')); ?>:</b>
+	<?php echo CHtml::encode($data->mothers_maiden_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('date_birth')); ?>:</b>
 	<?php echo CHtml::encode($data->date_birth); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('place_of_birth')); ?>:</b>
 	<?php echo CHtml::encode($data->place_of_birth); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('age')); ?>:</b>
+	<?php echo CHtml::encode($data->age); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('genre')); ?>:</b>
 	<?php echo CHtml::encode($data->genre); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('blood_group')); ?>:</b>
 	<?php echo CHtml::encode($data->blood_group); ?>
 	<br />
@@ -44,6 +56,10 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_tbl_city')); ?>:</b>
 	<?php echo CHtml::encode($data->id_tbl_city); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('locality')); ?>:</b>
+	<?php echo CHtml::encode($data->locality); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_tbl_level_schooling')); ?>:</b>

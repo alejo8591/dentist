@@ -12,7 +12,7 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -21,26 +21,49 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->dropDownList($model, 'username', $model->getUsernames()); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?php echo $form->labelEx($model,'first_name'); ?>
+		<?php echo $form->textField($model,'first_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'first_name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'surname'); ?>
-		<?php echo $form->textField($model,'surname',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'surname'); ?>
+		<?php echo $form->labelEx($model,'middle_name'); ?>
+		<?php echo $form->textField($model,'middle_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'middle_name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'date_birth'); ?>
-		<?php echo $form->textField($model,'date_birth'); ?>
-		<?php echo $form->error($model,'date_birth'); ?>
+		<?php echo $form->labelEx($model,'paternal_surname'); ?>
+		<?php echo $form->textField($model,'paternal_surname',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'paternal_surname'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'mothers_maiden_name'); ?>
+		<?php echo $form->textField($model,'mothers_maiden_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'mothers_maiden_name'); ?>
+	</div>
+
+	<div class="row">
+    <?php echo $form->labelEx($model,'date_birth'); ?>
+    <?php 
+      $this->widget('zii.widgets.jui.CJuiDatePicker',
+        array(
+              'attribute'=>'date_birth',
+              'model'=>$model,
+              'options' => array(
+                                'mode'=>'focus',
+                                'dateFormat'=>'d MM, yy',
+                                'showAnim' => 'slideDown',
+                                ),
+              'htmlOptions'=>array('size'=>30,'class'=>'date'),
+              ));
+      ?>
 	</div>
 
 	<div class="row">
@@ -50,39 +73,51 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'genre'); ?>
-		<?php echo $form->textField($model,'genre'); ?>
-		<?php echo $form->error($model,'genre'); ?>
+		<?php echo $form->labelEx($model,'age'); ?>
+		<?php echo $form->textField($model,'age'); ?>
+		<?php echo $form->error($model,'age'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'blood_group'); ?>
-		<?php echo $form->textField($model,'blood_group'); ?>
-		<?php echo $form->error($model,'blood_group'); ?>
+	    <?php echo $form->labelEx($model,'genre'); ?>
+	    <?php echo $form->dropDownList($model,'genre', $model->getTypeGenre()); ?>
+	    <?php echo $form->error($model,'genre'); ?>
+  	</div>
+
+	<div class="row">
+	    <?php echo $form->labelEx($model,'blood_group'); ?>
+	    <?php echo $form->dropDownList($model,'blood_group', $model->getTypeBloodGroup()); ?>
+	    <?php echo $form->error($model,'blood_group'); ?>
+  	</div>
+  	
+  	<div class="row">
+	    <?php echo $form->labelEx($model,'id_tbl_country'); ?>
+	    <?php echo $form->dropDownList($model,'id_tbl_country', $model->getCountries()); ?>
+	    <?php echo $form->error($model,'id_tbl_country'); ?>
+  	</div>
+
+	<div class="row">
+	    <?php echo $form->labelEx($model,'id_tbl_city'); ?>
+	    <?php echo $form->dropDownList($model,'id_tbl_city', $model->getCities()); ?>
+	    <?php echo $form->error($model,'id_tbl_city'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_country'); ?>
-		<?php echo $form->textField($model,'id_tbl_country'); ?>
-		<?php echo $form->error($model,'id_tbl_country'); ?>
+		<?php echo $form->labelEx($model,'locality'); ?>
+		<?php echo $form->textField($model,'locality',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'locality'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_city'); ?>
-		<?php echo $form->textField($model,'id_tbl_city'); ?>
-		<?php echo $form->error($model,'id_tbl_city'); ?>
-	</div>
+    	<?php echo $form->labelEx($model,'id_tbl_level_schooling'); ?>
+    	<?php echo $form->dropDownList($model,'id_tbl_level_schooling', $model->getLevelSchooling()); ?>
+    	<?php echo $form->error($model,'id_tbl_level_schooling'); ?>
+  	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_level_schooling'); ?>
-		<?php echo $form->textField($model,'id_tbl_level_schooling'); ?>
-		<?php echo $form->error($model,'id_tbl_level_schooling'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_profession'); ?>
-		<?php echo $form->textField($model,'id_tbl_profession'); ?>
-		<?php echo $form->error($model,'id_tbl_profession'); ?>
+	    <?php echo $form->labelEx($model,'id_tbl_profession'); ?>
+	    <?php echo $form->dropDownList($model,'id_tbl_profession', $model->getProfessions()); ?>
+	    <?php echo $form->error($model,'id_tbl_profession'); ?>
 	</div>
 
 	<div class="row">
@@ -97,17 +132,17 @@
 		<?php echo $form->error($model,'contact'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_healt_regimen'); ?>
-		<?php echo $form->textField($model,'id_tbl_healt_regimen'); ?>
-		<?php echo $form->error($model,'id_tbl_healt_regimen'); ?>
-	</div>
+  <div class="row">
+    <?php echo $form->labelEx($model,'id_tbl_healt_regimen'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_healt_regimen', $model->getHealtRegimen()); ?>
+    <?php echo $form->error($model,'id_tbl_healt_regimen'); ?>
+  </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_healt_institution'); ?>
-		<?php echo $form->textField($model,'id_tbl_healt_institution'); ?>
-		<?php echo $form->error($model,'id_tbl_healt_institution'); ?>
-	</div>
+  <div class="row">
+    <?php echo $form->labelEx($model,'id_tbl_healt_institution'); ?>
+    <?php echo $form->dropDownList($model,'id_tbl_healt_institution', $model->getHealtInstitutions()); ?>
+    <?php echo $form->error($model,'id_tbl_healt_institution'); ?>
+  </div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'description_healt'); ?>
@@ -121,29 +156,37 @@
 		<?php echo $form->error($model,'family_history'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'update_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
-	</div>
+	<br />
+  <div id="address">
+        <?php
+        foreach($model->address as $id => $address):
+            $this->renderPartial('_address', array(
+                'model' => $address,
+                'index' => $id,
+                'display' => 'block',
+            ));
+        endforeach;
+        ?>
+  </div> 
+   <div>
+      <?php echo CHtml::link('Agregar Dirección(es)', '#', array('id' => 'loadAddressByAjax')); ?>
+   </div>
+   <br />
+   <div id="phone">
+        <?php
+        foreach ($model->phone as $id => $phone):
+            $this->renderPartial('_phone', array(
+                'model' => $phone,
+                'index' => $id,
+                'display' => 'block',
+            ));
+        endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar Número(s) de teléfono', '#', array('id' => 'loadPhoneByAjax')); ?>
+   </div>
+   <br />
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
@@ -152,3 +195,42 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<?php
+   $index = 0;
+      Yii::app()->clientScript->registerScript('loadscripts', '
+      var _index = ' . $index . ';
+      $("#loadAddressByAjax").click(function(e){
+         e.preventDefault();
+         var _url = "' . Yii::app()->controller->createUrl("loadAddressByAjax", array("load_for_one" => $this->action->id)) . '&index="+_index;
+         $.ajax({
+            url: _url,
+            success:function(response){
+               $("#address").append(response);
+               $("#address .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _index++;});
+
+      var __index = ' . $index . ';
+      $("#loadPhoneByAjax").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadPhoneByAjax", array("load_for_two" => $this->action->id)) . '&index="+__index;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#phone").append(response);
+               $("#phone .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      __index++;});
+
+      ', CClientScript::POS_END); 
+ ?>

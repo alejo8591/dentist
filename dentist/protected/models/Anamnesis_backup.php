@@ -6,18 +6,14 @@
  * The followings are the available columns in table 'tbl_anamnesis':
  * @property integer $id_tbl_anamnesis
  * @property string $username
- * @property string $first_name
- * @property string $middle_name
- * @property string $paternal_surname
- * @property string $mothers_maiden_name
+ * @property string $name
+ * @property string $surname
  * @property string $date_birth
  * @property string $place_of_birth
- * @property integer $age
  * @property integer $genre
  * @property integer $blood_group
  * @property integer $id_tbl_country
  * @property integer $id_tbl_city
- * @property string $locality
  * @property integer $id_tbl_level_schooling
  * @property integer $id_tbl_profession
  * @property string $occupation
@@ -87,14 +83,14 @@ class Anamnesis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, age, genre, contact, place_of_birth, date_birth, first_name, middle_name, paternal_surname, mothers_maiden_name, locality ,blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, id_tbl_healt_regimen, id_tbl_healt_institution', 'required'),
-			array('age, genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, id_tbl_healt_regimen, id_tbl_healt_institution', 'numerical', 'integerOnly'=>true),
-			array('username, first_name, middle_name, paternal_surname, mothers_maiden_name, locality, occupation, contact, create_user_id, update_user_id', 'length', 'max'=>64),
-			array('place_of_birth', 'length', 'max'=>128),
+			array('username, occupation, name, surname, date_birth, place_of_birth, genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, occupation, contact, id_tbl_healt_regimen, id_tbl_healt_institution, description_healt, family_history', 'required'),
+			array('genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, id_tbl_healt_regimen, id_tbl_healt_institution', 'numerical', 'integerOnly'=>true),
+			array('username, occupation, contact, create_user_id, update_user_id', 'length', 'max'=>64),
+			array('name, surname, place_of_birth', 'length', 'max'=>128),
 			array('date_birth, description_healt, family_history, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_anamnesis, username, first_name, middle_name, paternal_surname, mothers_maiden_name, date_birth, place_of_birth, age, genre, blood_group, id_tbl_country, id_tbl_city, locality, id_tbl_level_schooling, id_tbl_profession, occupation, contact, id_tbl_healt_regimen, id_tbl_healt_institution, description_healt, family_history, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_anamnesis, username, name, surname, date_birth, place_of_birth, genre, blood_group, id_tbl_country, id_tbl_city, id_tbl_level_schooling, id_tbl_profession, occupation, contact, id_tbl_healt_regimen, id_tbl_healt_institution, description_healt, family_history, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -132,19 +128,15 @@ class Anamnesis extends CActiveRecord
 	{
 		return array(
 			'id_tbl_anamnesis' => 'Id Tbl Anamnesis',
-			'username' => 'Documento de Identidad',
-			'first_name' => 'Primer Nombre',
-			'middle_name' => 'Segundo Nombre',
-			'paternal_surname' => 'Primer Apellido',
-			'mothers_maiden_name' => 'Segundo Apellido',
+			'username' => 'Usuario',
+			'name' => 'Nombres',
+			'surname' => 'Apellidos',
 			'date_birth' => 'Fecha de Nacimiento',
 			'place_of_birth' => 'Lugar de Nacimiento',
-			'age' => 'Edad',
 			'genre' => 'Genero',
 			'blood_group' => 'Grupo Sanguíneo',
 			'id_tbl_country' => 'País de Residencia',
 			'id_tbl_city' => 'Ciudad de Residencia',
-			'locality' => 'Localidad donde Habita',
 			'id_tbl_level_schooling' => 'Nivel de Escolaridad',
 			'id_tbl_profession' => 'Profesión',
 			'occupation' => 'Ocupación',
@@ -180,18 +172,14 @@ class Anamnesis extends CActiveRecord
 
 		$criteria->compare('id_tbl_anamnesis',$this->id_tbl_anamnesis);
 		$criteria->compare('username',$this->username,true);
-		$criteria->compare('first_name',$this->first_name,true);
-		$criteria->compare('middle_name',$this->middle_name,true);
-		$criteria->compare('paternal_surname',$this->paternal_surname,true);
-		$criteria->compare('mothers_maiden_name',$this->mothers_maiden_name,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('surname',$this->surname,true);
 		$criteria->compare('date_birth',$this->date_birth,true);
 		$criteria->compare('place_of_birth',$this->place_of_birth,true);
-		$criteria->compare('age',$this->age);
 		$criteria->compare('genre',$this->genre);
 		$criteria->compare('blood_group',$this->blood_group);
 		$criteria->compare('id_tbl_country',$this->id_tbl_country);
 		$criteria->compare('id_tbl_city',$this->id_tbl_city);
-		$criteria->compare('locality',$this->locality,true);
 		$criteria->compare('id_tbl_level_schooling',$this->id_tbl_level_schooling);
 		$criteria->compare('id_tbl_profession',$this->id_tbl_profession);
 		$criteria->compare('occupation',$this->occupation,true);
@@ -220,6 +208,7 @@ class Anamnesis extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
 	public function behaviors()
     {
         return array('ESaveRelatedBehavior' => array(
@@ -332,7 +321,7 @@ class Anamnesis extends CActiveRecord
 	protected function beforeSave(){
 		if(parent::beforeSave()){
 			$this->date_birth=date('Y-m-d', strtotime(str_replace(",", "", $this->date_birth)));
-			return true;
+			return TRUE;
     	}	
     	else return false;
 	}	
