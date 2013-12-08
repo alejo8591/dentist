@@ -35,8 +35,8 @@ class ExaminationDentalPieces extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_examination_dental_pieces, id_tbl_dental_piece', 'required'),
-			array('id_tbl_examination_dental_pieces, id_tbl_dental_piece, type_examination_dental_pieces', 'numerical', 'integerOnly'=>true),
+			array('id_tbl_dental_piece', 'required'),
+			array('id_tbl_dental_piece, type_examination_dental_pieces', 'numerical', 'integerOnly'=>true),
 			array('name_examination_dental_pieces, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_examination_dental_pieces, create_time, update_time', 'safe'),
 			// The following rule is used by search().
@@ -118,11 +118,4 @@ class ExaminationDentalPieces extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
 }

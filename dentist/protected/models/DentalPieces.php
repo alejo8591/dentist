@@ -36,8 +36,8 @@ class DentalPieces extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_dental_piece, id_tbl_dental_examination', 'required'),
-			array('id_tbl_dental_piece, id_tbl_dental_examination, number_dental_piece', 'numerical', 'integerOnly'=>true),
+			array('id_tbl_dental_examination', 'required'),
+			array('id_tbl_dental_examination, number_dental_piece', 'numerical', 'integerOnly'=>true),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_dental_piece, create_time, update_time', 'safe'),
 			// The following rule is used by search().

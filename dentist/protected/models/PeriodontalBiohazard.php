@@ -35,8 +35,8 @@ class PeriodontalBiohazard extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_periodontal_biohazard, id_tbl_dental_examination', 'required'),
-			array('id_tbl_periodontal_biohazard, id_tbl_dental_examination, flag_periodontal_biohazard', 'numerical', 'integerOnly'=>true),
+			array('id_tbl_dental_examination', 'required'),
+			array('id_tbl_dental_examination, flag_periodontal_biohazard', 'numerical', 'integerOnly'=>true),
 			array('name_periodontal_biohazard, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_periodontal_biohazard, create_time, update_time', 'safe'),
 			// The following rule is used by search().
@@ -118,11 +118,4 @@ class PeriodontalBiohazard extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
 }

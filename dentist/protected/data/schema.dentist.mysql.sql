@@ -853,7 +853,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_dental_pieces`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_dental_pieces` (
-  `id_tbl_dental_piece` INT NOT NULL,
+  `id_tbl_dental_piece` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_dental_examination` INT NOT NULL,
   `number_dental_piece` INT NULL,
   `observation_dental_piece` TEXT NULL,
@@ -875,7 +875,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_treatment_decision_dental_pieces`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_treatment_decision_dental_pieces` (
-  `id_tbl_treatment_decision_dental_piece` INT NOT NULL,
+  `id_tbl_treatment_decision_dental_piece` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_dental_piece` INT NOT NULL,
   `name_treatment_decision_dental_piece` VARCHAR(64) NULL,
   `type_treatment_decision_dental_piece` INT NULL,
@@ -898,7 +898,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_caries_risk_classification`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_caries_risk_classification` (
-  `id_tbl_caries_risk_classification` INT NOT NULL,
+  `id_tbl_caries_risk_classification` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_dental_examination` INT NOT NULL,
   `name_caries_risk_classification` VARCHAR(64) NULL,
   `observation_caries_risk_classification` TEXT NULL,
@@ -922,7 +922,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_periodontal_risk_classification`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_periodontal_risk_classification` (
-  `id_tbl_periodontal_risk_classification` INT NOT NULL,
+  `id_tbl_periodontal_risk_classification` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_dental_examination` INT NOT NULL,
   `name_periodontal_risk_classification` VARCHAR(64) NULL,
   `flag_periodontal_risk_classification` INT NULL,
@@ -945,7 +945,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_periodontal_biohazard`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_periodontal_biohazard` (
-  `id_tbl_periodontal_biohazard` INT NOT NULL,
+  `id_tbl_periodontal_biohazard` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_dental_examination` INT NOT NULL,
   `name_periodontal_biohazard` VARCHAR(64) NULL,
   `flag_periodontal_biohazard` INT NULL,
@@ -1054,7 +1054,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_examination_dental_pieces`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_examination_dental_pieces` (
-  `id_tbl_examination_dental_pieces` INT NOT NULL,
+  `id_tbl_examination_dental_pieces` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_dental_piece` INT NOT NULL,
   `name_examination_dental_pieces` VARCHAR(64) NULL,
   `type_examination_dental_pieces` INT NULL,

@@ -71,11 +71,11 @@ class DentalExaminationController extends Controller
 		{
 			$model->attributes=$_POST['DentalExamination'];
 
-			// DentalPieces - optionsAtms
+			// DentalPieces - dentalPieces
 			if (isset($_POST['DentalPieces'])) 
 			{
-				$model->optionsAtms = $_POST['DentalPieces'];
-				$model->saveWithRelated('optionsAtms');
+				$model->dentalPieces = $_POST['DentalPieces'];
+				$model->saveWithRelated('dentalPieces');
 			}
 
 			if($model->save())

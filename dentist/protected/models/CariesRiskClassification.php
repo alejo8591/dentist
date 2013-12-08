@@ -36,8 +36,8 @@ class CariesRiskClassification extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_caries_risk_classification, id_tbl_dental_examination', 'required'),
-			array('id_tbl_caries_risk_classification, id_tbl_dental_examination', 'numerical', 'integerOnly'=>true),
+			array('id_tbl_dental_examination', 'required'),
+			array('id_tbl_dental_examination', 'numerical', 'integerOnly'=>true),
 			array('name_caries_risk_classification, score_caries_risk_classification, total_sector_caries_risk_classification, create_user_id, update_user_id', 'length', 'max'=>64),
 			array('observation_caries_risk_classification, create_time, update_time', 'safe'),
 			// The following rule is used by search().
@@ -121,11 +121,4 @@ class CariesRiskClassification extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function behaviors()
-    {
-        return array('ESaveRelatedBehavior' => array(
-                'class' => 'application.components.ESaveRelatedBehavior')
-        );
-    }
 }
