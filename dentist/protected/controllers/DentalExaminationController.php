@@ -70,6 +70,14 @@ class DentalExaminationController extends Controller
 		if(isset($_POST['DentalExamination']))
 		{
 			$model->attributes=$_POST['DentalExamination'];
+
+			// DentalPieces - optionsAtms
+			if (isset($_POST['DentalPieces'])) 
+			{
+				$model->optionsAtms = $_POST['DentalPieces'];
+				$model->saveWithRelated('optionsAtms');
+			}
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_dental_examination));
 		}

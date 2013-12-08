@@ -18,6 +18,7 @@
  *
  * The followings are the available model relations:
  * @property DentalExamination $idTblDentalExamination
+ * @property ExaminationDentalPieces[] $examinationDentalPieces
  * @property TreatmentDecisionDentalPieces[] $treatmentDecisionDentalPieces
  */
 class DentalPieces extends CActiveRecord
@@ -59,6 +60,7 @@ class DentalPieces extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTblDentalExamination' => array(self::BELONGS_TO, 'DentalExamination', 'id_tbl_dental_examination'),
+			'examinationDentalPieces' => array(self::HAS_MANY, 'ExaminationDentalPieces', 'id_tbl_dental_piece'),
 			'treatmentDecisionDentalPieces' => array(self::HAS_MANY, 'TreatmentDecisionDentalPieces', 'id_tbl_dental_piece'),
 		);
 	}
