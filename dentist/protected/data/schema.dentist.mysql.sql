@@ -1057,7 +1057,7 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_examination_dental_pieces`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_examination_dental_pieces` (
-  `id_ tbl_examination_dental_pieces` INT NOT NULL,
+  `id_tbl_examination_dental_pieces` INT NOT NULL,
   `id_tbl_dental_piece` INT NOT NULL,
   `name_examination_dental_pieces` VARCHAR(64) NULL,
   `type_examination_dental_pieces` INT NULL,
@@ -1066,7 +1066,7 @@ CREATE TABLE IF NOT EXISTS `dentist`.`tbl_examination_dental_pieces` (
   `create_time` DATETIME NULL,
   `update_time` DATETIME NULL,
   `update_user_id` VARCHAR(64) NULL,
-  PRIMARY KEY (`id_ tbl_examination_dental_pieces`),
+  PRIMARY KEY (`id_tbl_examination_dental_pieces`),
   INDEX `fk_tbl_treatment_decision_dental_pieces_tbl_dental_pieces1_idx` (`id_tbl_dental_piece` ASC),
   CONSTRAINT `fk_tbl_treatment_decision_dental_pieces_tbl_dental_pieces0`
     FOREIGN KEY (`id_tbl_dental_piece`)
