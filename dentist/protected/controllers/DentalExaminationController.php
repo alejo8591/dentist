@@ -32,7 +32,7 @@ class DentalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadDP', 'loadEDP', 'loadTDDP'),
+				'actions'=>array('create','update', 'loadDP', 'loadEDP', 'loadTDDP', 'loadCRC'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -76,6 +76,13 @@ class DentalExaminationController extends Controller
 			{
 				$model->dentalPieces = $_POST['DentalPieces'];
 				$model->saveWithRelated('dentalPieces');
+			}
+
+			// CariesRiskClassification - cariesRiskClassifications
+			if (isset($_POST['CariesRiskClassification'])) 
+			{
+				$model->cariesRiskClassifications = $_POST['CariesRiskClassification'];
+				$model->saveWithRelated('cariesRiskClassifications');
 			}
 
 			if($model->save())
@@ -208,6 +215,18 @@ class DentalExaminationController extends Controller
 	{
 		$model = new TreatmentDecisionDentalPieces;
 		$this->renderPartial('_treatmentdecisiondentalpieces', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for options Dental Pieces
+	 */
+	public function actionLoadCRC($index)
+	{
+		$model = new CariesRiskClassification;
+		$this->renderPartial('_cariesriskclassification', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);

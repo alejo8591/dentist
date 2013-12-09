@@ -44,6 +44,22 @@
    </div>
    <br />
 
+   <div id="cariesRiskClassifications">
+        <?php
+          foreach($model->cariesRiskClassifications as $id => $cariesRiskClassifications):
+              $this->renderPartial('_cariesriskclassifications', array(
+                  'model' => $cariesRiskClassifications,
+                  'index' => $id,
+                  'display' => 'block',
+              ));
+          endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Clasificación de Riesgo para Caries', '#', array('id' => 'loadCRC')); ?>
+   </div>
+   <br />
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -53,7 +69,7 @@
 </div><!-- form -->
 <?php
    $indexDP = 0;
-   $index = 0;
+   $indexCRC = 0;
       Yii::app()->clientScript->registerScript('loadsAtms', '
       var _indexDP = ' . $indexDP . ';
       $("#loadDP").click(function(e){
@@ -72,21 +88,21 @@
          });
       _indexDP++;});
 
-      var _index = ' . $index . ';
-      $("#loadOAMM").click(function(e){
+      var _indexCRC = ' . $indexCRC . ';
+      $("#loadCRC").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOAMM", array("load" => $this->action->id)) . '&index="+_index;
+         var __url = "' . Yii::app()->controller->createUrl("loadCRC", array("load" => $this->action->id)) . '&index="+_indexCRC;
          $.ajax({
             url: __url,
             success:function(response){
-               $("#optionsAtmMandibularMovements").append(response);
-               $("#optionsAtmMandibularMovements .crow").last().animate({
+               $("#cariesRiskClassifications").append(response);
+               $("#cariesRiskClassifications .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"
                });
             }
          });
-      _index++;});
+      _indexCRC++;});
       ', CClientScript::POS_END); 
  ?>
