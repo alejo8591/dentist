@@ -60,6 +60,38 @@
    </div>
    <br />
 
+   <div id="periodontalRiskClassifications">
+        <?php
+          foreach($model->periodontalRiskClassifications as $id => $periodontalRiskClassifications):
+              $this->renderPartial('_periodontalriskclassification', array(
+                  'model' => $periodontalRiskClassifications,
+                  'index' => $id,
+                  'display' => 'block',
+              ));
+          endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Clasificación de Riesgo para Enfermedad Periodontal', '#', array('id' => 'loadPRC')); ?>
+   </div>
+   <br />
+
+   <div id="periodontalBiohazards">
+        <?php
+          foreach($model->periodontalBiohazards as $id => $periodontalBiohazards):
+              $this->renderPartial('_periodontalbiohazard', array(
+                  'model' => $periodontalBiohazards,
+                  'index' => $id,
+                  'display' => 'block',
+              ));
+          endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Factores de Riesgo Biológicos', '#', array('id' => 'loadPB')); ?>
+   </div>
+   <br />
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
@@ -68,9 +100,11 @@
 
 </div><!-- form -->
 <?php
-   $indexDP = 0;
-   $indexCRC = 0;
-      Yii::app()->clientScript->registerScript('loadsAtms', '
+     $indexDP = 0;
+     $indexCRC = 0;
+     $indexPRC = 0;
+     $indexPB = 0;
+      Yii::app()->clientScript->registerScript('loadsDentalExamination', '
       var _indexDP = ' . $indexDP . ';
       $("#loadDP").click(function(e){
          e.preventDefault();
@@ -86,6 +120,7 @@
                });
             }
          });
+
       _indexDP++;});
 
       var _indexCRC = ' . $indexCRC . ';
@@ -104,5 +139,39 @@
             }
          });
       _indexCRC++;});
+
+      var _indexPRC = ' . $indexPRC . ';
+      $("#loadPRC").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadPRC", array("load" => $this->action->id)) . '&index="+_indexPRC;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#periodontalRiskClassifications").append(response);
+               $("#periodontalRiskClassifications .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _indexPRC++;});
+
+      var _indexPB = ' . $indexPB . ';
+      $("#loadPB").click(function(e){
+         e.preventDefault();
+         var __url = "' . Yii::app()->controller->createUrl("loadPB", array("load" => $this->action->id)) . '&index="+_indexPB;
+         $.ajax({
+            url: __url,
+            success:function(response){
+               $("#periodontalBiohazards").append(response);
+               $("#periodontalBiohazards .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _indexPB++;});
       ', CClientScript::POS_END); 
  ?>

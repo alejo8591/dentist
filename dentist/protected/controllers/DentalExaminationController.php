@@ -32,7 +32,7 @@ class DentalExaminationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'loadDP', 'loadEDP', 'loadTDDP', 'loadCRC'),
+				'actions'=>array('create','update', 'loadDP', 'loadEDP', 'loadTDDP', 'loadCRC', 'loadPRC', 'loadPB'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -83,6 +83,20 @@ class DentalExaminationController extends Controller
 			{
 				$model->cariesRiskClassifications = $_POST['CariesRiskClassification'];
 				$model->saveWithRelated('cariesRiskClassifications');
+			}
+
+			// PeriodontalRiskClassification - periodontalRiskClassifications
+			if (isset($_POST['PeriodontalRiskClassification'])) 
+			{
+				$model->periodontalRiskClassifications = $_POST['PeriodontalRiskClassification'];
+				$model->saveWithRelated('periodontalRiskClassifications');
+			}
+
+			// PeriodontalBiohazard - periodontalBiohazards
+			if (isset($_POST['PeriodontalBiohazard'])) 
+			{
+				$model->periodontalBiohazards = $_POST['PeriodontalBiohazard'];
+				$model->saveWithRelated('periodontalBiohazards');
 			}
 
 			if($model->save())
@@ -227,6 +241,30 @@ class DentalExaminationController extends Controller
 	{
 		$model = new CariesRiskClassification;
 		$this->renderPartial('_cariesriskclassification', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for Periodontal Risk Classification
+	 */
+	public function actionLoadPRC($index)
+	{
+		$model = new PeriodontalRiskClassification;
+		$this->renderPartial('_periodontalriskclassification', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
+	}
+
+	/**
+	 * @return Object with renderPartial for Periodontal Risk Classification
+	 */
+	public function actionLoadPB($index)
+	{
+		$model = new PeriodontalBiohazard;
+		$this->renderPartial('_periodontalbiohazard', array(
 			'model' => $model,
 			'index' => $index,
 		), false, true);
