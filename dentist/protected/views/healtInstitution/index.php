@@ -3,12 +3,11 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Healt Institutions',
+	'Institución de Salud',
 );
 
 $this->menu=array(
 	array('label'=>'Crear Entidad', 'url'=>array('create')),
-	array('label'=>'Administrar Entidades', 'url'=>array('admin')),
 );
 ?>
 

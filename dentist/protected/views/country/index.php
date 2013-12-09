@@ -3,12 +3,11 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Countries',
+	'Paises',
 );
 
 $this->menu=array(
 	array('label'=>'Crear País', 'url'=>array('create')),
-	array('label'=>'Administrar Paises', 'url'=>array('admin')),
 );
 ?>
 

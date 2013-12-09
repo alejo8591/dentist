@@ -3,7 +3,7 @@
 /* @var $model Profession */
 
 $this->breadcrumbs=array(
-	'Professions'=>array('index'),
+	'Profesiones'=>array('index'),
 	$model->id_tbl_profession,
 );
 
@@ -11,8 +11,7 @@ $this->menu=array(
 	array('label'=>'Listar Profesiones', 'url'=>array('index')),
 	array('label'=>'Crear Profesión', 'url'=>array('create')),
 	array('label'=>'Actualizar Profesión', 'url'=>array('update', 'id'=>$model->id_tbl_profession)),
-	array('label'=>'Eliminar Profesión', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_profession),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Profesiones', 'url'=>array('admin')),
+	array('label'=>'Eliminar Profesión', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_profession),'confirm'=>'Esta seguro que desea eliminar este ítem?')),
 );
 ?>
 
@@ -24,9 +23,5 @@ $this->menu=array(
 		'id_tbl_profession',
 		'name_profession',
 		'description',
-		'create_user_id',
-		'create_time',
-		'update_user_id',
-		'update_time',
 	),
 )); ?>

@@ -3,13 +3,12 @@
 /* @var $model HealtInstitution */
 
 $this->breadcrumbs=array(
-	'Healt Institutions'=>array('index'),
-	'Create',
+	'Instituciones de Salud'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Entidades', 'url'=>array('index')),
-	array('label'=>'Administar Entidades', 'url'=>array('admin')),
 );
 ?>
 

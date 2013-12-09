@@ -3,9 +3,9 @@
 /* @var $model City */
 
 $this->breadcrumbs=array(
-	'Cities'=>array('index'),
+	'Ciudades'=>array('index'),
 	$model->id_tbl_city=>array('view','id'=>$model->id_tbl_city),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update City <?php echo $model->id_tbl_city; ?></h1>
+<h1>Actualizar Ciudad <?php echo $model->id_tbl_city; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

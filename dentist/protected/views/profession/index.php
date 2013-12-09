@@ -3,13 +3,11 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Professions',
+	'Profesiones',
 );
 
 $this->menu=array(
-	array('label'=>'Crear Profesión', 'url'=>array('create')),
-	array('label'=>'Manage Profession', 'url'=>array('admin')),
-);
+	array('label'=>'Crear Profesión', 'url'=>array('create')),);
 ?>
 
 <h1>Profesiones</h1>

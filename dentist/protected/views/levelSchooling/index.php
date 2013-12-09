@@ -3,12 +3,11 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Level Schoolings',
+	'Nivel de Escolaridad',
 );
 
 $this->menu=array(
 	array('label'=>'Crear nivel de Escolaridad', 'url'=>array('create')),
-	array('label'=>'Administrar Niveles', 'url'=>array('admin')),
 );
 ?>
 

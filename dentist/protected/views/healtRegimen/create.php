@@ -3,16 +3,15 @@
 /* @var $model HealtRegimen */
 
 $this->breadcrumbs=array(
-	'Healt Regimens'=>array('index'),
-	'Create',
+	'Régime de Salud'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
 	array('label'=>'Listar los Regimen', 'url'=>array('index')),
-	array('label'=>'Administrar los Regimen', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Crear Regimen de Salud</h1>
+<h1>Crear Régimen de Salud</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

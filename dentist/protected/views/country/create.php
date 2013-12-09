@@ -3,8 +3,8 @@
 /* @var $model Country */
 
 $this->breadcrumbs=array(
-	'Countries'=>array('index'),
-	'Create',
+	'Paises'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(

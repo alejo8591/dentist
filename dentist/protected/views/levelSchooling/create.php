@@ -3,13 +3,12 @@
 /* @var $model LevelSchooling */
 
 $this->breadcrumbs=array(
-	'Level Schoolings'=>array('index'),
-	'Create',
+	'Nivel de Escolaridad'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Niveles de Escolaridad', 'url'=>array('index')),
-	array('label'=>'Administrar Niveles', 'url'=>array('admin')),
 );
 ?>
 

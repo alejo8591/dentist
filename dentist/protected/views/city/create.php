@@ -3,8 +3,8 @@
 /* @var $model City */
 
 $this->breadcrumbs=array(
-	'Cities'=>array('index'),
-	'Create',
+	'Ciudades'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(

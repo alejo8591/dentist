@@ -3,14 +3,12 @@
 /* @var $model Profession */
 
 $this->breadcrumbs=array(
-	'Professions'=>array('index'),
-	'Create',
+	'Profesiones'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Profesiones', 'url'=>array('index')),
-	array('label'=>'Administrar Profesiones', 'url'=>array('admin')),
-);
+	array('label'=>'Listar Profesiones', 'url'=>array('index')),);
 ?>
 
 <h1>Crear Profesión</h1>

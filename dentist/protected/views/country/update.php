@@ -3,16 +3,15 @@
 /* @var $model Country */
 
 $this->breadcrumbs=array(
-	'Countries'=>array('index'),
+	'Paises'=>array('index'),
 	$model->id_tbl_country=>array('view','id'=>$model->id_tbl_country),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Paises', 'url'=>array('index')),
 	array('label'=>'Crear País', 'url'=>array('create')),
 	array('label'=>'Ver País', 'url'=>array('view', 'id'=>$model->id_tbl_country)),
-	array('label'=>'Administrar Paises', 'url'=>array('admin')),
 );
 ?>
 

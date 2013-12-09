@@ -3,7 +3,7 @@
 /* @var $model HealtInstitution */
 
 $this->breadcrumbs=array(
-	'Healt Institutions'=>array('index'),
+	'Instituciones de Salud'=>array('index'),
 	$model->id_tbl_healt_institution,
 );
 
@@ -11,8 +11,7 @@ $this->menu=array(
 	array('label'=>'Listar Entidades', 'url'=>array('index')),
 	array('label'=>'Crear Entidad', 'url'=>array('create')),
 	array('label'=>'Actualizar Entidad', 'url'=>array('update', 'id'=>$model->id_tbl_healt_institution)),
-	array('label'=>'Eliminar Entidad', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_healt_institution),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Entidades', 'url'=>array('admin')),
+	array('label'=>'Eliminar Entidad', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_tbl_healt_institution),'confirm'=>'Esta seguro que desea eliminar este ítem?')),
 );
 ?>
 

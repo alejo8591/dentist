@@ -3,7 +3,7 @@
 /* @var $model HealtRegimen */
 
 $this->breadcrumbs=array(
-	'Healt Regimens'=>array('index'),
+	'Regimen de Salud'=>array('index'),
 	'Manage',
 );
 
