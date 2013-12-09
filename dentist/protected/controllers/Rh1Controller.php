@@ -32,7 +32,7 @@ class Rh1Controller extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadRV'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,11 +65,19 @@ class Rh1Controller extends Controller
 		$model=new Rh1;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Rh1']))
 		{
 			$model->attributes=$_POST['Rh1'];
+
+			// Rh1Values - rh1Values
+			if (isset($_POST['Rh1Values'])) 
+			{
+				$model->rh1Values = $_POST['Rh1Values'];
+				$model->saveWithRelated('rh1Values');
+			}
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_rh1));
 		}
@@ -169,5 +177,17 @@ class Rh1Controller extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/**
+	 * @return Object with renderPartial for Options Peridontal Chart
+	 */
+	public function actionLoadRV($index)
+	{
+		$model = new Rh1Values;
+		$this->renderPartial('_rh1values', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
 	}
 }
