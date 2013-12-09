@@ -43,12 +43,13 @@
    <br />
 
    <?php
-   $index = 0;
+   $indexEDP = 0;
+   $indexTDDP = 0;
       Yii::app()->clientScript->registerScript('loadsExaminationDentalPieces', '
-      var _index = ' . $index . ';
+      var _indexEDP = ' . $indexEDP . ';
       $("#loadEDP").click(function(e){
          e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadEDP", array("load" => $this->action->id)) . '&index="+_index;
+         var _url = "' . Yii::app()->controller->createUrl("loadEDP", array("load" => $this->action->id)) . '&index="+_indexEDP;
          $.ajax({
             url: _url,
             success:function(response){
@@ -60,12 +61,12 @@
                });
             }
          });
-      _index++;});
+      _indexEDP++;});
 
-      var _index = ' . $index . ';
+      var _indexTDDP = ' . $indexTDDP . ';
       $("#loadTDDP").click(function(e){
          e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadTDDP", array("load" => $this->action->id)) . '&index="+_index;
+         var _url = "' . Yii::app()->controller->createUrl("loadTDDP", array("load" => $this->action->id)) . '&index="+_indexTDDP;
          $.ajax({
             url: _url,
             success:function(response){
@@ -77,6 +78,6 @@
                });
             }
          });
-      _index++;});
+      _indexTDDP++;});
       ', CClientScript::POS_END); 
  ?>

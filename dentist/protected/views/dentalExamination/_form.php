@@ -52,12 +52,13 @@
 
 </div><!-- form -->
 <?php
+   $indexDP = 0;
    $index = 0;
       Yii::app()->clientScript->registerScript('loadsAtms', '
-      var _index = ' . $index . ';
+      var _indexDP = ' . $indexDP . ';
       $("#loadDP").click(function(e){
          e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadDP", array("load" => $this->action->id)) . '&index="+_index;
+         var _url = "' . Yii::app()->controller->createUrl("loadDP", array("load" => $this->action->id)) . '&index="+_indexDP;
          $.ajax({
             url: _url,
             success:function(response){
@@ -69,12 +70,12 @@
                });
             }
          });
-      _index++;});
+      _indexDP++;});
 
-      var __index = ' . $index . ';
+      var _index = ' . $index . ';
       $("#loadOAMM").click(function(e){
          e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOAMM", array("load" => $this->action->id)) . '&index="+__index;
+         var __url = "' . Yii::app()->controller->createUrl("loadOAMM", array("load" => $this->action->id)) . '&index="+_index;
          $.ajax({
             url: __url,
             success:function(response){
@@ -86,57 +87,6 @@
                });
             }
          });
-      __index++;});
-
-      var __index = ' . $index . ';
-      $("#loadOASF").click(function(e){
-         e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOASF", array("load" => $this->action->id)) . '&index="+__index;
-         $.ajax({
-            url: __url,
-            success:function(response){
-               $("#optionsAtmSoftTissues").append(response);
-               $("#optionsAtmSoftTissues .crow").last().animate({
-                  opacity : 1, 
-                   left: "+50", 
-                   height: "toggle"
-               });
-            }
-         });
-      __index++;});
-  
-      var _index = ' . $index . ';
-      $("#loadOAIST").click(function(e){
-         e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadOAIST", array("load" => $this->action->id)) . '&index="+_index;
-         $.ajax({
-            url: _url,
-            success:function(response){
-               $("#optionsAtmIntraoralSoftTissues").append(response);
-               $("#optionsAtmIntraoralSoftTissues .crow").last().animate({
-                  opacity : 1, 
-                   left: "+50", 
-                   height: "toggle"
-               });
-            }
-         });
       _index++;});
-
-      var __index = ' . $index . ';
-      $("#loadOAIHT").click(function(e){
-         e.preventDefault();
-         var __url = "' . Yii::app()->controller->createUrl("loadOAIHT", array("load" => $this->action->id)) . '&index="+__index;
-         $.ajax({
-            url: __url,
-            success:function(response){
-               $("#optionsAtmIntraoralHardTissues").append(response);
-               $("#optionsAtmIntraoralHardTissues .crow").last().animate({
-                  opacity : 1, 
-                   left: "+50", 
-                   height: "toggle"
-               });
-            }
-         });
-      __index++;});
       ', CClientScript::POS_END); 
  ?>
