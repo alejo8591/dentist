@@ -39,11 +39,11 @@
 
 	<br />
 
-   <div id="optionsDiagnosises">
+   <div id="ripsProcedures">
         <?php
-          foreach($model->optionsDiagnosises as $id => $optionsDiagnosises):
-              $this->renderPartial('_optionsdiagnosis', array(
-                  'model' => $optionsDiagnosises,
+          foreach($model->ripsProcedures as $id => $ripsProcedures):
+              $this->renderPartial('_ripsprocedures', array(
+                  'model' => $ripsProcedures,
                   'index' => $id,
                   'display' => 'block',
               ));
@@ -51,7 +51,7 @@
         ?>
     </div> 
    <div>
-      <?php echo CHtml::link('Agregar - Diagnostico', '#', array('id' => 'loadOD')); ?>
+      <?php echo CHtml::link('Agregar - Agregar ítems al RIPS', '#', array('id' => 'loadRP')); ?>
    </div>
    <br />
 
@@ -64,16 +64,16 @@
 </div><!-- form -->
 <?php
    $index = 0;
-      Yii::app()->clientScript->registerScript('loadsoptionsDiagnoses', '
+      Yii::app()->clientScript->registerScript('loadripsprocedures', '
       var _index = ' . $index . ';
-      $("#loadOD").click(function(e){
+      $("#loadRP").click(function(e){
          e.preventDefault();
-         var _url = "' . Yii::app()->controller->createUrl("loadOD", array("load" => $this->action->id)) . '&index="+_index;
+         var _url = "' . Yii::app()->controller->createUrl("loadRP", array("load" => $this->action->id)) . '&index="+_index;
          $.ajax({
             url: _url,
             success:function(response){
-               $("#optionsDiagnosises").append(response);
-               $("#optionsDiagnosises .crow").last().animate({
+               $("#ripsProcedures").append(response);
+               $("#ripsProcedures .crow").last().animate({
                   opacity : 1, 
                    left: "+50", 
                    height: "toggle"

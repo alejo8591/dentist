@@ -32,7 +32,7 @@ class RipsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'loadRP'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -77,7 +77,7 @@ class RipsController extends Controller
 				$model->ripsProcedures = $_POST['RipsProcedures'];
 				$model->saveWithRelated('ripsProcedures');
 			}
-			
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_rips));
 		}
@@ -184,7 +184,7 @@ class RipsController extends Controller
 	 */
 	public function actionLoadRP($index)
 	{
-		$model = new Rips;
+		$model = new RipsProcedures;
 		$this->renderPartial('_ripsprocedures', array(
 			'model' => $model,
 			'index' => $index,
