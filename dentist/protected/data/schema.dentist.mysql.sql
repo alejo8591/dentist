@@ -1074,6 +1074,99 @@ CREATE TABLE IF NOT EXISTS `dentist`.`tbl_examination_dental_pieces` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `dentist`.`tbl_rips`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `dentist`.`tbl_rips` (
+  `id_tbl_rips` INT NOT NULL AUTO_INCREMENT,
+  `id_tbl_anamnesis` INT NOT NULL,
+  `bill_of_sale` VARCHAR(64) NULL,
+  `create_user_id` VARCHAR(64) NULL,
+  `create_time` DATETIME NULL,
+  `update_user_id` VARCHAR(64) NULL,
+  `update_time` DATETIME NULL,
+  PRIMARY KEY (`id_tbl_rips`),
+  INDEX `fk_tbl_rips_tbl_anamnesis1_idx` (`id_tbl_anamnesis` ASC),
+  CONSTRAINT `fk_tbl_rips_tbl_anamnesis1`
+    FOREIGN KEY (`id_tbl_anamnesis`)
+    REFERENCES `dentist`.`tbl_anamnesis` (`id_tbl_anamnesis`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dentist`.`tbl_rips_procedures`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `dentist`.`tbl_rips_procedures` (
+  `id_tbl_rips_procedures` INT NOT NULL AUTO_INCREMENT,
+  `id_tbl_rips` INT NOT NULL,
+  `value_procedure` VARCHAR(256) NULL,
+  `cie10_code` VARCHAR(128) NULL,
+  `create_user_id` VARCHAR(64) NULL,
+  `create_time` DATETIME NULL,
+  `update_user_id` VARCHAR(64) NULL,
+  `update_time` DATETIME NULL,
+  INDEX `fk_tbl_rips_procedures_tbl_rips1_idx` (`id_tbl_rips` ASC),
+  PRIMARY KEY (`id_tbl_rips_procedures`),
+  CONSTRAINT `fk_tbl_rips_procedures_tbl_rips1`
+    FOREIGN KEY (`id_tbl_rips`)
+    REFERENCES `dentist`.`tbl_rips` (`id_tbl_rips`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dentist`.`tbl_rh1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `dentist`.`tbl_rh1` (
+  `id_tbl_rh1` INT NOT NULL AUTO_INCREMENT,
+  `provider_class` VARCHAR(128) NULL,
+  `name_surname` VARCHAR(256) NULL,
+  `id_document` VARCHAR(64) NULL,
+  `provider_code` VARCHAR(128) NULL,
+  `address` VARCHAR(256) NULL,
+  `phone` VARCHAR(64) NULL,
+  `email` VARCHAR(128) NULL,
+  PRIMARY KEY (`id_tbl_rh1`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dentist`.`tbl_rh1_values`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `dentist`.`tbl_rh1_values` (
+  `id_tbl_rh1_values` INT NOT NULL AUTO_INCREMENT,
+  `id_tbl_rh1` INT NOT NULL,
+  `month` VARCHAR(64) NULL,
+  `landfill_ordinary` DECIMAL(3,1) NULL,
+  `landfill_idrs` DECIMAL(3,1) NULL,
+  `recycling_recyclable` DECIMAL(3,1) NULL,
+  `recycling_idr` DECIMAL(3,1) NULL,
+  `total_waste_not_hazardous` DECIMAL(3,1) NULL,
+  `hef_biosanitary` DECIMAL(3,1) NULL,
+  `hef_sharps` DECIMAL(3,1) NULL,
+  `hef_idd` DECIMAL(3,1) NULL,
+  `incineration_sharps` DECIMAL(3,1) NULL,
+  `incineration_pathological` DECIMAL(3,1) NULL,
+  `incineration_chemical` DECIMAL(3,1) NULL,
+  `incineration_other_residues` DECIMAL(3,1) NULL,
+  `incineration_idi` DECIMAL(3,1) NULL,
+  `ots_other_residues` DECIMAL(3,1) NULL,
+  `ots_chemical_reactives` DECIMAL(3,1) NULL,
+  `ots_idos` DECIMAL(3,1) NULL,
+  `total_waste_hazardous` DECIMAL(3,1) NULL,
+  INDEX `fk_table1_tbl_rh11_idx` (`id_tbl_rh1` ASC),
+  PRIMARY KEY (`id_tbl_rh1_values`),
+  CONSTRAINT `fk_table1_tbl_rh11`
+    FOREIGN KEY (`id_tbl_rh1`)
+    REFERENCES `dentist`.`tbl_rh1` (`id_tbl_rh1`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
