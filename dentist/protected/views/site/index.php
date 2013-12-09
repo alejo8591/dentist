@@ -63,20 +63,22 @@ $this->pageTitle=Yii::app()->name;
         <p>Crear, modificar y eliminar cuentas de Acceso a la aplicación.</p>
         <p>
     	      <?php echo CHtml::link('Administrar »', '#', array('id' => 'userData', 'class' => 'btn btn-default')); ?>
-
         </p>
       </div>
       <div class="col-lg-4">
         <img class="img-circle" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/imagen_HC.jpg">
         <h2>Historial Clínico</h2>
         <p>Apertura primera vez, modificación y actualización historias Clínicas Generadas.</p>
-        <p><a class="btn btn-default" href="#" role="button">Ver historial »</a></p>
+        <p>
+          <?php echo CHtml::link('Ver Historial »', '#', array('id' => 'anamnesisData', 'class' => 'btn btn-default')); ?>
       </div>
       <div class="col-lg-4">
         <img class="img-circle" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/matilloybalanza.jpg">
         <h2>Registros de Control</h2>
         <p>Generación y actualización de los registros de Registro Individual de prestación de servicios de salud (RIPS) y Desechos Hospitalarios.</p>
-        <p><a class="btn btn-default" href="#" role="button">Revisar registros »</a></p>
+        <p>
+          <?php echo CHtml::link('Revisar registros »', '#', array('id' => 'controlRegister', 'class' => 'btn btn-default')); ?>
+        </p>
       </div>
     </div>
     </div>

@@ -1,8 +1,18 @@
 $(document).ready(function(){
 	// for new user with url for js
+	$('a#controlRegister').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/site/controlregister';
+	});
+	// for new user with url for js
 	$('a#userData').click(function(event) {
 		var newURL = window.location.origin;
 		window.location = newURL+'/dentist/dentist/index.php/site/userdata';
+	});
+	// for new user with url for js
+	$('a#anamnesisData').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/site/anamnesisdata';
 	});
 	// for new user with url for js
 	$('#createUser').click(function(event) {
@@ -114,4 +124,34 @@ $(document).ready(function(){
 		var newURL = window.location.origin;
 		window.location = newURL+'/dentist/dentist/index.php/atm';
 	});	
+	// for new ATM with url for js
+	$('#createAtm').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/atm/create';
+	});
+	// for list ATMs with url for js
+	$('#listAtms').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/atm';
+	});	
+	// for new RIPS with url for js
+	$('#createRips').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/rips/create';
+	});
+	// for list RIPS with url for js
+	$('#listRips').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/rips';
+	});	
+	// for new RIPS with url for js
+	$('#createRh1').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/rh1/create';
+	});
+	// for list RIPS with url for js
+	$('#listRh1').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/rh1';
+	});
 });

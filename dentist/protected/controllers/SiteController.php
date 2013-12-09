@@ -114,4 +114,20 @@ class SiteController extends Controller
 	{
 		$this->render('userdata');
 	}
+
+	/**
+	 * Anamnesis Data Menu
+	 */
+	public function actionAnamnesisdata()
+	{
+		$this->render('anamnesisdata');
+	}
+
+	/**
+	 * Anamnesis Data Menu
+	 */
+	public function actionControlRegister()
+	{
+		$this->render('controlregister');
+	}
 }
