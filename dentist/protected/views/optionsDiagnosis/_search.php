@@ -32,8 +32,13 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'cie10'); ?>
+		<?php echo $form->textField($model,'cie10',array('size'=>60,'maxlength'=>128)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'observation_option_diagnosis'); ?>
-		<?php echo $form->textField($model,'observation_option_diagnosis',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textArea($model,'observation_option_diagnosis',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
 	<div class="row">

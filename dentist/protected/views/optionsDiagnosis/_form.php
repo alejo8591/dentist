@@ -20,12 +20,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_tbl_option_diagnosis'); ?>
-		<?php echo $form->textField($model,'id_tbl_option_diagnosis'); ?>
-		<?php echo $form->error($model,'id_tbl_option_diagnosis'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'id_tbl_diagnosis'); ?>
 		<?php echo $form->textField($model,'id_tbl_diagnosis'); ?>
 		<?php echo $form->error($model,'id_tbl_diagnosis'); ?>
@@ -44,8 +38,14 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'cie10'); ?>
+		<?php echo $form->textField($model,'cie10',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'cie10'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'observation_option_diagnosis'); ?>
-		<?php echo $form->textField($model,'observation_option_diagnosis',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textArea($model,'observation_option_diagnosis',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'observation_option_diagnosis'); ?>
 	</div>
 

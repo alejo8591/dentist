@@ -21,6 +21,10 @@
 	<?php echo CHtml::encode($data->type_option_diagnosis); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cie10')); ?>:</b>
+	<?php echo CHtml::encode($data->cie10); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('observation_option_diagnosis')); ?>:</b>
 	<?php echo CHtml::encode($data->observation_option_diagnosis); ?>
 	<br />
@@ -29,11 +33,11 @@
 	<?php echo CHtml::encode($data->create_user_id); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
 	<?php echo CHtml::encode($data->create_time); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('update_user_id')); ?>:</b>
 	<?php echo CHtml::encode($data->update_user_id); ?>
 	<br />

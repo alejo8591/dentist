@@ -8,6 +8,7 @@
  * @property integer $id_tbl_diagnosis
  * @property string $name_option_diagnosis
  * @property integer $type_option_diagnosis
+ * @property string $cie10
  * @property string $observation_option_diagnosis
  * @property string $create_user_id
  * @property string $create_time
@@ -35,15 +36,14 @@ class OptionsDiagnosis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_tbl_option_diagnosis, id_tbl_diagnosis', 'required'),
-			array('id_tbl_option_diagnosis, id_tbl_diagnosis, type_option_diagnosis', 'numerical', 'integerOnly'=>true),
-			array('name_option_diagnosis', 'length', 'max'=>128),
-			array('observation_option_diagnosis', 'length', 'max'=>45),
+			array('id_tbl_diagnosis', 'required'),
+			array('id_tbl_diagnosis, type_option_diagnosis', 'numerical', 'integerOnly'=>true),
+			array('name_option_diagnosis, cie10', 'length', 'max'=>128),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
-			array('create_time, update_time', 'safe'),
+			array('observation_option_diagnosis, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_option_diagnosis, id_tbl_diagnosis, name_option_diagnosis, type_option_diagnosis, observation_option_diagnosis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_option_diagnosis, id_tbl_diagnosis, name_option_diagnosis, type_option_diagnosis, cie10, observation_option_diagnosis, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,6 +69,7 @@ class OptionsDiagnosis extends CActiveRecord
 			'id_tbl_diagnosis' => 'Id Tbl Diagnosis',
 			'name_option_diagnosis' => 'Name Option Diagnosis',
 			'type_option_diagnosis' => 'Type Option Diagnosis',
+			'cie10' => 'Cie10',
 			'observation_option_diagnosis' => 'Observation Option Diagnosis',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
@@ -99,6 +100,7 @@ class OptionsDiagnosis extends CActiveRecord
 		$criteria->compare('id_tbl_diagnosis',$this->id_tbl_diagnosis);
 		$criteria->compare('name_option_diagnosis',$this->name_option_diagnosis,true);
 		$criteria->compare('type_option_diagnosis',$this->type_option_diagnosis);
+		$criteria->compare('cie10',$this->cie10,true);
 		$criteria->compare('observation_option_diagnosis',$this->observation_option_diagnosis,true);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
 		$criteria->compare('create_time',$this->create_time,true);

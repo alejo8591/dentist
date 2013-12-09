@@ -21,33 +21,26 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'id_tbl_anamnesis'); ?>
-		<?php echo $form->textField($model,'id_tbl_anamnesis'); ?>
+		<?php echo $form->dropDownList($model,'id_tbl_anamnesis', $model->getAnamnesies()); ?>
 		<?php echo $form->error($model,'id_tbl_anamnesis'); ?>
 	</div>
+	<br />
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'update_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
-	</div>
+   <div id="optionsDiagnosises">
+        <?php
+          foreach($model->optionsDiagnosises as $id => $optionsDiagnosises):
+              $this->renderPartial('_optionsdiagnosis', array(
+                  'model' => $optionsDiagnosises,
+                  'index' => $id,
+                  'display' => 'block',
+              ));
+          endforeach;
+        ?>
+    </div> 
+   <div>
+      <?php echo CHtml::link('Agregar - Diagnostico', '#', array('id' => 'loadOD')); ?>
+   </div>
+   <br />
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
@@ -56,3 +49,24 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<?php
+   $index = 0;
+      Yii::app()->clientScript->registerScript('loadsoptionsDiagnoses', '
+      var _index = ' . $index . ';
+      $("#loadOD").click(function(e){
+         e.preventDefault();
+         var _url = "' . Yii::app()->controller->createUrl("loadOD", array("load" => $this->action->id)) . '&index="+_index;
+         $.ajax({
+            url: _url,
+            success:function(response){
+               $("#optionsDiagnosises").append(response);
+               $("#optionsDiagnosises .crow").last().animate({
+                  opacity : 1, 
+                   left: "+50", 
+                   height: "toggle"
+               });
+            }
+         });
+      _index++;});
+      ', CClientScript::POS_END); 
+ ?>

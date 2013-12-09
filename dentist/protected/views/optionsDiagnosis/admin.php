@@ -49,9 +49,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id_tbl_diagnosis',
 		'name_option_diagnosis',
 		'type_option_diagnosis',
+		'cie10',
 		'observation_option_diagnosis',
-		'create_user_id',
 		/*
+		'create_user_id',
 		'create_time',
 		'update_user_id',
 		'update_time',

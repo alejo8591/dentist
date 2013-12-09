@@ -25,6 +25,7 @@ $this->menu=array(
 		'id_tbl_diagnosis',
 		'name_option_diagnosis',
 		'type_option_diagnosis',
+		'cie10',
 		'observation_option_diagnosis',
 		'create_user_id',
 		'create_time',

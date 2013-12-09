@@ -1036,7 +1036,7 @@ CREATE TABLE IF NOT EXISTS `dentist`.`tbl_options_prognosis` (
   `id_tbl_prognosis` INT NOT NULL,
   `name_option_prognosis` VARCHAR(128) NULL,
   `type_option_prognosis` INT NULL,
-  `observation_option_prognosis` VARCHAR(45) NULL,
+  `observation_option_prognosis` TEXT NULL,
   `create_user_id` VARCHAR(64) NULL,
   `create_time` DATETIME NULL,
   `update_user_id` VARCHAR(64) NULL,
