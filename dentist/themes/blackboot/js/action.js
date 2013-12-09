@@ -133,6 +133,36 @@ $(document).ready(function(){
 	$('#listAtms').click(function(event) {
 		var newURL = window.location.origin;
 		window.location = newURL+'/dentist/dentist/index.php/atm';
+	});
+	// for new Periodonta Examination with url for js
+	$('#createPeriodontalExamination').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/periodontalexamination/create';
+	});
+	// for list Periodonta Examination with url for js
+	$('#listPeriodontalExamination').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/periodontalexamination';
+	});
+	// for new dental Examination with url for js
+	$('#createDentalExamination').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/dentalexamination/create';
+	});
+	// for list dental Examination with url for js
+	$('#listDentalExamination').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/dentalexamination';
+	});
+	// for new Diagnosis with url for js
+	$('#createDiagnosis').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/diagnosis/create';
+	});
+	// for list dental Examination with url for js
+	$('#listDiagnosis').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/diagnosis';
 	});	
 	// for new RIPS with url for js
 	$('#createRips').click(function(event) {

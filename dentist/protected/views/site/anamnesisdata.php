@@ -33,5 +33,26 @@ $this->pageTitle=Yii::app()->name;
 	</ul>
 	<ul>
 		<li><a id="listAtms" class="btn btn-lg btn-primary">Listar ATMs</a></li>
+	</ul>
+	<h2>Examen Periodontal</h2>
+	<ul>
+		<li><a id="createPeriodontalExamination" class="btn btn-lg btn-primary">Crear Examen Periodontal</a></li>
+	</ul>
+	<ul>
+		<li><a id="listPeriodontalExamination" class="btn btn-lg btn-primary">Listar Examenes Periodontales</a></li>
+	</ul>
+	<h2>Examen Dental</h2>
+	<ul>
+		<li><a id="createDentalExamination" class="btn btn-lg btn-primary">Crear Examen Dental</a></li>
+	</ul>
+	<ul>
+		<li><a id="listDentalExamination" class="btn btn-lg btn-primary">Listar Examenes Dentales</a></li>
+	</ul>
+	<h2>Diagnóstico</h2>
+	<ul>
+		<li><a id="createDiagnosis" class="btn btn-lg btn-primary">Crear Diagnóstico</a></li>
+	</ul>
+	<ul>
+		<li><a id="listDiagnosis" class="btn btn-lg btn-primary">Listar Diagnósticos</a></li>
 	</ul>	
 </div>
