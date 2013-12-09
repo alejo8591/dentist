@@ -13,12 +13,16 @@
 	<?php echo CHtml::encode($data->id_tbl_rips); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('value_procedure')); ?>:</b>
-	<?php echo CHtml::encode($data->value_procedure); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cie10_code')); ?>:</b>
 	<?php echo CHtml::encode($data->cie10_code); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cups_code')); ?>:</b>
+	<?php echo CHtml::encode($data->cups_code); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('value_procedure')); ?>:</b>
+	<?php echo CHtml::encode($data->value_procedure); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_user_id')); ?>:</b>
@@ -29,11 +33,11 @@
 	<?php echo CHtml::encode($data->create_time); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('update_user_id')); ?>:</b>
 	<?php echo CHtml::encode($data->update_user_id); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
 	<?php echo CHtml::encode($data->update_time); ?>
 	<br />

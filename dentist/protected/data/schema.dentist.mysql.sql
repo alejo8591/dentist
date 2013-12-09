@@ -1101,8 +1101,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_rips_procedures` (
   `id_tbl_rips_procedures` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_rips` INT NOT NULL,
-  `value_procedure` VARCHAR(256) NULL,
   `cie10_code` VARCHAR(128) NULL,
+  `cups_code` VARCHAR(128) NULL,
+  `value_procedure` VARCHAR(256) NULL,
   `create_user_id` VARCHAR(64) NULL,
   `create_time` DATETIME NULL,
   `update_user_id` VARCHAR(64) NULL,

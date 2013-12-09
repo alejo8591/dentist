@@ -22,13 +22,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'value_procedure'); ?>
-		<?php echo $form->textField($model,'value_procedure',array('size'=>60,'maxlength'=>256)); ?>
+		<?php echo $form->label($model,'cie10_code'); ?>
+		<?php echo $form->textField($model,'cie10_code',array('size'=>60,'maxlength'=>128)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'cie10_code'); ?>
-		<?php echo $form->textField($model,'cie10_code',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->label($model,'cups_code'); ?>
+		<?php echo $form->textField($model,'cups_code',array('size'=>60,'maxlength'=>128)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'value_procedure'); ?>
+		<?php echo $form->textField($model,'value_procedure',array('size'=>60,'maxlength'=>256)); ?>
 	</div>
 
 	<div class="row">

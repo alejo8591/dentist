@@ -23,8 +23,9 @@ $this->menu=array(
 	'attributes'=>array(
 		'id_tbl_rips_procedures',
 		'id_tbl_rips',
-		'value_procedure',
 		'cie10_code',
+		'cups_code',
+		'value_procedure',
 		'create_user_id',
 		'create_time',
 		'update_user_id',

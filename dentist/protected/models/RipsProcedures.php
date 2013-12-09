@@ -6,8 +6,9 @@
  * The followings are the available columns in table 'tbl_rips_procedures':
  * @property integer $id_tbl_rips_procedures
  * @property integer $id_tbl_rips
- * @property string $value_procedure
  * @property string $cie10_code
+ * @property string $cups_code
+ * @property string $value_procedure
  * @property string $create_user_id
  * @property string $create_time
  * @property string $update_user_id
@@ -36,13 +37,13 @@ class RipsProcedures extends CActiveRecord
 		return array(
 			array('id_tbl_rips', 'required'),
 			array('id_tbl_rips', 'numerical', 'integerOnly'=>true),
+			array('cie10_code, cups_code', 'length', 'max'=>128),
 			array('value_procedure', 'length', 'max'=>256),
-			array('cie10_code', 'length', 'max'=>128),
 			array('create_user_id, update_user_id', 'length', 'max'=>64),
 			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_tbl_rips_procedures, id_tbl_rips, value_procedure, cie10_code, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
+			array('id_tbl_rips_procedures, id_tbl_rips, cie10_code, cups_code, value_procedure, create_user_id, create_time, update_user_id, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,8 +67,9 @@ class RipsProcedures extends CActiveRecord
 		return array(
 			'id_tbl_rips_procedures' => 'Id Tbl Rips Procedures',
 			'id_tbl_rips' => 'Id Tbl Rips',
-			'value_procedure' => 'Value Procedure',
 			'cie10_code' => 'Cie10 Code',
+			'cups_code' => 'Cups Code',
+			'value_procedure' => 'Value Procedure',
 			'create_user_id' => 'Create User',
 			'create_time' => 'Create Time',
 			'update_user_id' => 'Update User',
@@ -95,8 +97,9 @@ class RipsProcedures extends CActiveRecord
 
 		$criteria->compare('id_tbl_rips_procedures',$this->id_tbl_rips_procedures);
 		$criteria->compare('id_tbl_rips',$this->id_tbl_rips);
-		$criteria->compare('value_procedure',$this->value_procedure,true);
 		$criteria->compare('cie10_code',$this->cie10_code,true);
+		$criteria->compare('cups_code',$this->cups_code,true);
+		$criteria->compare('value_procedure',$this->value_procedure,true);
 		$criteria->compare('create_user_id',$this->create_user_id,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_user_id',$this->update_user_id,true);
@@ -117,4 +120,11 @@ class RipsProcedures extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function behaviors()
+    {
+        return array('ESaveRelatedBehavior' => array(
+                'class' => 'application.components.ESaveRelatedBehavior')
+        );
+    }
 }

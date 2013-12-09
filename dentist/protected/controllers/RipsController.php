@@ -65,11 +65,19 @@ class RipsController extends Controller
 		$model=new Rips;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Rips']))
 		{
 			$model->attributes=$_POST['Rips'];
+
+			// RipsProcedures - ripsProcedures
+			if (isset($_POST['RipsProcedures'])) 
+			{
+				$model->ripsProcedures = $_POST['RipsProcedures'];
+				$model->saveWithRelated('ripsProcedures');
+			}
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_tbl_rips));
 		}
@@ -169,5 +177,17 @@ class RipsController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/**
+	 * @return Object with renderPartial for Options Peridontal Chart
+	 */
+	public function actionLoadRP($index)
+	{
+		$model = new Rips;
+		$this->renderPartial('_ripsprocedures', array(
+			'model' => $model,
+			'index' => $index,
+		), false, true);
 	}
 }
