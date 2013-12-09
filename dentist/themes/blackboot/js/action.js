@@ -1,5 +1,10 @@
 $(document).ready(function(){
 	// for new user with url for js
+	$('a#userData').click(function(event) {
+		var newURL = window.location.origin;
+		window.location = newURL+'/dentist/dentist/index.php/site/userdata';
+	});
+	// for new user with url for js
 	$('#createUser').click(function(event) {
 		var newURL = window.location.origin;
 		window.location = newURL+'/dentist/dentist/index.php/user/create';

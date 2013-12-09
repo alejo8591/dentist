@@ -545,3 +545,19 @@ p.hint { float:left; display:block;}
 }
 
 .col-md-3 { float: left; }
+
+/* file for dentist main.css */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+.carousel-inner > .item  {
+  height: 500px;
+}
+.carousel-inner > .item > img {
+  width: 100%;
+}
+.img-circle{
+  width: 140px;
+  height: 140px;
+}

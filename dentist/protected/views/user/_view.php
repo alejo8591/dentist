@@ -13,24 +13,12 @@
 	<?php echo CHtml::encode($data->type_document); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_status')); ?>:</b>
-	<?php echo CHtml::encode($data->user_status); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type_user')); ?>:</b>
 	<?php echo CHtml::encode($data->type_user); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
 	<?php echo CHtml::encode($data->email); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
-	<?php echo CHtml::encode($data->password); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('last_login_time')); ?>:</b>
-	<?php echo CHtml::encode($data->last_login_time); ?>
 	<br />
 
 	<?php /*
