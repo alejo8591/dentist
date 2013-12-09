@@ -988,11 +988,12 @@ ENGINE = InnoDB;
 -- Table `dentist`.`tbl_options_diagnosis`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentist`.`tbl_options_diagnosis` (
-  `id_tbl_option_diagnosis` INT NOT NULL,
+  `id_tbl_option_diagnosis` INT NOT NULL AUTO_INCREMENT,
   `id_tbl_diagnosis` INT NOT NULL,
   `name_option_diagnosis` VARCHAR(128) NULL,
   `type_option_diagnosis` INT NULL,
-  `observation_option_diagnosis` VARCHAR(45) NULL,
+  `cie10` VARCHAR(128) NULL,
+  `observation_option_diagnosis` TEXT NULL,
   `create_user_id` VARCHAR(64) NULL,
   `create_time` DATETIME NULL,
   `update_user_id` VARCHAR(64) NULL,
