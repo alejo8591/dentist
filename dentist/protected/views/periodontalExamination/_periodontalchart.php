@@ -10381,13 +10381,13 @@ $("#f16").toggle(
 		$("#ps27b-a").css("display","inline");
 		$("#ps27b-b").css("display","inline");
 		$("#ps27b-c").css("display","inline");
-		$('#furca27').css("display","block");
-		$('#furca27-a').css("display","block");
-		$('#furca27-b').css("display","block");
-		$('#f27b-a').css("display","inline");
-		$('#f27b-b').css("display","inline");
-		$('#ae27').css("display","inline");
-		$('#pi27').css("display","inline");
+		$("#furca27").css("display","block");
+		$("#furca27-a").css("display","block");
+		$("#furca27-b").css("display","block");
+		$("#f27b-a").css("display","inline");
+		$("#f27b-b").css("display","inline");
+		$("#ae27").css("display","inline");
+		$("#pi27").css("display","inline");
 		
 		
 		totalDientes++;
@@ -10396,26 +10396,26 @@ $("#f16").toggle(
 		getPlaca();
       }
 	);
-	$('#d28').toggle(
+	$("#d28").toggle(
       function () {
-        $('#diente28-a').css("background","url('img/tabla2/tachados/periodontograma-dientes-arriba-tachados-28.png')");
-		$('#diente28-a').css("background-position","0 -2px");
-		$('#diente28-a').css("background-repeat","no-repeat");
-		$('#m28').css("display","none");
-		$('#i28').css("display","none");
-		$('#f28').css("display","none");
-		$('#s28-a').css("display","none");
-		$('#s28-b').css("display","none");
-		$('#s28-c').css("display","none");
-		$('#p28-a').css("display","none");
-		$('#p28-b').css("display","none");
-		$('#p28-c').css("display","none");
-		$('#mg28-a').css("display","none");
-		$('#mg28-b').css("display","none");
-		$('#mg28-c').css("display","none");
-		$('#ps28-a').css("display","none");
-		$('#ps28-b').css("display","none");
-		$('#ps28-c').css("display","none");
+        $("#diente28-a").css("background","url('img/tabla2/tachados/periodontograma-dientes-arriba-tachados-28.png')");
+		$("#diente28-a").css("background-position","0 -2px");
+		$("#diente28-a").css("background-repeat","no-repeat");
+		$("#m28").css("display","none");
+		$("#i28").css("display","none");
+		$("#f28").css("display","none");
+		$("#s28-a").css("display","none");
+		$("#s28-b").css("display","none");
+		$("#s28-c").css("display","none");
+		$("#p28-a").css("display","none");
+		$("#p28-b").css("display","none");
+		$("#p28-c").css("display","none");
+		$("#mg28-a").css("display","none");
+		$("#mg28-b").css("display","none");
+		$("#mg28-c").css("display","none");
+		$("#ps28-a").css("display","none");
+		$("#ps28-b").css("display","none");
+		$("#ps28-c").css("display","none");
 		
 		$('#mg28-a').val('0');
 		$('#mg28-b').val('0');
